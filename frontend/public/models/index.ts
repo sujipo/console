@@ -3,8 +3,8 @@ import { K8sKind } from '../module/k8s';
 
 export const CatalogSourceModel: K8sKind = {
   kind: 'CatalogSource',
-  label: 'CatalogSource',
-  labelPlural: 'CatalogSources',
+  label: '应用商店',
+  labelPlural: '应用商店',
   apiGroup: 'operators.coreos.com',
   apiVersion: 'v1alpha1',
   path: 'catalogsources',
@@ -16,8 +16,8 @@ export const CatalogSourceModel: K8sKind = {
 
 export const ClusterServiceVersionModel: K8sKind = {
   kind: 'ClusterServiceVersion',
-  label: 'ClusterServiceVersion',
-  labelPlural: 'ClusterServiceVersions',
+  label: '集群服务版本',
+  labelPlural: '集群服务版本',
   apiGroup: 'operators.coreos.com',
   apiVersion: 'v1alpha1',
   path: 'clusterserviceversions',
@@ -30,8 +30,8 @@ export const ClusterServiceVersionModel: K8sKind = {
 
 export const InstallPlanModel: K8sKind = {
   kind: 'InstallPlan',
-  label: 'InstallPlan',
-  labelPlural: 'InstallPlans',
+  label: '安装计划',
+  labelPlural: '安装计划',
   apiGroup: 'operators.coreos.com',
   apiVersion: 'v1alpha1',
   path: 'installplans',
@@ -43,8 +43,8 @@ export const InstallPlanModel: K8sKind = {
 
 export const SubscriptionModel: K8sKind = {
   kind: 'Subscription',
-  label: 'Subscription',
-  labelPlural: 'Subscriptions',
+  label: '订阅',
+  labelPlural: '订阅',
   apiGroup: 'operators.coreos.com',
   apiVersion: 'v1alpha1',
   path: 'subscriptions',
@@ -56,8 +56,8 @@ export const SubscriptionModel: K8sKind = {
 
 export const EtcdClusterModel: K8sKind = {
   kind: 'EtcdCluster',
-  label: 'etcd Cluster',
-  labelPlural: 'Etcd Clusters',
+  label: 'Etcd 集群',
+  labelPlural: 'Etcd 集群',
   apiGroup: 'etcd.database.coreos.com',
   apiVersion: 'v1beta2',
   path: 'etcdclusters',
@@ -84,8 +84,8 @@ export const PrometheusModel: K8sKind = {
 
 export const ServiceMonitorModel: K8sKind = {
   kind: 'ServiceMonitor',
-  label: 'Service Monitor',
-  labelPlural: 'Service Monitors',
+  label: '服务监控',
+  labelPlural: '服务监控',
   apiGroup: 'monitoring.coreos.com',
   apiVersion: 'v1',
   path: 'servicemonitors',
@@ -112,8 +112,8 @@ export const AlertmanagerModel: K8sKind = {
 
 export const ClusterModel: K8sKind = {
   kind: 'Cluster',
-  label: 'Cluster',
-  labelPlural: 'Clusters',
+  label: '集群',
+  labelPlural: '集群',
   apiGroup: 'multicluster.coreos.com',
   path: 'clusters',
   apiVersion: 'v1',
@@ -125,8 +125,8 @@ export const ClusterModel: K8sKind = {
 
 export const ChargebackReportModel: K8sKind = {
   kind: 'Report',
-  label: 'Report',
-  labelPlural: 'Reports',
+  label: '报告',
+  labelPlural: '报告',
   apiGroup: 'chargeback.coreos.com',
   path: 'reports',
   apiVersion: 'v1alpha1',
@@ -138,14 +138,14 @@ export const ChargebackReportModel: K8sKind = {
 
 export const ServiceModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Service',
+  label: '服务',
   path: 'services',
   plural: 'services',
   abbr: 'S',
   namespaced: true,
   kind: 'Service',
   id: 'service',
-  labelPlural: 'Services'
+  labelPlural: '服务'
 };
 
 export const PodModel: K8sKind = {
@@ -162,17 +162,17 @@ export const PodModel: K8sKind = {
 
 export const ContainerModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Container',
+  label: '容器',
   path: 'containers',
   plural: 'containers',
   abbr: 'C',
   kind: 'Container',
   id: 'container',
-  labelPlural: 'Containers'
+  labelPlural: '容器'
 };
 
 export const DaemonSetModel: K8sKind = {
-  label: 'Daemon Set',
+  label: '守护进程集',
   path: 'daemonsets',
   apiGroup: 'apps',
   plural: 'daemonsets',
@@ -182,12 +182,12 @@ export const DaemonSetModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'DaemonSet',
   id: 'daemonset',
-  labelPlural: 'Daemon Sets'
+  labelPlural: '守护进程集'
 };
 
 export const ReplicationControllerModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Replication Controller',
+  label: '副本控制器',
   path: 'replicationcontrollers',
   plural: 'replicationcontrollers',
   abbr: 'RC',
@@ -195,7 +195,7 @@ export const ReplicationControllerModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'ReplicationController',
   id: 'replicationcontroller',
-  labelPlural: 'Replication Controllers'
+  labelPlural: '副本控制器'
 };
 
 export const HorizontalPodAutoscalerModel: K8sKind = {
@@ -213,18 +213,18 @@ export const HorizontalPodAutoscalerModel: K8sKind = {
 
 export const ServiceAccountModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Service Account',
+  label: '服务账号',
   path: 'serviceaccounts',
   plural: 'serviceaccounts',
   abbr: 'SA',
   namespaced: true,
   kind: 'ServiceAccount',
   id: 'serviceaccount',
-  labelPlural: 'Service Accounts'
+  labelPlural: '服务账号'
 };
 
 export const ReplicaSetModel: K8sKind = {
-  label: 'Replica Set',
+  label: '副本集',
   apiVersion: 'v1',
   path: 'replicasets',
   apiGroup: 'apps',
@@ -234,11 +234,11 @@ export const ReplicaSetModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'ReplicaSet',
   id: 'replicaset',
-  labelPlural: 'Replica Sets'
+  labelPlural: '副本集'
 };
 
 export const DeploymentModel: K8sKind = {
-  label: 'Deployment',
+  label: '部署',
   apiVersion: 'v1',
   path: 'deployments',
   apiGroup: 'apps',
@@ -248,11 +248,11 @@ export const DeploymentModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'Deployment',
   id: 'deployment',
-  labelPlural: 'Deployments'
+  labelPlural: '部署'
 };
 
 export const DeploymentConfigModel: K8sKind = {
-  label: 'Deployment Config',
+  label: '部署配置',
   apiVersion: 'v1',
   path: 'deploymentconfigs',
   apiGroup: 'apps.openshift.io',
@@ -262,11 +262,11 @@ export const DeploymentConfigModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'DeploymentConfig',
   id: 'deploymentconfig',
-  labelPlural: 'Deployment Configs'
+  labelPlural: '部署配置'
 };
 
 export const BuildConfigModel: K8sKind = {
-  label: 'Build Config',
+  label: '构建配置',
   apiVersion: 'v1',
   path: 'buildconfigs',
   apiGroup: 'build.openshift.io',
@@ -276,11 +276,11 @@ export const BuildConfigModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'BuildConfig',
   id: 'buildconfig',
-  labelPlural: 'Build Configs'
+  labelPlural: '构建配置'
 };
 
 export const BuildModel: K8sKind = {
-  label: 'Build',
+  label: '构建',
   apiVersion: 'v1',
   path: 'builds',
   apiGroup: 'build.openshift.io',
@@ -290,11 +290,11 @@ export const BuildModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'Build',
   id: 'build',
-  labelPlural: 'Builds'
+  labelPlural: '构建'
 };
 
 export const ImageStreamModel: K8sKind = {
-  label: 'Image Stream',
+  label: '镜像流',
   apiVersion: 'v1',
   path: 'imagestreams',
   apiGroup: 'image.openshift.io',
@@ -304,11 +304,11 @@ export const ImageStreamModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'ImageStream',
   id: 'imagestream',
-  labelPlural: 'Image Streams'
+  labelPlural: '镜像流'
 };
 
 export const ImageStreamTagModel: K8sKind = {
-  label: 'Image Stream Tag',
+  label: '镜像流标签',
   apiVersion: 'v1',
   path: 'imagestreamtags',
   apiGroup: 'image.openshift.io',
@@ -318,11 +318,11 @@ export const ImageStreamTagModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'ImageStreamTag',
   id: 'imagestreamtag',
-  labelPlural: 'Image Stream Tags'
+  labelPlural: '镜像流标签'
 };
 
 export const JobModel: K8sKind = {
-  label: 'Job',
+  label: '任务',
   apiVersion: 'v1',
   path: 'jobs',
   apiGroup: 'batch',
@@ -332,36 +332,36 @@ export const JobModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'Job',
   id: 'job',
-  labelPlural: 'Jobs'
+  labelPlural: '任务'
 };
 
 export const NodeModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Node',
+  label: '节点',
   path: 'nodes',
   plural: 'nodes',
   abbr: 'N',
   kind: 'Node',
   id: 'node',
-  labelPlural: 'Nodes'
+  labelPlural: '节点'
 };
 
 export const EventModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Event',
+  label: '事件',
   path: 'events',
   plural: 'events',
   abbr: 'E',
   namespaced: true,
   kind: 'Event',
   id: 'event',
-  labelPlural: 'Events'
+  labelPlural: '事件'
 };
 
 export const ComponentStatusModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Component Status',
-  labelPlural: 'Component Statuses',
+  label: '组件状态',
+  labelPlural: '组件状态',
   path: 'componentstatuses',
   plural: 'componentstatuses',
   abbr: 'CS',
@@ -371,42 +371,42 @@ export const ComponentStatusModel: K8sKind = {
 
 export const NamespaceModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Namespace',
+  label: '命名空间',
   path: 'namespaces',
   plural: 'namespaces',
   abbr: 'NS',
   kind: 'Namespace',
   id: 'namespace',
-  labelPlural: 'Namespaces'
+  labelPlural: '命名空间'
 };
 
 export const ProjectModel: K8sKind = {
   apiVersion: 'v1',
   apiGroup: 'project.openshift.io',
-  label: 'Project',
+  label: '项目',
   path: 'projects',
   plural: 'projects',
   abbr: 'PR',
   kind: 'Project',
   id: 'project',
-  labelPlural: 'Projects'
+  labelPlural: '项目'
 };
 
 export const ProjectRequestModel: K8sKind = {
   apiVersion: 'v1',
   apiGroup: 'project.openshift.io',
-  label: 'Project Request',
+  label: '项目要求',
   path: 'projectrequests',
   plural: 'projectrequests',
   abbr: '',
   kind: 'ProjectRequest',
   id: 'projectrequest',
-  labelPlural: 'Project Requests'
+  labelPlural: '项目要求'
 };
 
 export const IngressModel: K8sKind = {
-  label: 'Ingress',
-  labelPlural: 'Ingresses',
+  label: '入口',
+  labelPlural: '入口',
   apiGroup: 'extensions',
   apiVersion: 'v1beta1',
   path: 'ingresses',
@@ -418,8 +418,8 @@ export const IngressModel: K8sKind = {
 };
 
 export const RouteModel: K8sKind = {
-  label: 'Route',
-  labelPlural: 'Routes',
+  label: '路由',
+  labelPlural: '路由',
   apiGroup: 'route.openshift.io',
   apiVersion: 'v1',
   path: 'routes',
@@ -432,30 +432,30 @@ export const RouteModel: K8sKind = {
 
 export const ConfigMapModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Config Map',
+  label: '配置映射',
   path: 'configmaps',
   plural: 'configmaps',
   abbr: 'CM',
   namespaced: true,
   kind: 'ConfigMap',
   id: 'configmap',
-  labelPlural: 'Config Maps'
+  labelPlural: '配置映射'
 };
 
 export const SecretModel: K8sKind = {
   apiVersion: 'v1',
-  label: 'Secret',
+  label: '私密',
   path: 'secrets',
   plural: 'secrets',
   abbr: 'S',
   namespaced: true,
   kind: 'Secret',
   id: 'secret',
-  labelPlural: 'Secrets'
+  labelPlural: '私密'
 };
 
 export const ClusterRoleBindingModel: K8sKind = {
-  label: 'Cluster Role Binding',
+  label: '集群角色绑定',
   apiGroup: 'rbac.authorization.k8s.io',
   apiVersion: 'v1',
   path: 'clusterrolebindings',
@@ -463,11 +463,11 @@ export const ClusterRoleBindingModel: K8sKind = {
   abbr: 'CRB',
   kind: 'ClusterRoleBinding',
   id: 'clusterrolebinding',
-  labelPlural: 'Cluster Role Bindings'
+  labelPlural: '集群角色绑定'
 };
 
 export const ClusterRoleModel: K8sKind = {
-  label: 'Cluster Role',
+  label: '集群角色',
   apiGroup: 'rbac.authorization.k8s.io',
   apiVersion: 'v1',
   path: 'clusterroles',
@@ -475,11 +475,11 @@ export const ClusterRoleModel: K8sKind = {
   abbr: 'CR',
   kind: 'ClusterRole',
   id: 'clusterrole',
-  labelPlural: 'Cluster Roles'
+  labelPlural: '集群角色'
 };
 
 export const RoleBindingModel: K8sKind = {
-  label: 'Role Binding',
+  label: '角色绑定',
   apiGroup: 'rbac.authorization.k8s.io',
   apiVersion: 'v1',
   path: 'rolebindings',
@@ -488,11 +488,11 @@ export const RoleBindingModel: K8sKind = {
   namespaced: true,
   kind: 'RoleBinding',
   id: 'rolebinding',
-  labelPlural: 'Role Bindings'
+  labelPlural: '角色绑定'
 };
 
 export const RoleModel: K8sKind = {
-  label: 'Role',
+  label: '角色',
   apiGroup: 'rbac.authorization.k8s.io',
   apiVersion: 'v1',
   path: 'roles',
@@ -501,7 +501,7 @@ export const RoleModel: K8sKind = {
   namespaced: true,
   kind: 'Role',
   id: 'role',
-  labelPlural: 'Roles'
+  labelPlural: '角色'
 };
 
 export const SelfSubjectAccessReviewModel: K8sKind = {
@@ -518,7 +518,7 @@ export const SelfSubjectAccessReviewModel: K8sKind = {
 };
 
 export const TectonicVersionModel: K8sKind = {
-  label: 'Tectonic Version',
+  label: '构造版本',
   apiGroup: 'tco.coreos.com',
   apiVersion: 'v1',
   path: 'tectonicversions',
@@ -527,7 +527,7 @@ export const TectonicVersionModel: K8sKind = {
   namespaced: true,
   kind: 'TectonicVersion',
   id: 'tectonicversion',
-  labelPlural: 'Tectonic Versions'
+  labelPlural: '构造版本'
 };
 
 export const ChannelOperatorConfigModel: K8sKind = {
@@ -557,18 +557,18 @@ export const AppVersionModel: K8sKind = {
 };
 
 export const PersistentVolumeModel: K8sKind = {
-  label: 'Persistent Volume',
+  label: '持久卷',
   apiVersion: 'v1',
   path: 'persistentvolumes',
   plural: 'persistentvolumes',
   abbr: 'PV',
   kind: 'PersistentVolume',
   id: 'persistentvolume',
-  labelPlural: 'Persistent Volumes'
+  labelPlural: '持久卷'
 };
 
 export const PersistentVolumeClaimModel: K8sKind = {
-  label: 'Persistent Volume Claim',
+  label: '持久卷声明',
   apiVersion: 'v1',
   path: 'persistentvolumeclaims',
   plural: 'persistentvolumeclaims',
@@ -576,7 +576,7 @@ export const PersistentVolumeClaimModel: K8sKind = {
   namespaced: true,
   kind: 'PersistentVolumeClaim',
   id: 'persistentvolumeclaim',
-  labelPlural: 'Persistent Volume Claims'
+  labelPlural: '持久卷声明'
 };
 
 export const PetsetModel: K8sKind = {
@@ -592,7 +592,7 @@ export const PetsetModel: K8sKind = {
 };
 
 export const StatefulSetModel: K8sKind = {
-  label: 'Stateful Set',
+  label: '状态集',
   apiGroup: 'apps',
   apiVersion: 'v1',
   path: 'statefulsets',
@@ -602,11 +602,11 @@ export const StatefulSetModel: K8sKind = {
   propagationPolicy: 'Foreground',
   kind: 'StatefulSet',
   id: 'statefulset',
-  labelPlural: 'Stateful Sets'
+  labelPlural: '状态集'
 };
 
 export const ResourceQuotaModel: K8sKind = {
-  label: 'Resource Quota',
+  label: '资源配额',
   apiVersion: 'v1',
   path: 'resourcequotas',
   plural: 'resourcequotas',
@@ -614,12 +614,12 @@ export const ResourceQuotaModel: K8sKind = {
   namespaced: true,
   kind: 'ResourceQuota',
   id: 'resourcequota',
-  labelPlural: 'Resource Quotas'
+  labelPlural: '资源配额'
 };
 
 export const NetworkPolicyModel: K8sKind = {
-  label: 'Network Policy',
-  labelPlural: 'Network Policies',
+  label: '网络策略',
+  labelPlural: '网络策略',
   apiVersion: 'v1',
   apiGroup: 'networking.k8s.io',
   path: 'networkpolicies',
@@ -631,7 +631,7 @@ export const NetworkPolicyModel: K8sKind = {
 };
 
 export const CustomResourceDefinitionModel: K8sKind = {
-  label: 'Custom Resource Definition',
+  label: '资源自定义',
   apiGroup: 'apiextensions.k8s.io',
   apiVersion: 'v1beta1',
   path: 'customresourcedefinitions',
@@ -640,11 +640,11 @@ export const CustomResourceDefinitionModel: K8sKind = {
   plural: 'customresourcedefinitions',
   kind: 'CustomResourceDefinition',
   id: 'customresourcedefinition',
-  labelPlural: 'Custom Resource Definitions'
+  labelPlural: '资源自定义'
 };
 
 export const CronJobModel: K8sKind = {
-  label: 'Cron Job',
+  label: '计划任务',
   apiVersion: 'v1beta1',
   path: 'cronjobs',
   apiGroup: 'batch',
@@ -653,13 +653,13 @@ export const CronJobModel: K8sKind = {
   namespaced: true,
   kind: 'CronJob',
   id: 'cronjob',
-  labelPlural: 'Cron Jobs',
+  labelPlural: '计划任务',
   propagationPolicy : 'Foreground',
 };
 
 export const StorageClassModel: K8sKind = {
-  label: 'Storage Class',
-  labelPlural: 'Storage Classes',
+  label: '存储类别',
+  labelPlural: '存储类别',
   apiVersion: 'v1',
   path: 'storageclasses',
   apiGroup: 'storage.k8s.io',
@@ -671,8 +671,8 @@ export const StorageClassModel: K8sKind = {
 };
 
 export const ClusterServiceBrokerModel: K8sKind = {
-  label: 'Cluster Service Broker',
-  labelPlural: 'Cluster Service Brokers',
+  label: '集群服务代理',
+  labelPlural: '集群服务代理',
   apiVersion: 'v1beta1',
   path: 'clusterservicebrokers',
   apiGroup: 'servicecatalog.k8s.io',
@@ -684,8 +684,8 @@ export const ClusterServiceBrokerModel: K8sKind = {
 };
 
 export const ClusterServiceClassModel: K8sKind = {
-  label: 'Cluster Service Class',
-  labelPlural: 'Cluster Service Classes',
+  label: '集群服务类别',
+  labelPlural: '集群服务类别',
   apiVersion: 'v1beta1',
   path: 'clusterserviceclasses',
   apiGroup: 'servicecatalog.k8s.io',
@@ -697,8 +697,8 @@ export const ClusterServiceClassModel: K8sKind = {
 };
 
 export const ClusterServicePlanModel: K8sKind = {
-  label: 'Cluster Service Plan',
-  labelPlural: 'Cluster Service Plans',
+  label: '集群服务计划',
+  labelPlural: '集群服务计划',
   apiVersion: 'v1beta1',
   path: 'clusterserviceplans',
   apiGroup: 'servicecatalog.k8s.io',
@@ -710,8 +710,8 @@ export const ClusterServicePlanModel: K8sKind = {
 };
 
 export const ServiceInstanceModel: K8sKind = {
-  label: 'Service Instance',
-  labelPlural: 'Service Instances',
+  label: '服务实例',
+  labelPlural: '服务实例',
   apiVersion: 'v1beta1',
   path: 'serviceinstances',
   apiGroup: 'servicecatalog.k8s.io',
@@ -723,8 +723,8 @@ export const ServiceInstanceModel: K8sKind = {
 };
 
 export const ServiceBindingModel: K8sKind = {
-  label: 'Service Binding',
-  labelPlural: 'Service Bindings',
+  label: '服务绑定',
+  labelPlural: '服务绑定',
   apiVersion: 'v1beta1',
   path: 'servicebindings',
   apiGroup: 'servicecatalog.k8s.io',

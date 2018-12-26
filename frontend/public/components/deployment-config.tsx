@@ -133,7 +133,7 @@ export const DeploymentConfigsList: React.SFC = props => <List {...props} Header
 DeploymentConfigsList.displayName = 'DeploymentConfigsList';
 
 export const DeploymentConfigsPage: React.SFC<DeploymentConfigsPageProps> = props =>
-  <ListPage {...props} title="Deployment Configs" kind={DeploymentConfigsReference} ListComponent={DeploymentConfigsList} canCreate={true} filterLabel={props.filterLabel} />;
+  <ListPage {...props} title="部署配置" kind={DeploymentConfigsReference} ListComponent={DeploymentConfigsList} canCreate={true} filterLabel={props.filterLabel} />;
 DeploymentConfigsPage.displayName = 'DeploymentConfigsListPage';
 
 /* eslint-disable no-undef */

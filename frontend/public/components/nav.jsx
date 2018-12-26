@@ -361,7 +361,7 @@ export class Nav extends React.Component {
 
     return <React.Fragment>
       <button type="button" className="sidebar-toggle" aria-controls="sidebar" aria-expanded={isOpen} onClick={this.toggle}>
-        <span className="sr-only">Toggle navigation</span>
+        <span className="sr-only">切换导航</span>
         <span className="icon-bar" aria-hidden="true"></span>
         <span className="icon-bar" aria-hidden="true"></span>
         <span className="icon-bar" aria-hidden="true"></span>
@@ -369,66 +369,66 @@ export class Nav extends React.Component {
       <div id="sidebar" className={classNames({'open': isOpen})}>
         <ClusterPickerNavSection />
         <div ref={this.scroller} onWheel={this.preventScroll} className="navigation-container">
-          <NavSection text="Home" icon="pficon pficon-home">
-            <HrefLink href="/status" name="Status" activePath="/status/" onClick={this.close} />
-            <HrefLink href="/search" name="Search" onClick={this.close} startsWith={searchStartsWith} />
-            <ResourceNSLink resource="events" name="Events" onClick={this.close} />
+          <NavSection text="首页" icon="pficon pficon-home">
+            <HrefLink href="/status" name="状态" activePath="/status/" onClick={this.close} />
+            <HrefLink href="/search" name="搜索" onClick={this.close} startsWith={searchStartsWith} />
+            <ResourceNSLink resource="events" name="事件" onClick={this.close} />
           </NavSection>
 
           <NavSection required={FLAGS.OPERATOR_LIFECYCLE_MANAGER} text="Operators" img={operatorImg} activeImg={operatorActiveImg} >
-            <ResourceNSLink model={ClusterServiceVersionModel} resource={ClusterServiceVersionModel.plural} name="Cluster Service Versions" onClick={this.close} />
+            <ResourceNSLink model={ClusterServiceVersionModel} resource={ClusterServiceVersionModel.plural} name="集群服务版本" onClick={this.close} />
             <Sep />
-            <ResourceNSLink model={CatalogSourceModel} resource={CatalogSourceModel.plural} name="Catalog Sources" onClick={this.close} />
-            <ResourceNSLink model={SubscriptionModel} resource={SubscriptionModel.plural} name="Subscriptions" onClick={this.close} />
-            <ResourceNSLink model={InstallPlanModel} resource={InstallPlanModel.plural} name="Install Plans" onClick={this.close} />
+            <ResourceNSLink model={CatalogSourceModel} resource={CatalogSourceModel.plural} name="应用商店" onClick={this.close} />
+            <ResourceNSLink model={SubscriptionModel} resource={SubscriptionModel.plural} name="订阅" onClick={this.close} />
+            <ResourceNSLink model={InstallPlanModel} resource={InstallPlanModel.plural} name="安装计划" onClick={this.close} />
           </NavSection>
 
-          <NavSection text="Workloads" icon="fa fa-folder-open-o">
+          <NavSection text="工作负载" icon="fa fa-folder-open-o">
             <ResourceNSLink resource="pods" name="Pods" onClick={this.close} />
-            <ResourceNSLink resource="deployments" name="Deployments" onClick={this.close} />
+            <ResourceNSLink resource="deployments" name="部署" onClick={this.close} />
             <ResourceNSLink resource="deploymentconfigs" name={DeploymentConfigModel.labelPlural} onClick={this.close} required={FLAGS.OPENSHIFT} />
-            <ResourceNSLink resource="statefulsets" name="Stateful Sets" onClick={this.close} />
-            <ResourceNSLink resource="secrets" name="Secrets" onClick={this.close} />
-            <ResourceNSLink resource="configmaps" name="Config Maps" onClick={this.close} />
+            <ResourceNSLink resource="statefulsets" name="状态集" onClick={this.close} />
+            <ResourceNSLink resource="secrets" name="私密" onClick={this.close} />
+            <ResourceNSLink resource="configmaps" name="配置映射" onClick={this.close} />
             <Sep />
-            <ResourceNSLink resource="cronjobs" name="Cron Jobs" onClick={this.close} />
-            <ResourceNSLink resource="jobs" name="Jobs" onClick={this.close} />
-            <ResourceNSLink resource="daemonsets" name="Daemon Sets" onClick={this.close} />
-            <ResourceNSLink resource="replicasets" name="Replica Sets" onClick={this.close} />
-            <ResourceNSLink resource="replicationcontrollers" name="Replication Controllers" onClick={this.close} />
+            <ResourceNSLink resource="cronjobs" name="计划任务" onClick={this.close} />
+            <ResourceNSLink resource="jobs" name="任务" onClick={this.close} />
+            <ResourceNSLink resource="daemonsets" name="守护程序集" onClick={this.close} />
+            <ResourceNSLink resource="replicasets" name="副本集" onClick={this.close} />
+            <ResourceNSLink resource="replicationcontrollers" name="副本控制器" onClick={this.close} />
             <ResourceNSLink resource="horizontalpodautoscalers" name="HPAs" onClick={this.close} />
           </NavSection>
 
-          <NavSection text="Networking" img={routingImg} activeImg={routingActiveImg} >
-            <ResourceNSLink resource="services" name="Services" onClick={this.close} />
-            <ResourceNSLink resource="routes" name="Routes" onClick={this.close} required={FLAGS.OPENSHIFT} />
-            <ResourceNSLink resource="ingresses" name="Ingress" onClick={this.close} />
-            <ResourceNSLink resource="networkpolicies" name="Network Policies" onClick={this.close} />
+          <NavSection text="网络" img={routingImg} activeImg={routingActiveImg} >
+            <ResourceNSLink resource="services" name="服务" onClick={this.close} />
+            <ResourceNSLink resource="routes" name="路由" onClick={this.close} required={FLAGS.OPENSHIFT} />
+            <ResourceNSLink resource="ingresses" name="入口" onClick={this.close} />
+            <ResourceNSLink resource="networkpolicies" name="网络策略" onClick={this.close} />
           </NavSection>
 
-          <NavSection text="Storage" icon="pficon pficon-container-node">
-            <ResourceClusterLink resource="persistentvolumes" name="Persistent Volumes" onClick={this.close} required={FLAGS.CAN_LIST_PV} />
-            <ResourceNSLink resource="persistentvolumeclaims" name="Persistent Volume Claims" onClick={this.close} />
-            <ResourceClusterLink resource="storageclasses" name="Storage Classes" onClick={this.close} required={FLAGS.CAN_LIST_STORE} />
+          <NavSection text="存储" icon="pficon pficon-container-node">
+            <ResourceClusterLink resource="persistentvolumes" name="持久卷" onClick={this.close} required={FLAGS.CAN_LIST_PV} />
+            <ResourceNSLink resource="persistentvolumeclaims" name="持久卷声明" onClick={this.close} />
+            <ResourceClusterLink resource="storageclasses" name="存储类别" onClick={this.close} required={FLAGS.CAN_LIST_STORE} />
           </NavSection>
 
-          <NavSection text="Builds" icon="pficon pficon-build">
-            <ResourceNSLink resource="buildconfigs" name={BuildConfigModel.labelPlural} onClick={this.close} required={FLAGS.OPENSHIFT} />
+          <NavSection text="构建" icon="pficon pficon-build">
+          <ResourceNSLink resource="buildconfigs" name={BuildConfigModel.labelPlural} onClick={this.close} required={FLAGS.OPENSHIFT} />
             <ResourceNSLink resource="builds" name={BuildModel.labelPlural} onClick={this.close} required={FLAGS.OPENSHIFT} />
             <ResourceNSLink resource="imagestreams" name={ImageStreamModel.labelPlural} onClick={this.close} required={FLAGS.OPENSHIFT} startsWith={imagestreamsStartsWith} />
           </NavSection>
 
           <MonitoringNavSection closeMenu={this.close} />
 
-          <NavSection text="Administration" icon="fa fa-cog">
-            <ResourceClusterLink resource="projects" name="Projects" onClick={this.close} required={FLAGS.OPENSHIFT} />
-            <ResourceClusterLink resource="namespaces" name="Namespaces" onClick={this.close} required={FLAGS.CAN_LIST_NS} />
-            <ResourceClusterLink resource="nodes" name="Nodes" onClick={this.close} required={FLAGS.CAN_LIST_NODE} />
-            <HrefLink href="/settings/cluster" name="Cluster Settings" onClick={this.close} startsWith={clusterSettingsStartsWith} disallowed={FLAGS.OPENSHIFT} />
-            <ResourceNSLink resource="serviceaccounts" name="Service Accounts" onClick={this.close} />
-            <ResourceNSLink resource="roles" name="Roles" startsWith={rolesStartsWith} onClick={this.close} />
-            <ResourceNSLink resource="rolebindings" name="Role Bindings" onClick={this.close} startsWith={rolebindingsStartsWith} />
-            <ResourceNSLink resource="resourcequotas" name="Resource Quotas" onClick={this.close} />
+          <NavSection text="管理" icon="fa fa-cog">
+            <ResourceClusterLink resource="projects" name="项目" onClick={this.close} required={FLAGS.OPENSHIFT} />
+            <ResourceClusterLink resource="namespaces" name="命名空间" onClick={this.close} required={FLAGS.CAN_LIST_NS} />
+            <ResourceClusterLink resource="nodes" name="节点" onClick={this.close} required={FLAGS.CAN_LIST_NODE} />
+            <HrefLink href="/settings/cluster" name="集群设置" onClick={this.close} startsWith={clusterSettingsStartsWith} disallowed={FLAGS.OPENSHIFT} />
+            <ResourceNSLink resource="serviceaccounts" name="服务帐户" onClick={this.close} />
+            <ResourceNSLink resource="roles" name="角色" startsWith={rolesStartsWith} onClick={this.close} />
+            <ResourceNSLink resource="rolebindings" name="角色绑定" onClick={this.close} startsWith={rolebindingsStartsWith} />
+            <ResourceNSLink resource="resourcequotas" name="资源配额" onClick={this.close} />
             <ResourceNSLink resource="chargeback.coreos.com:v1alpha1:Report" name="Chargeback" onClick={this.close} disallowed={FLAGS.OPENSHIFT} />
             <ResourceClusterLink resource="customresourcedefinitions" name="CRDs" onClick={this.close} required={FLAGS.CAN_LIST_CRD} />
           </NavSection>
