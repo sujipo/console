@@ -31,7 +31,7 @@ const rollout = dc => {
 };
 
 const rolloutAction = (kind, obj) => ({
-  label: 'Start Rollout',
+  label: '开始部署',
   callback: () => rollout(obj).catch(err => {
     const error = err.message;
     errorModal({error});

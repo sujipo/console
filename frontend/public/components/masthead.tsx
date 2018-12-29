@@ -45,7 +45,7 @@ const UserMenuWrapper = connectToFlags(FLAGS.AUTH_ENABLED, FLAGS.OPENSHIFT)((pro
       }
     };
     actions.push({
-      label: 'Logout',
+      label: '注销',
       callback: logout
     });
   }
@@ -55,7 +55,7 @@ const UserMenuWrapper = connectToFlags(FLAGS.AUTH_ENABLED, FLAGS.OPENSHIFT)((pro
   }
 
   actions.unshift({
-    label: 'My Account',
+    label: '我的帐户',
     href: '/settings/profile'
   });
 
@@ -90,13 +90,13 @@ export class OSUserMenu extends SafetyFirst<OSUserMenuProps, OSUserMenuState> {
 
 const ContextSwitcher = () => {
   const items = {
-    [`${developerConsoleURL}catalog`]: 'Service Catalog',
-    [`${developerConsoleURL}projects`]: 'Application Console',
-    [(window as any).SERVER_FLAGS.basePath]: 'Cluster Console'
+    [`${developerConsoleURL}catalog`]: '应用商店',
+    [`${developerConsoleURL}projects`]: '应用程序控制台',
+    [(window as any).SERVER_FLAGS.basePath]: '集群控制台'
   };
 
   return <div className="contextselector-pf">
-    <Dropdown title="Cluster Console" items={items} selectedKey={(window as any).SERVER_FLAGS.basePath}
+    <Dropdown title="集群控制台" items={items} selectedKey={(window as any).SERVER_FLAGS.basePath}
       dropDownClassName="bootstrap-select btn-group" onChange={url => window.location.href = url} />
   </div>;
 };

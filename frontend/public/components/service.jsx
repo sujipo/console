@@ -16,11 +16,11 @@ const ServiceIP = ({s}) => {
 };
 
 const ServiceHeader = props => <ListHeader>
-  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 hidden-xs" sortField="metadata.labels">Labels</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.selector">Pod Selector</ColHead>
-  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortField="spec.clusterIP">Location</ColHead>
+  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 hidden-xs" sortField="metadata.labels">标签</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.selector">Pod选择器</ColHead>
+  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortField="spec.clusterIP">位置</ColHead>
 </ListHeader>;
 
 const ServiceRow = ({obj: s}) => <ResourceRow obj={s}>
@@ -68,8 +68,8 @@ const ServiceAddress = ({s}) => {
 
   return <div>
     <div className="row co-ip-header">
-      <div className="col-xs-6">Type</div>
-      <div className="col-xs-6">Location</div>
+      <div className="col-xs-6">类别</div>
+      <div className="col-xs-6">位置</div>
     </div>
     <div className="rows">
       {ServiceType(s.spec.type)}
@@ -80,10 +80,10 @@ const ServiceAddress = ({s}) => {
 
 const ServicePortMapping = ({ports}) => <div>
   <div className="row co-ip-header">
-    <div className="col-xs-3">Name</div>
-    <div className="col-xs-3">Port</div>
-    <div className="col-xs-3">Protocol</div>
-    <div className="col-xs-3">Pod Port or Name</div>
+    <div className="col-xs-3">名称</div>
+    <div className="col-xs-3">端口</div>
+    <div className="col-xs-3">协议</div>
+    <div className="col-xs-3">Pod端口或名称</div>
   </div>
   <div className="rows">
     {ports.map((portObj, i) => {
@@ -91,7 +91,7 @@ const ServicePortMapping = ({ports}) => <div>
         <div className="row">
           <div className="col-xs-3 co-text-service">
             <p>{portObj.name || '-'}</p>
-            {portObj.nodePort && <p className="co-text-node">Node Port</p>}
+            {portObj.nodePort && <p className="co-text-node">节点端口</p>}
           </div>
           <div className="col-xs-3 co-text-service">
             <p><ResourceIcon kind="Service" /><span>{portObj.port}</span></p>
@@ -114,18 +114,18 @@ const Details = ({obj: s}) => <div className="co-m-pane__body">
     <div className="col-sm-6">
       <SectionHeading text="Service Overview" />
       <ResourceSummary resource={s} showNodeSelector={false}>
-        <dt>Session Affinity</dt>
+        <dt>会话关联</dt>
         <dd>{s.spec.sessionAffinity || '-'}</dd>
       </ResourceSummary>
     </div>
     <div className="col-sm-6">
       <SectionHeading text="Service Routing" />
       <dl>
-        <dt>Service Address</dt>
+        <dt>服务地址</dt>
         <dd className="service-ips">
           <ServiceAddress s={s} />
         </dd>
-        <dt>Service Port Mapping</dt>
+        <dt>服务端口映射</dt>
         <dd className="service-ips">
           {s.spec.ports ? <ServicePortMapping ports={s.spec.ports} /> : '-'}
         </dd>

@@ -14,10 +14,10 @@ const defaultClassAnnotation = 'storageclass.beta.kubernetes.io/is-default-class
 const isDefaultClass = (storageClass: K8sResourceKind) => _.get(storageClass, ['metadata', 'annotations', defaultClassAnnotation], 'false');
 
 const StorageClassHeader = props => <ListHeader>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="provisioner">Provisioner</ColHead>
-  <ColHead {...props} className="col-sm-2 hidden-xs" sortField="reclaimPolicy">Reclaim Policy</ColHead>
-  <ColHead {...props} className="col-sm-2 hidden-xs" sortField={`metadata.annotations['${defaultClassAnnotation}']`}>Default Class</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="provisioner">供应者</ColHead>
+  <ColHead {...props} className="col-sm-2 hidden-xs" sortField="reclaimPolicy">回收策略</ColHead>
+  <ColHead {...props} className="col-sm-2 hidden-xs" sortField={`metadata.annotations['${defaultClassAnnotation}']`}>默认类别</ColHead>
 </ListHeader>;
 
 const StorageClassRow: React.SFC<StorageClassRowProps> = ({obj}) => {
@@ -42,11 +42,11 @@ const StorageClassDetails: React.SFC<StorageClassDetailsProps> = ({obj}) => <Rea
   <div className="co-m-pane__body">
     <SectionHeading text="StorageClass Overview" />
     <ResourceSummary resource={obj} showNodeSelector={false} showPodSelector={false}>
-      <dt>Provisioner</dt>
+      <dt>供应者</dt>
       <dd>{obj.provisioner || '-'}</dd>
-      <dt>Reclaim Policy</dt>
+      <dt>回收策略</dt>
       <dd>{obj.reclaimPolicy || '-'}</dd>
-      <dt>Default Class</dt>
+      <dt>默认类别</dt>
       <dd>{isDefaultClass(obj)}</dd>
     </ResourceSummary>
   </div>
@@ -56,7 +56,7 @@ export const StorageClassList: React.SFC = props => <List {...props} Header={Sto
 StorageClassList.displayName = 'StorageClassList';
 
 export const StorageClassPage: React.SFC<StorageClassPageProps> = props =>
-  <ListPage {...props} title="Storage Classes" kind={StorageClassReference} ListComponent={StorageClassList} canCreate={true} filterLabel={props.filterLabel} />;
+  <ListPage {...props} title="存储类别" kind={StorageClassReference} ListComponent={StorageClassList} canCreate={true} filterLabel={props.filterLabel} />;
 StorageClassPage.displayName = 'StorageClassListPage';
 
 

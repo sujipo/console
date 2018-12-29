@@ -16,19 +16,19 @@ export const ResourceSummary: React.SFC<ResourceSummaryProps> = ({children, reso
     .map((o, i) => <ResourceLink key={i} kind={referenceForOwnerRef(o)} name={o.name} namespace={metadata.namespace} title={o.uid} />);
 
   return <dl className="co-m-pane__details">
-    <dt>Name</dt>
+    <dt>名称</dt>
     <dd>{metadata.name || '-'}</dd>
-    { metadata.namespace ? <dt>Namespace</dt> : null }
+    { metadata.namespace ? <dt>命名空间</dt> : null }
     { metadata.namespace ? <dd><ResourceLink kind="Namespace" name={metadata.namespace} title={metadata.uid} namespace={null} /></dd> : null }
     { type ? <dt>Type</dt> : null }
     { type ? <dd>{type}</dd> : null }
     <dt>Labels</dt>
     <dd><LabelList kind={referenceFor(resource)} labels={metadata.labels} /></dd>
-    {showPodSelector && <dt>Pod Selector</dt>}
+    {showPodSelector && <dt>Pod选择器</dt>}
     {showPodSelector && <dd><Selector selector={_.get(resource, podSelector)} namespace={_.get(resource, 'metadata.namespace')} /></dd>}
-    {showNodeSelector && <dt>Node Selector</dt>}
+    {showNodeSelector && <dt>节点选择器</dt>}
     {showNodeSelector && <dd><Selector kind="Node" selector={_.get(resource, 'spec.template.spec.nodeSelector')} /></dd>}
-    {showAnnotations && <dt>Annotations</dt>}
+    {showAnnotations && <dt>注释</dt>}
     {showAnnotations && <dd><a className="co-m-modal-link" onClick={Cog.factory.ModifyAnnotations(kindObj(resource.kind), resource).callback}>{pluralize(_.size(metadata.annotations), 'Annotation')}</a></dd>}
     {children}
     <dt>Created At</dt>
@@ -39,9 +39,9 @@ export const ResourceSummary: React.SFC<ResourceSummaryProps> = ({children, reso
 };
 
 export const ResourcePodCount: React.SFC<ResourcePodCountProps> = ({resource}) => <dl>
-  <dt>Current Count</dt>
+  <dt>当前数值</dt>
   <dd>{resource.status.replicas || 0}</dd>
-  <dt>Desired Count</dt>
+  <dt>期望数值</dt>
   <dd>{resource.spec.replicas || 0}</dd>
 </dl>;
 

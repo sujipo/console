@@ -9,9 +9,9 @@ import { Cog, navFactory, ResourceCog, SectionHeading, ResourceLink, ResourceSum
 const menuActions = [Cog.factory.ModifyLabels, Cog.factory.ModifyAnnotations, Cog.factory.Edit, Cog.factory.Delete];
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-xs-4" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-xs-3" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-xs-5" sortField="spec.podSelector">Pod Selector</ColHead>
+  <ColHead {...props} className="col-xs-4" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-xs-3" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-xs-5" sortField="spec.podSelector">Pod选择器</ColHead>
 </ListHeader>;
 
 const kind = 'NetworkPolicy';
@@ -59,7 +59,7 @@ const IngressRow = ({ingress, namespace, podSelector}) => {
   return <div className="row co-resource-list__item">
     <div className="col-xs-4">
       <div>
-        <span className="text-muted">Pod Selector:</span>
+        <span className="text-muted">Pod选择器:</span>
       </div>
       <div style={style}>
         <Selector selector={podSelector} namespace={namespace} />
@@ -69,13 +69,13 @@ const IngressRow = ({ingress, namespace, podSelector}) => {
       <div>
         { !podSelectors.length ? null :
           <div>
-            <span className="text-muted">Pod Selector:</span>
+            <span className="text-muted">Pod选择器:</span>
             {podSelectors}
           </div>
         }
         { !nsSelectors.length ? null :
           <div style={{paddingTop: podSelectors.length ? 10 : 0}}>
-            <span className="text-muted">NS Selector:</span>
+            <span className="text-muted">NS选择器:</span>
             {nsSelectors}
           </div>
         }
@@ -101,10 +101,10 @@ const Details_ = ({flags, obj: np}) => {
     <div className="co-m-pane__body">
       <SectionHeading text="Ingress Rules" />
       <p className="co-m-pane__explanation">
-        Pods accept all traffic by default.
-        They can be isolated via Network Policies which specify a whitelist of ingress rules.
-        When a Pod is selected by a Network Policy, it will reject all traffic not explicitly allowed via a Network Policy.
-        See more details in <a target="_blank" rel="noopener noreferrer" href={networkPolicyDocs}>Network Policies Documentation</a>.
+        Pod默认接受所有流量。
+        它们可以通过网络策略进行隔离，这些策略指定了白名单的入口规则。
+        当Pod由网络策略选择时，它将拒绝通过网络策略显式不允许的所有流量。
+        更多细节请参阅<a target="_blank" rel="noopener noreferrer" href={networkPolicyDocs}>网络政策文档</a>。
       </p>
       {
         _.isEmpty(_.get(np, 'spec.ingress[0]', [])) ?

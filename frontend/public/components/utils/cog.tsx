@@ -21,46 +21,46 @@ const CogItems: React.SFC<CogItemsProps> = ({options, onClick}) => {
 
 const cogFactory: CogFactory = {
   Delete: (kind, obj) => ({
-    label: `Delete ${kind.label}`,
+    label: `删除${kind.label}`,
     callback: () => deleteModal({
       kind: kind,
       resource: obj,
     }),
   }),
   Edit: (kind, obj) => ({
-    label: `Edit ${kind.label}`,
+    label: `编辑${kind.label}`,
     href: `${resourceObjPath(obj, kind.crd ? referenceForModel(kind) : kind.kind)}/yaml`,
   }),
   ModifyLabels: (kind, obj) => ({
-    label: 'Edit Labels',
+    label: '编辑标签',
     callback: () => labelsModal({
       kind: kind,
       resource: obj,
     }),
   }),
   ModifyPodSelector: (kind, obj) => ({
-    label: 'Edit Pod Selector',
+    label: '编辑Pod选择器',
     callback: () => podSelectorModal({
       kind: kind,
       resource:  obj,
     }),
   }),
   ModifyAnnotations: (kind, obj) => ({
-    label: 'Edit Annotations',
+    label: '编辑注释',
     callback: () => annotationsModal({
       kind: kind,
       resource: obj,
     }),
   }),
   ModifyCount: (kind, obj) => ({
-    label: 'Edit Count',
+    label: '编辑数值',
     callback: () => configureReplicaCountModal({
       resourceKind: kind,
       resource: obj,
     }),
   }),
   EditEnvironment: (kind, obj) => ({
-    label: `${kind.kind === 'Pod' ? 'View' : 'Edit'} Environment`,
+    label: `${kind.kind === 'Pod' ? '查看' : '编辑'}环境`,
     href: `${resourceObjPath(obj, kind.crd ? referenceForModel(kind) : kind.kind)}/environment`,
   }),
 };
