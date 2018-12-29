@@ -76,9 +76,9 @@ class SearchPage_ extends React.PureComponent {
       { showGettingStarted && <OpenShiftGettingStarted /> }
       <div className={classNames({'co-disabled': showGettingStarted})}>
         <Helmet>
-          <title>Search</title>
+          <title>搜索</title>
         </Helmet>
-        <NavTitle detail={true} title="Search" >
+        <NavTitle detail={true} title="搜索" >
           <div className="co-search">
             <div className="input-group input-group-select">
               <div className="input-group-btn">

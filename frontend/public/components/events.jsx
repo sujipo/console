@@ -144,7 +144,7 @@ class EventsStreamPage_ extends React.Component {
       { showGettingStarted && showTitle && <OpenShiftGettingStarted /> }
       <div className={classNames({'co-disabled': showGettingStarted })}>
         { showTitle && <Helmet>
-          <title>Events</title>
+          <title>事件</title>
         </Helmet> }
         { showTitle && <NavTitle title="Events" /> }
         <div className="co-m-pane__filter-bar">
@@ -359,7 +359,7 @@ class EventStream extends SafetyFirst {
       sysEventStatus = (
         <Box className="co-sysevent-stream__status-box-empty">
           <div className="text-center cos-status-box__detail">
-          No Events in the past hour
+          过去一小时没有发生任何事件
           </div>
         </Box>
       );
@@ -367,29 +367,29 @@ class EventStream extends SafetyFirst {
     if (noMatches && !resourceEventStream) {
       sysEventStatus = (
         <Box className="co-sysevent-stream__status-box-empty">
-          <div className="cos-status-box__title">No Matching Events</div>
+          <div className="cos-status-box__title">没有匹配的事件</div>
           <div className="text-center cos-status-box__detail">
-            {allCount}{allCount >= maxMessages && '+'} events exist, but none match the current filter
+            {allCount}{allCount >= maxMessages && '+'} 事件存在，但没有一个与当前筛选器匹配
           </div>
         </Box>
       );
     }
 
     if (error) {
-      statusBtnTxt = <span className="co-sysevent-stream__connection-error">Error connecting to event stream{_.isString(error) && `: ${error}`}</span>;
+      statusBtnTxt = <span className="co-sysevent-stream__connection-error">连接到事件流时出错{_.isString(error) && `: ${error}`}</span>;
       sysEventStatus = (
         <Box>
-          <div className="cos-status-box__title cos-error-title">Error Loading Events</div>
-          <div className="cos-status-box__detail text-center">An error occurred during event retrieval. Attempting to reconnect...</div>
+          <div className="cos-status-box__title cos-error-title">加载事件错误</div>
+          <div className="cos-status-box__detail text-center">事件检索期间发生错误。尝试重新连接…</div>
         </Box>
       );
     } else if (loading) {
-      statusBtnTxt = <span>Loading events...</span>;
+      statusBtnTxt = <span>加载事件...</span>;
       sysEventStatus = <Loading />;
     } else if (active) {
-      statusBtnTxt = <span>Streaming events...</span>;
+      statusBtnTxt = <span>事件流动中...</span>;
     } else {
-      statusBtnTxt = <span>Event stream is paused.</span>;
+      statusBtnTxt = <span>事件流动暂停。</span>;
     }
 
     const klass = classNames('co-sysevent-stream__timeline', {
@@ -411,7 +411,7 @@ class EventStream extends SafetyFirst {
         <div className={klass}>
           <TogglePlay active={active} onClick={this.toggleStream} className="co-sysevent-stream__timeline__btn" />
           <div className="co-sysevent-stream__timeline__end-message">
-          There are no events before <Timestamp timestamp={this.state.oldestTimestamp} />
+          <Timestamp timestamp={this.state.oldestTimestamp} /> 之前没有任何事件
           </div>
         </div>
         { count > 0 &&

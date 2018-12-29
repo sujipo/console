@@ -22,13 +22,11 @@ export const helpLink = (topic: HELP_TOPICS) => `${openshiftHelpBase}${topic}`;
 export const DocumentationLinks = () => <dl className="co-documentation-links">
   <dt className="co-documentation-links__title"><a href={openshiftHelpBase} target="_blank" rel="noopener">Full Documentation</a></dt>
   <dd className="co-documentation-links__description">
-    From getting started with creating your first application, to trying out more advanced build and deployment techniques, these resources
-    provide what you need to set up and manage your environment as a cluster administrator or an application developer.
+    从创建第一个应用程序开始，到尝试更高级的构建和部署技术，这些资源提供了作为集群管理员或应用程序开发人员设置和管理环境所需的内容。
   </dd>
-  <dt className="co-documentation-links__title"><a href={helpLink(HELP_TOPICS.GET_STARTED_CLI)} target="_blank" rel="noopener">Get Started with the CLI</a></dt>
+  <dt className="co-documentation-links__title"><a href={helpLink(HELP_TOPICS.GET_STARTED_CLI)} target="_blank" rel="noopener">开始使用CLI</a></dt>
   <dd className="co-documentation-links__description">
-    With the {productName} command line interface (CLI), you can create applications and manage projects from a terminal. Learn how to install
-    and use the oc client tool.
+    通过{productName}的命令行接口 (CLI), 您可以从终端创建应用程序并管理项目。学习如何安装和使用oc客户端工具。
   </dd>
 </dl>;
 
@@ -55,9 +53,9 @@ export const AdditionalSupportLinks = () => <ul className="co-additional-support
 
 export const DocumentationSidebar = props => <div className="co-p-has-sidebar__sidebar co-p-has-sidebar__sidebar--bordered">
   <div className="co-m-pane__body">
-    <h1 className="co-p-has-sidebar__sidebar-heading co-p-has-sidebar__sidebar-heading--first">Documentation</h1>
+    <h1 className="co-p-has-sidebar__sidebar-heading co-p-has-sidebar__sidebar-heading--first">文档</h1>
     <DocumentationLinks />
-    <h1 className="co-p-has-sidebar__sidebar-heading">Additional Support</h1>
+    <h1 className="co-p-has-sidebar__sidebar-heading">更多支持</h1>
     <AdditionalSupportLinks />
   </div>
   {props.children}

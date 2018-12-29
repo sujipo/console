@@ -17,10 +17,10 @@ import { FLAGS as featureFlags } from '../../features';
 import * as operatorLogo from '../../imgs/operator.svg';
 
 export const ClusterServiceVersionHeader: React.SFC = () => <ListHeader>
-  <ColHead className="col-xs-3" sortField="metadata.name">Name</ColHead>
-  <ColHead className="col-xs-3">Namespace</ColHead>
-  <ColHead className="col-xs-2">Deployment</ColHead>
-  <ColHead className="col-xs-2">Status</ColHead>
+  <ColHead className="col-xs-3" sortField="metadata.name">名称</ColHead>
+  <ColHead className="col-xs-3">命名空间</ColHead>
+  <ColHead className="col-xs-2">部署</ColHead>
+  <ColHead className="col-xs-2">状态</ColHead>
   <ColHead className="col-xs-2" />
 </ListHeader>;
 
@@ -49,7 +49,7 @@ export const ClusterServiceVersionRow = withFallback<ClusterServiceVersionRowPro
     <div className="col-xs-2">{obj.metadata.deletionTimestamp ? 'Disabling' : installStatus}</div>
     <div className="col-xs-2">
       <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
-        <Link to={`${route}/instances`} title="View instances">View instances</Link>
+        <Link to={`${route}/instances`} title="View instances">查看实例</Link>
       </div>
     </div>
   </div>;
@@ -59,9 +59,9 @@ export const ClusterServiceVersionList: React.SFC<ClusterServiceVersionListProps
   const EmptyMsg = () => <MsgBox
     title="No Cluster Service Versions Found"
     detail={<div>
-      Cluster Service Versions are installed per namespace from Catalog Sources. For more information, see <a href="https://coreos.com/tectonic/docs/latest/alm/using-ocs.html" target="_blank" className="co-external-link" rel="noopener noreferrer">Using Open Cloud Services</a>.
+      集群服务版本是根据目录源中的每个名称空间安装的。有关更多信息，请查看 <a href="https://coreos.com/tectonic/docs/latest/alm/using-ocs.html" target="_blank" className="co-external-link" rel="noopener noreferrer">使用开放云服务</a>。
 
-      Or create an Operator and Cluster Service Version using the <a href="https://github.com/operator-framework/helm-app-operator-kit" target="_blank" className="co-external-link" rel="noopener noreferrer">Helm App Operator Kit</a>.
+      或创建操作符和群集服务版本，使用方法请查看 <a href="https://github.com/operator-framework/helm-app-operator-kit" target="_blank" className="co-external-link" rel="noopener noreferrer">Helm App Operator Kit</a>.
     </div>} />;
 
   return <List {...props} Row={ClusterServiceVersionRow} Header={ClusterServiceVersionHeader} EmptyMsg={EmptyMsg} />;
@@ -108,42 +108,42 @@ export const ClusterServiceVersionDetails: React.SFC<ClusterServiceVersionDetail
   return <div className="co-clusterserviceversion-details co-m-pane__body">
     <div className="co-clusterserviceversion-details__section co-clusterserviceversion-details__section--info">
       <div style={{marginBottom: '15px'}}>
-        { status.phase !== ClusterServiceVersionPhase.CSVPhaseSucceeded && <button disabled={true} className="btn btn-primary">Create New</button> }
+        { status.phase !== ClusterServiceVersionPhase.CSVPhaseSucceeded && <button disabled={true} className="btn btn-primary">创建新的</button> }
         { status.phase === ClusterServiceVersionPhase.CSVPhaseSucceeded && ownedCRDs.length > 1 && <Dropdown
           buttonClassName="btn-primary"
           title="Create New"
           items={ownedCRDs.reduce((acc, crd) => ({...acc, [crd.name]: crd.displayName}), {})}
           onChange={(name) => history.push(route(name))} /> }
-        { status.phase === ClusterServiceVersionPhase.CSVPhaseSucceeded && ownedCRDs.length === 1 && <Link to={route(ownedCRDs[0].name)} className="btn btn-primary">{`Create ${ownedCRDs[0].displayName}`}</Link> }
+        { status.phase === ClusterServiceVersionPhase.CSVPhaseSucceeded && ownedCRDs.length === 1 && <Link to={route(ownedCRDs[0].name)} className="btn btn-primary">{`创建${ownedCRDs[0].displayName}`}</Link> }
       </div>
       <dl className="co-clusterserviceversion-details__section--info__item">
-        <dt>Provider</dt>
+        <dt>提供者</dt>
         <dd>{spec.provider && spec.provider.name ? spec.provider.name : 'Not available'}</dd>
-        <dt>Created At</dt>
+        <dt>创建时间</dt>
         <dd><Timestamp timestamp={metadata.creationTimestamp} /></dd>
       </dl>
       <dl className="co-clusterserviceversion-details__section--info__item">
-        <dt>Links</dt>
+        <dt>链接</dt>
         { spec.links && spec.links.length > 0
           ? spec.links.map((link, i) => <dd key={i} style={{display: 'flex', flexDirection: 'column'}}>
             {link.name} <OverflowLink value={link.url} href={link.url} />
           </dd>)
-          : <dd>Not available</dd> }
+          : <dd>不可用</dd> }
       </dl>
       <dl className="co-clusterserviceversion-details__section--info__item">
-        <dt>Maintainers</dt>
+        <dt>维护者</dt>
         { spec.maintainers && spec.maintainers.length > 0
           ? spec.maintainers.map((maintainer, i) => <dd key={i} style={{display: 'flex', flexDirection: 'column'}}>
             {maintainer.name} <OverflowLink value={maintainer.email} href={`mailto:${maintainer.email}`} />
           </dd>)
-          : <dd>Not available</dd> }
+          : <dd>不可用</dd> }
       </dl>
     </div>
     <div className="co-clusterserviceversion-details__section co-clusterserviceversion-details__section--description">
       { status.phase !== ClusterServiceVersionPhase.CSVPhaseSucceeded && <div className="co-clusterserviceversion-detail__error-box">
         <strong>{status.phase}</strong>: {status.message}
       </div> }
-      <h1>Description</h1>
+      <h1>描述</h1>
       <MarkdownView content={spec.description || 'Not available'} />
     </div>
   </div>;

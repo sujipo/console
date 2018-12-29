@@ -43,7 +43,7 @@ const Graphs = requirePrometheus(connectToURLs(MonitoringRoutes.AlertManager)(({
   return <React.Fragment>
     <div className="group">
       <div className="group__title">
-        <h2 className="h3">Health</h2>
+        <h2 className="h3">健康</h2>
         {!isOpenShift && <DashboardLink id="qa_dashboard_k8s_health" to="/grafana/dashboard/db/kubernetes-cluster-health?orgId=1" />}
       </div>
       <div className="container-fluid group__body">
@@ -77,7 +77,7 @@ const Graphs = requirePrometheus(connectToURLs(MonitoringRoutes.AlertManager)(({
     { !namespace &&
       <div className="group">
         <div className="group__title">
-          <h2 className="h3">Control Plane Status</h2>
+          <h2 className="h3">控制程度状态</h2>
           {!isOpenShift && <DashboardLink to="/grafana/dashboard/db/kubernetes-control-plane-status?orgId=1" />}
         </div>
         <div className="container-fluid group__body group__graphs">
@@ -102,7 +102,7 @@ const Graphs = requirePrometheus(connectToURLs(MonitoringRoutes.AlertManager)(({
     { !namespace &&
       <div className="group">
         <div className="group__title">
-          <h2 className="h3">Capacity Planning</h2>
+          <h2 className="h3">容量规划</h2>
           {!isOpenShift && <DashboardLink to="/grafana/dashboard/db/kubernetes-capacity-planning?orgId=1" />}
         </div>
         <div className="container-fluid group__body group__graphs">
@@ -134,7 +134,7 @@ const LimitedGraphs = ({openshiftFlag}) => {
   const consoleName = window.SERVER_FLAGS.branding === 'okd' ? 'OKD Console' : 'OpenShift Console';
   return <div className="group">
     <div className="group__title">
-      <h2 className="h3">Health</h2>
+      <h2 className="h3">健康</h2>
     </div>
     <div className="container-fluid group__body">
       <div className="row">
@@ -159,8 +159,8 @@ const GraphsPage = ({fake, limited, namespace, openshiftFlag}) => {
       {!fake && graphs}
       <div className={classNames('group', {'co-disabled': fake})}>
         <div className="group__title">
-          <h2 className="h3">Events</h2>
-          <a href={formatNamespacedRouteForResource('events', namespace)}>View All</a>
+          <h2 className="h3">事件</h2>
+          <a href={formatNamespacedRouteForResource('events', namespace)}>查看所有</a>
         </div>
         <div className="group__body group__body--filter-bar">
           <EventStreamPage namespace={namespace} showTitle={false} autoFocus={false} fake={fake} />
@@ -170,7 +170,7 @@ const GraphsPage = ({fake, limited, namespace, openshiftFlag}) => {
     <div className="col-lg-4 col-md-12">
       <div className="group" id="software-info">
         <div className="group__title">
-          <h2 className="h3">Software Info</h2>
+          <h2 className="h3">软件信息</h2>
         </div>
         <div className="container-fluid group__body">
           <SoftwareDetails />
@@ -178,7 +178,7 @@ const GraphsPage = ({fake, limited, namespace, openshiftFlag}) => {
       </div>
       <div className="group">
         <div className="group__title">
-          <h2 className="h3">Documentation</h2>
+          <h2 className="h3">文档</h2>
         </div>
         <div className="container-fluid group__body group__documentation">
           <DocumentationLinks />
@@ -186,7 +186,7 @@ const GraphsPage = ({fake, limited, namespace, openshiftFlag}) => {
       </div>
       <div className="group">
         <div className="group__title">
-          <h2 className="h3">Additional Support</h2>
+          <h2 className="h3">更多支持</h2>
         </div>
         <div className="container-fluid group__body group__additional-support">
           <AdditionalSupportLinks />
@@ -240,16 +240,16 @@ const ClusterOverviewPage_ = props => {
   const { OPENSHIFT: openshiftFlag, PROJECTS_AVAILABLE: projectsFlag } = props.flags;
   const fake = !flagPending(openshiftFlag) && !flagPending(projectsFlag) && openshiftFlag && !projectsFlag;
   const namespace = _.get(props, 'match.params.ns');
-  const title = namespace ? `Status of ${ namespace }` : 'Cluster Status';
+  const title = namespace ? `${ namespace }的状态` : '集群状态';
 
   return <React.Fragment>
     <StartGuide dismissible={true} style={{margin: 15}} />
     <Helmet>
-      <title>{fake ? 'Overview' : title}</title>
+      <title>{fake ? '概览' : title}</title>
     </Helmet>
-    <NavTitle title={fake ? 'Overview' : title} style={{alignItems: 'baseline', display: 'flex', justifyContent: 'space-between'}}>
+    <NavTitle title={fake ? '概览' : title} style={{alignItems: 'baseline', display: 'flex', justifyContent: 'space-between'}}>
       <p className="hidden-lg">
-        <HashLink smooth to="#software-info">Software Info</HashLink>
+        <HashLink smooth to="#software-info">软件信息</HashLink>
       </p>
     </NavTitle>
     <div className="cluster-overview-cell container-fluid">
