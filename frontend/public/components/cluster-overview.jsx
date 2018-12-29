@@ -240,7 +240,7 @@ const ClusterOverviewPage_ = props => {
   const { OPENSHIFT: openshiftFlag, PROJECTS_AVAILABLE: projectsFlag } = props.flags;
   const fake = !flagPending(openshiftFlag) && !flagPending(projectsFlag) && openshiftFlag && !projectsFlag;
   const namespace = _.get(props, 'match.params.ns');
-  const title = namespace ? `${ namespace }的状态` : '集群状态';
+  const title = namespace ? `${ namespace }状态` : '集群状态';
 
   return <React.Fragment>
     <StartGuide dismissible={true} style={{margin: 15}} />

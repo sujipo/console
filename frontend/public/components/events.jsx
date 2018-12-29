@@ -153,7 +153,7 @@ class EventsStreamPage_ extends React.Component {
             <Dropdown title="All Categories" className="btn-group" items={categories} onChange={v => this.setState({category: v})} />
           </div>
           <div className="co-m-pane__filter-bar-group co-m-pane__filter-bar-group--filter">
-            <TextFilter label="事件的名称或内容" onChange={e => this.setState({textFilter: e.target.value || ''})} autoFocus={autoFocus} />
+            <TextFilter label="事件名称或内容" onChange={e => this.setState({textFilter: e.target.value || ''})} autoFocus={autoFocus} />
           </div>
         </div>
         <EventStream {...this.props} category={category} kind={kind} textFilter={textFilter} fake={showGettingStarted} />

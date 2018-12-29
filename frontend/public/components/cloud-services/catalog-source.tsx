@@ -32,9 +32,9 @@ const clusterServiceVersionsFor: ClusterServiceVersionsFor = configMap => _.get(
   : [];
 
 export const PackageHeader: React.SFC<PackageHeaderProps> = (props) => <ListHeader>
-  <ColHead {...props} className="col-sm-4 col-xs-6">Name</ColHead>
-  <ColHead {...props} className="col-sm-4 hidden-xs">Latest Version</ColHead>
-  <ColHead {...props} className="col-sm-4 col-xs-6">Subscriptions</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6">名称</ColHead>
+  <ColHead {...props} className="col-sm-4 hidden-xs">最新版本</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6">订阅</ColHead>
 </ListHeader>;
 
 export const PackageRow: React.SFC<PackageRowProps> = (props) => {
@@ -44,8 +44,8 @@ export const PackageRow: React.SFC<PackageRowProps> = (props) => {
   const channel = !_.isEmpty(obj.defaultChannel) ? obj.channels.find(ch => ch.name === obj.defaultChannel) : obj.channels[0];
 
   const subscriptionLink = () => ns !== ALL_NAMESPACES_KEY
-    ? <Link to={`/k8s/ns/${ns}/${SubscriptionModel.plural}/${subscription.metadata.name}`}>View subscription</Link>
-    : <Link to={`/k8s/all-namespaces/${SubscriptionModel.plural}?name=${obj.packageName}`}>View subscriptions</Link>;
+    ? <Link to={`/k8s/ns/${ns}/${SubscriptionModel.plural}/${subscription.metadata.name}`}>查看订阅</Link>
+    : <Link to={`/k8s/all-namespaces/${SubscriptionModel.plural}?name=${obj.packageName}`}>查看订阅</Link>;
 
   const createSubscriptionLink = () => `/k8s/ns/${ns === ALL_NAMESPACES_KEY ? 'default' : ns}/${SubscriptionModel.plural}/new?pkg=${obj.packageName}&catalog=${catalogSource.metadata.name}&catalogNamespace=${catalogSource.metadata.namespace}`;
 
@@ -57,9 +57,9 @@ export const PackageRow: React.SFC<PackageRowProps> = (props) => {
     <div className="col-sm-4 col-xs-6 co-package-row__actions">
       { subscription
         ? subscriptionLink()
-        : <span className="text-muted">Not subscribed</span> }
+        : <span className="text-muted">不订阅通知</span> }
       { (!subscription || ns === ALL_NAMESPACES_KEY) && <Link to={createSubscriptionLink()}>
-        <button className="btn btn-primary">Create Subscription</button>
+        <button className="btn btn-primary">创建订阅</button>
       </Link> }
     </div>
   </div>;
@@ -77,7 +77,7 @@ export const PackageList: React.SFC<PackageListProps> = (props) => <List
     catalogSource={props.catalogSource}
     subscription={props.subscriptions.find(sub => sub.spec.name === rowProps.obj.packageName)} />}
   label="Packages"
-  EmptyMsg={() => <MsgBox title="No Packages Found" detail="The catalog author has not added any packages." />} />;
+  EmptyMsg={() => <MsgBox title="没有发现包" detail="该应用作者没有添加任何包。" />} />;
 
 export const CatalogSourceDetails = withFallback<CatalogSourceDetailsProps>(({obj, configMap, subscription}) => {
   const packages = packagesFor(configMap) || [];
@@ -89,13 +89,13 @@ export const CatalogSourceDetails = withFallback<CatalogSourceDetailsProps>(({ob
       <div className="co-m-pane__body">
         <div className="col-xs-4">
           <dl className="co-m-pane__details">
-            <dt>Name</dt>
+            <dt>名称</dt>
             <dd>{obj.spec.displayName}</dd>
           </dl>
         </div>
         <div className="col-xs-4">
           <dl className="co-m-pane__details">
-            <dt>Publisher</dt>
+            <dt>出版者</dt>
             <dd>{obj.spec.publisher}</dd>
           </dl>
         </div>
@@ -109,10 +109,10 @@ export const CatalogSourceDetails = withFallback<CatalogSourceDetailsProps>(({ob
 }, () => <MsgBox title="Error Parsing Catalog" detail="The contents of the catalog source could not be retrieved." />);
 
 export const CatalogSourceHeader: React.SFC<CatalogSourceHeaderProps> = (props) => <ListHeader>
-  <ColHead {...props} className="col-md-3" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-2" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-md-2" sortField="spec.publisher">Publisher</ColHead>
-  <ColHead {...props} className="col-md-2">Created</ColHead>
+  <ColHead {...props} className="col-md-3" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-2" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-md-2" sortField="spec.publisher">出版者</ColHead>
+  <ColHead {...props} className="col-md-2">创建时间</ColHead>
 </ListHeader>;
 
 export const CatalogSourceRow: React.SFC<CatalogSourceRowProps> = (props) => <ResourceRow obj={props.obj}>
@@ -137,8 +137,8 @@ export const CatalogSourceList = withFallback((props: CatalogSourceListProps) =>
 
   return props.loaded
     ? <React.Fragment>
-      <p className="co-m-pane__explanation">Catalogs are groups of Operators you can make available on the cluster. Subscribe and grant a namespace access to use the installed Operators.</p>
-      { _.isEmpty(data) && <MsgBox title="No Catalog Sources Found" detail="Catalog Sources contain packaged Operators which can be subscribed to for automatic upgrades." /> }
+      <p className="co-m-pane__explanation">目录是可以在集群上使用的Operator组。订阅并授予名称空间访问权以使用已安装的Operator。</p>
+      { _.isEmpty(data) && <MsgBox title="没有找到应用资源" detail="应用资源包含打包的Operator，可以订阅这些Operator进行自动升级。" /> }
       {/* TODO(alecmerdler): Handle filtering based on package name */}
       { data.map((obj) => <div key={obj.metadata.uid} className="co-catalogsource-list__section">
         <div className="co-catalogsource-list__section__packages">
@@ -152,7 +152,7 @@ export const CatalogSourceList = withFallback((props: CatalogSourceListProps) =>
       </div>) }
     </React.Fragment>
     : <StatusBox loaded={props.loaded} loadError={props.loadError} label={CatalogSourceModel.labelPlural} />;
-}, () => <MsgBox title="Error Parsing Catalog" detail="The contents of the catalog source could not be retrieved." />);
+}, () => <MsgBox title="解析应用错误" detail="无法检索应用源的内容。" />);
 
 export const CatalogSourcesPage: React.SFC<CatalogSourcePageProps> = (props) => {
   type Flatten = (resources: {[kind: string]: {data: K8sResourceKind[]}}) => K8sResourceKind[];
@@ -184,7 +184,7 @@ export const CatalogSourceDetailsPage: React.SFC<CatalogSourceDetailsPageProps> 
     navFactory.details(CatalogSourceDetails),
     navFactory.editYaml(),
   ]}
-  menuActions={[...Cog.factory.common, (kind, obj) => ({label: 'View Contents...', href: resourceObjPath(obj, ConfigMapModel.kind)})]}
+  menuActions={[...Cog.factory.common, (kind, obj) => ({label: '查看内容...', href: resourceObjPath(obj, ConfigMapModel.kind)})]}
   resources={[{
     kind: ConfigMapModel.kind,
     isList: false,
@@ -222,7 +222,7 @@ export const CreateSubscriptionYAML: React.SFC<CreateSubscriptionYAMLProps> = (p
       return <CreateYAML {...props as any} plural={SubscriptionModel.plural} template={template} />;
     }
     return <LoadingBox />;
-  }, () => <MsgBox title="Package Not Found" detail="Cannot create a Subscription to a non-existent package." />);
+  }, () => <MsgBox title="没有发现包" detail="无法为不存在的包创建订阅。" />);
 
   return <Firehose resources={[{
     kind: ConfigMapModel.kind,
