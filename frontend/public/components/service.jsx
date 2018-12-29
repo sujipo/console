@@ -112,14 +112,14 @@ const ServicePortMapping = ({ports}) => <div>
 const Details = ({obj: s}) => <div className="co-m-pane__body">
   <div className="row">
     <div className="col-sm-6">
-      <SectionHeading text="Service Overview" />
+      <SectionHeading text="服务概况" />
       <ResourceSummary resource={s} showNodeSelector={false}>
         <dt>会话关联</dt>
         <dd>{s.spec.sessionAffinity || '-'}</dd>
       </ResourceSummary>
     </div>
     <div className="col-sm-6">
-      <SectionHeading text="Service Routing" />
+      <SectionHeading text="服务路由" />
       <dl>
         <dt>服务地址</dt>
         <dd className="service-ips">

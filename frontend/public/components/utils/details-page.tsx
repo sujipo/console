@@ -20,9 +20,9 @@ export const ResourceSummary: React.SFC<ResourceSummaryProps> = ({children, reso
     <dd>{metadata.name || '-'}</dd>
     { metadata.namespace ? <dt>命名空间</dt> : null }
     { metadata.namespace ? <dd><ResourceLink kind="Namespace" name={metadata.namespace} title={metadata.uid} namespace={null} /></dd> : null }
-    { type ? <dt>Type</dt> : null }
+    { type ? <dt>类别</dt> : null }
     { type ? <dd>{type}</dd> : null }
-    <dt>Labels</dt>
+    <dt>标签</dt>
     <dd><LabelList kind={referenceFor(resource)} labels={metadata.labels} /></dd>
     {showPodSelector && <dt>Pod选择器</dt>}
     {showPodSelector && <dd><Selector selector={_.get(resource, podSelector)} namespace={_.get(resource, 'metadata.namespace')} /></dd>}
@@ -31,7 +31,7 @@ export const ResourceSummary: React.SFC<ResourceSummaryProps> = ({children, reso
     {showAnnotations && <dt>注释</dt>}
     {showAnnotations && <dd><a className="co-m-modal-link" onClick={Cog.factory.ModifyAnnotations(kindObj(resource.kind), resource).callback}>{pluralize(_.size(metadata.annotations), 'Annotation')}</a></dd>}
     {children}
-    <dt>Created At</dt>
+    <dt>创建时间</dt>
     <dd><Timestamp timestamp={metadata.creationTimestamp} /></dd>
     { owners.length ? <dt>{pluralize(owners.length, 'Owner')}</dt> : null }
     { owners.length ? <dd>{ owners }</dd> : null }
