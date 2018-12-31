@@ -27,17 +27,17 @@ class PodsComponent extends React.PureComponent {
 export const navFactory = {
   details: component => ({
     href: '',
-    name: 'Overview',
+    name: '概览',
     component,
   }),
   events: component => ({
     href: 'events',
-    name: 'Events',
+    name: '事件',
     component,
   }),
   logs: component => ({
     href: 'logs',
-    name: 'Logs',
+    name: '日志',
     component,
   }),
   editYaml: (component = editYamlComponent) => ({
@@ -52,17 +52,17 @@ export const navFactory = {
   }),
   roles: component => ({
     href: 'roles',
-    name: 'Role Bindings',
+    name: '角色绑定',
     component,
   }),
   builds: component => ({
     href: 'builds',
-    name: 'Builds',
+    name: '构建',
     component,
   }),
   envEditor: (component) => ({
     href: 'environment',
-    name: 'Environment',
+    name: '环境',
     component: component,
   })
 };

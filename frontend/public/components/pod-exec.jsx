@@ -18,7 +18,7 @@ const nameWithIcon = (name) => <span><span className="co-icon-space-r"><Resource
 // The server only reads from STDIN, writes to the other three.
 // see also: https://github.com/kubernetes/kubernetes/pull/13885
 
-const NO_SH = 'starting container process caused "exec: \\"sh\\": executable file not found in $PATH"';
+const NO_SH = '启动容器过程引起 "exec: \\"sh\\": executable file not found in $PATH"';
 
 export const PodExec = connectToFlags(FLAGS.OPENSHIFT)(class PodExec extends React.PureComponent {
   constructor(props) {
@@ -56,7 +56,7 @@ export const PodExec = connectToFlags(FLAGS.OPENSHIFT)(class PodExec extends Rea
     if (this.ws) {
       this.ws.destroy();
       const { current } = this.terminal;
-      current && current.onConnectionClosed(`connecting to ${activeContainer}`);
+      current && current.onConnectionClosed(`连接到 ${activeContainer}`);
     }
 
     const impersonate = store.getState().UI.get('impersonate', {});
@@ -76,7 +76,7 @@ export const PodExec = connectToFlags(FLAGS.OPENSHIFT)(class PodExec extends Rea
         if (raw[0] === '3') {
           if (previous.includes(NO_SH)) {
             current.reset();
-            current.onConnectionClosed(`This container doesn't have a /bin/sh shell. Try specifying your command in a terminal with:\r\n\r\n ${usedClient} -n ${metadata.namespace} exec ${metadata.name} -ti <command>`);
+            current.onConnectionClosed(`这个容器没有/bin/sh shell。尝试在终端中指定您的命令:\r\n\r\n ${usedClient} -n ${metadata.namespace} exec ${metadata.name} -ti <command>`);
             this.ws.destroy();
             previous = '';
             return;
@@ -96,7 +96,7 @@ export const PodExec = connectToFlags(FLAGS.OPENSHIFT)(class PodExec extends Rea
         if (!evt || evt.wasClean === true) {
           return;
         }
-        const error = evt.reason || 'Connection did not close cleanly.';
+        const error = evt.reason || '连接没有干净地关闭。';
         this.setState({error});
         this.terminal.current && this.terminal.current.onConnectionClosed(error);
         this.ws.destroy();
@@ -126,7 +126,7 @@ export const PodExec = connectToFlags(FLAGS.OPENSHIFT)(class PodExec extends Rea
 
     if (!name) {
       // eslint-disable-next-line no-console
-      console.warn(`no name, how did that happen? ${index}`);
+      console.warn(`没有名字，怎么回事? ${index}`);
       return;
     }
     if (name === this.state.activeContainer) {
@@ -169,7 +169,7 @@ export const PodExec = connectToFlags(FLAGS.OPENSHIFT)(class PodExec extends Rea
       <div className="co-toolbar">
         <div className="co-toolbar__group co-toolbar__group--left">
           <div className="co-toolbar__item">
-            Connecting to
+            连接到
           </div>
           <div className="co-toolbar__item">
             <Dropdown className="btn-group" items={_.mapValues(containers, nameWithIcon)} title={nameWithIcon(activeContainer || <LoadingInline />)} onChange={this.onChangeContainer} />
@@ -178,7 +178,7 @@ export const PodExec = connectToFlags(FLAGS.OPENSHIFT)(class PodExec extends Rea
         {!error && <div className="co-toolbar__group co-toolbar__group--right">
           <div className="co-toolbar__item">
             <button className="btn btn-link" onClick={() => this.setFullscreen(true)}>
-              <i className="fa fa-expand" aria-hidden="true" /> Expand
+              <i className="fa fa-expand" aria-hidden="true" /> 展开
             </button>
           </div>
         </div>}

@@ -10,9 +10,9 @@ export const Box = ({children, className}) => <div className={classNames('cos-st
 /** @type {React.SFC<{className?: string, label: string, message?: string, canRetry?: boolean}>} */
 export const LoadError = ({label, className, message, canRetry=true}) => <Box className={className}>
   <div className="text-center cos-error-title">
-    Error Loading {label}{_.isString(message) ? `: ${message}` : ''}
+    错误加载 {label}{_.isString(message) ? `: ${message}` : ''}
   </div>
-  {canRetry && <div className="text-center">Please <a onClick={window.location.reload.bind(window.location)}>try again</a>.</div>}
+  {canRetry && <div className="text-center">请<a onClick={window.location.reload.bind(window.location)}>再试一次</a>。</div>}
 </Box>;
 
 export const Loading = ({className}) => <div className={classNames('co-m-loader co-an-fade-in-out', className)}>
@@ -72,7 +72,7 @@ export const StatusBox = props => {
 
     if (loaded && loadError instanceof TimeoutError) {
       return <Data {...props}>
-        <div className="co-m-timeout-error text-muted">Timed out fetching new data. The data below is stale.</div>
+        <div className="co-m-timeout-error text-muted">获取新数据超时。下面的数据过时了。</div>
         {props.children}
       </Data>;
     }

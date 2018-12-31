@@ -63,12 +63,12 @@ export const PodRow = ({obj: pod}) => {
 PodRow.displayName = 'PodRow';
 
 const PodHeader = props => <ListHeader>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-2 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 hidden-xs" sortField="metadata.labels">Pod Labels</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortField="spec.nodeName">Node</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortFunc="podPhase">Status</ColHead>
-  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortFunc="podReadiness">Readiness</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-2 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 hidden-xs" sortField="metadata.labels">Pod标签</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortField="spec.nodeName">节点</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortFunc="podPhase">状态</ColHead>
+  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortFunc="podReadiness">就绪情况</ColHead>
 </ListHeader>;
 
 const ContainerLink = ({pod, name}) => <span className="co-resource-link co-resource-link--inline">
@@ -120,13 +120,13 @@ const ContainerTable = ({heading, containers, pod}) => <div className="co-m-pane
   <div className="row">
     <div className="co-m-table-grid co-m-table-grid--bordered">
       <div className="row co-m-table-grid__head">
-        <div className="col-sm-2 col-xs-4">Name</div>
+        <div className="col-sm-2 col-xs-4">名称</div>
         <div className="col-md-2 col-sm-3 hidden-xs">Id</div>
-        <div className="col-md-2 col-sm-3 col-xs-8">Image</div>
-        <div className="col-md-1 col-sm-2 hidden-xs">State</div>
-        <div className="col-md-1 col-sm-2 hidden-xs">Restarts</div>
-        <div className="col-md-2 hidden-sm hidden-xs">Started</div>
-        <div className="col-md-2 hidden-sm hidden-xs">Finished</div>
+        <div className="col-md-2 col-sm-3 col-xs-8">镜像</div>
+        <div className="col-md-1 col-sm-2 hidden-xs">状态</div>
+        <div className="col-md-1 col-sm-2 hidden-xs">重启</div>
+        <div className="col-md-2 hidden-sm hidden-xs">开始</div>
+        <div className="col-md-2 hidden-sm hidden-xs">完成</div>
       </div>
       <div className="co-m-table-grid__body">
         {containers.map((c, i) => <ContainerRow key={i} pod={pod} container={c} />)}
@@ -170,32 +170,32 @@ const Details = ({obj: pod}) => {
     <ScrollToTopOnMount />
 
     <div className="co-m-pane__body">
-      <SectionHeading text="Pod Overview" />
+      <SectionHeading text="Pod 概览" />
       <PodGraphs pod={pod} />
       <div className="row">
         <div className="col-sm-6">
           <ResourceSummary resource={pod} showPodSelector={false} showNodeSelector={false}>
-            <dt>Node Selector</dt>
+            <dt>节点选择器</dt>
             <dd><Selector kind="Node" selector={pod.spec.nodeSelector} /></dd>
           </ResourceSummary>
         </div>
         <div className="col-sm-6">
           <dl className="co-m-pane__details">
-            <dt>Status</dt>
+            <dt>状态</dt>
             <dd>{podPhase(pod)}</dd>
-            <dt>Restart Policy</dt>
+            <dt>重启策略</dt>
             <dd>{getRestartPolicyLabel(pod)}</dd>
             {
               activeDeadlineSeconds &&
                 <React.Fragment>
-                  <dt>Active Deadline</dt>
+                  <dt>活动截止日期</dt>
                   {/* Convert to ms for formatDuration */}
                   <dd>{formatDuration(activeDeadlineSeconds * 1000)}</dd>
                 </React.Fragment>
             }
             <dt>Pod IP</dt>
             <dd>{pod.status.podIP || '-'}</dd>
-            <dt>Node</dt>
+            <dt>节点</dt>
             <dd><NodeLink name={pod.spec.nodeName} /></dd>
           </dl>
         </div>
@@ -207,14 +207,14 @@ const Details = ({obj: pod}) => {
     <ContainerTable key="containerTable" heading="Containers" containers={pod.spec.containers} pod={pod} />
 
     <div className="co-m-pane__body">
-      <SectionHeading text="Pod Volumes" />
+      <SectionHeading text="Pod 卷" />
       <div className="row">
         <div className="co-m-table-grid co-m-table-grid--bordered">
           <div className="row co-m-table-grid__head">
-            <div className="col-sm-3 col-xs-4">Name</div>
-            <div className="col-sm-3 col-xs-4">Type</div>
-            <div className="col-sm-3 hidden-xs">Permissions</div>
-            <div className="col-sm-3 col-xs-4">Utilized By</div>
+            <div className="col-sm-3 col-xs-4">名称</div>
+            <div className="col-sm-3 col-xs-4">类别</div>
+            <div className="col-sm-3 hidden-xs">权限</div>
+            <div className="col-sm-3 col-xs-4">利用</div>
           </div>
           <div className="co-m-table-grid__body">
             {getVolumeMountsByPermissions(pod).map((v, i) => <Volume key={i} pod={pod} volume={v} />)}
