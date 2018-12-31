@@ -43,14 +43,14 @@ const Probe = ({probe, podIP}) => {
 
 const Ports = ({ports}) => {
   if (!ports || !ports.length) {
-    return <MsgBox className="co-sysevent-stream__status-box-empty" title="No ports have been exposed" detail="Ports allow for traffic to enter this container" />;
+    return <MsgBox className="co-sysevent-stream__status-box-empty" title="没有端口被公开" detail="端口允许流量进入这个容器" />;
   }
 
   return <table className="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Container</th>
+        <th>名称</th>
+        <th>容器</th>
       </tr>
     </thead>
     <tbody>
@@ -64,15 +64,15 @@ const Ports = ({ports}) => {
 
 const Volumes = ({volumes}) => {
   if (!volumes || !volumes.length) {
-    return <MsgBox className="co-sysevent-stream__status-box-empty" title="No volumes have been mounted" detail="Volumes allow data to be shared as files with the pod" />;
+    return <MsgBox className="co-sysevent-stream__status-box-empty" title="没有挂载卷" detail="卷允许数据作为文件与pod共享" />;
   }
 
   return <table className="table">
     <thead>
       <tr>
-        <th>Access</th>
-        <th>Location</th>
-        <th>Mount Path</th>
+        <th>访问</th>
+        <th>位置</th>
+        <th>挂载路径</th>
       </tr>
     </thead>
     <tbody>
@@ -87,7 +87,7 @@ const Volumes = ({volumes}) => {
 
 const Env = ({env}) => {
   if (!env || !env.length) {
-    return <MsgBox className="co-sysevent-stream__status-box-empty" title="No variables have been set" detail="An easy way to pass configuration values" />;
+    return <MsgBox className="co-sysevent-stream__status-box-empty" title="没有设置任何变量" detail="传递配置值的简单方法" />;
   }
 
   const value = (e) => {
@@ -107,8 +107,8 @@ const Env = ({env}) => {
   return <table className="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Value</th>
+        <th>名称</th>
+        <th>值</th>
       </tr>
     </thead>
     <tbody>
@@ -151,27 +151,27 @@ const Details = (props) => {
 
     <div className="row">
       <div className="col-lg-4">
-        <SectionHeading text="Container Overview" />
+        <SectionHeading text="容器概览" />
         <dl className="co-m-pane__details">
-          <dt>State</dt>
+          <dt>状态</dt>
           <dd>{state.label}</dd>
           <dt>ID</dt>
           <dd><Overflow value={status.containerID} /></dd>
-          <dt>Restarts</dt>
+          <dt>重启</dt>
           <dd>{status.restartCount}</dd>
-          <dt>Resource Requests</dt>
+          <dt>资源需求</dt>
           <dd>{getResourceRequestsValue(container) || '-'}</dd>
-          <dt>Resource Limits</dt>
+          <dt>资源限制</dt>
           <dd>{getResourceLimitsValue(container) || '-'}</dd>
-          <dt>Lifecycle Hooks</dt>
+          <dt>生命周期钩子</dt>
           <dd><Lifecycle lifecycle={container.lifecycle} /></dd>
-          <dt>Readiness Probe</dt>
+          <dt>就绪探针</dt>
           <dd><Probe probe={container.readinessProbe} podIP={pod.status.podIP || '-'} /></dd>
-          <dt>Liveness Probe</dt>
+          <dt>活动探针</dt>
           <dd><Probe probe={container.livenessProbe} podIP={pod.status.podIP || '-'} /></dd>
-          <dt>Started</dt>
+          <dt>开始</dt>
           <dd><Timestamp timestamp={state.startedAt} /></dd>
-          <dt>Finished</dt>
+          <dt>结束</dt>
           <dd><Timestamp timestamp={state.finishedAt} /></dd>
           <dt>Pod</dt>
           <dd><ResourceLink kind="Pod" name={props.match.params.podName} namespace={props.match.params.ns} /></dd>
@@ -179,25 +179,25 @@ const Details = (props) => {
       </div>
 
       <div className="col-lg-4">
-        <SectionHeading text="Image Details" />
+        <SectionHeading text="镜像详情" />
         <dl className="co-m-pane__details">
-          <dt>Image</dt>
+          <dt>镜像</dt>
           <dd><Overflow value={imageName || '-'} /></dd>
-          <dt>Image Version/Tag</dt>
+          <dt>镜像版本/标签</dt>
           <dd><Overflow value={imageTag || '-'} /></dd>
-          <dt>Command</dt>
+          <dt>命令</dt>
           <dd>{container.command ? <pre><code>{container.command.join(' ')}</code></pre> : <span>-</span>}</dd>
-          <dt>Args</dt>
+          <dt>参数</dt>
           <dd>{container.args ? <pre><code>{container.args.join(' ')}</code></pre> : <span>-</span>}</dd>
-          <dt>Pull Policy</dt>
+          <dt>拉取策略</dt>
           <dd>{getPullPolicyLabel(container)}</dd>
         </dl>
       </div>
 
       <div className="col-lg-4">
-        <SectionHeading text="Network" />
+        <SectionHeading text="网络" />
         <dl className="co-m-pane__details">
-          <dt>Node</dt>
+          <dt>节点</dt>
           <dd><ResourceLink kind="Node" name={pod.spec.nodeName} title={pod.spec.nodeName} /></dd>
           <dt>Pod IP</dt>
           <dd>{pod.status.podIP || '-'}</dd>
@@ -209,21 +209,21 @@ const Details = (props) => {
 
     <div className="row">
       <div className="col-lg-4">
-        <SectionHeading text="Ports" />
+        <SectionHeading text="端口" />
         <div className="co-table-container">
           <Ports ports={container.ports} />
         </div>
       </div>
 
       <div className="col-lg-4">
-        <SectionHeading text="Mounted Volumes" />
+        <SectionHeading text="挂载卷" />
         <div className="co-table-container">
           <Volumes volumes={container.volumeMounts} />
         </div>
       </div>
 
       <div className="col-lg-4">
-        <SectionHeading text="Environment Variables" />
+        <SectionHeading text="环境变量" />
         <div className="co-table-container">
           <Env env={container.env} />
         </div>

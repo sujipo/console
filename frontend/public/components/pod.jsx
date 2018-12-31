@@ -121,12 +121,12 @@ const ContainerTable = ({heading, containers, pod}) => <div className="co-m-pane
     <div className="co-m-table-grid co-m-table-grid--bordered">
       <div className="row co-m-table-grid__head">
         <div className="col-sm-2 col-xs-4">名称</div>
-        <div className="col-md-2 col-sm-3 hidden-xs">Id</div>
+        <div className="col-md-2 col-sm-3 hidden-xs">ID</div>
         <div className="col-md-2 col-sm-3 col-xs-8">镜像</div>
         <div className="col-md-1 col-sm-2 hidden-xs">状态</div>
         <div className="col-md-1 col-sm-2 hidden-xs">重启</div>
         <div className="col-md-2 hidden-sm hidden-xs">开始</div>
-        <div className="col-md-2 hidden-sm hidden-xs">完成</div>
+        <div className="col-md-2 hidden-sm hidden-xs">结束</div>
       </div>
       <div className="co-m-table-grid__body">
         {containers.map((c, i) => <ContainerRow key={i} pod={pod} container={c} />)}
