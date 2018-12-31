@@ -46,9 +46,9 @@ const deleteModal = (kind, ns) => {
 const nsMenuActions = [Cog.factory.ModifyLabels, Cog.factory.ModifyAnnotations, Cog.factory.Edit, deleteModal];
 
 const NamespaceHeader = props => <ListHeader>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="status.phase">Status</ColHead>
-  <ColHead {...props} className="col-sm-4 hidden-xs" sortField="metadata.labels">Labels</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="status.phase">状态</ColHead>
+  <ColHead {...props} className="col-sm-4 hidden-xs" sortField="metadata.labels">标签</ColHead>
 </ListHeader>;
 
 const NamespaceRow = ({obj: ns}) => <ResourceRow obj={ns}>
@@ -70,10 +70,10 @@ export const NamespacesPage = props => <ListPage {...props} ListComponent={Names
 const projectMenuActions = [Cog.factory.Edit, deleteModal];
 
 const ProjectHeader = props => <ListHeader>
-  <ColHead {...props} className="col-md-3 col-sm-6 col-xs-8" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-3 col-xs-4" sortField="status.phase">Status</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-3 hidden-xs" sortField="metadata.annotations.['openshift.io/requester']">Requester</ColHead>
-  <ColHead {...props} className="col-md-3 hidden-sm hidden-xs" sortField="metadata.labels">Labels</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-6 col-xs-8" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-3 col-xs-4" sortField="status.phase">状态</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-3 hidden-xs" sortField="metadata.annotations.['openshift.io/requester']">请求者</ColHead>
+  <ColHead {...props} className="col-md-3 hidden-sm hidden-xs" sortField="metadata.labels">标签</ColHead>
 </ListHeader>;
 
 const ProjectRow = ({obj: project}) => {
@@ -88,7 +88,7 @@ const ProjectRow = ({obj: project}) => {
       {project.status.phase}
     </div>
     <div className="col-md-3 col-sm-3 hidden-xs">
-      {requester || <span className="text-muted">No requester</span>}
+      {requester || <span className="text-muted">没有请求者</span>}
     </div>
     <div className="col-md-3 hidden-sm hidden-xs">
       <LabelList kind="Project" labels={project.metadata.labels} />
@@ -102,7 +102,7 @@ const ProjectList_ = props => {
       {props.createProjectMessage || 'Create a project for your application.'}
     </p>
     <p>
-      To learn more, visit the OpenShift <a href={openshiftHelpBase} target="_blank" rel="noopener noreferrer">documentation</a>.
+      想了解更多，请访问 OpenShift <a href={openshiftHelpBase} target="_blank" rel="noopener noreferrer">文档</a>。
     </p>
   </React.Fragment>;
   const ProjectEmptyMessage = () => <MsgBox title="Welcome to OpenShift" detail={ProjectEmptyMessageDetail} />;
@@ -186,21 +186,21 @@ const Details = ({obj: ns}) => {
       <div className="row">
         <div className="col-sm-6 col-xs-12">
           <ResourceSummary resource={ns} showPodSelector={false} showNodeSelector={false}>
-            {displayName && <dt>Display Name</dt>}
+            {displayName && <dt>显示名称</dt>}
             {displayName && <dd>{displayName}</dd>}
-            {requester && <dt>Requester</dt>}
+            {requester && <dt>请求者</dt>}
             {requester && <dd>{requester}</dd>}
           </ResourceSummary>
         </div>
         <div className="col-sm-6 col-xs-12">
           <dl className="co-m-pane__details">
-            <dt>Status</dt>
+            <dt>状态</dt>
             <dd>{ns.status.phase}</dd>
-            <dt>Default Pull Secret</dt>
+            <dt>默认拉取私密</dt>
             <dd><PullSecret namespace={ns} /></dd>
-            <dt>Network Policies</dt>
+            <dt>网络策略</dt>
             <dd>
-              <Link to={`/k8s/ns/${ns.metadata.name}/networkpolicies`}>Network Policies</Link>
+              <Link to={`/k8s/ns/${ns.metadata.name}/networkpolicies`}>网络策略</Link>
             </dd>
           </dl>
         </div>

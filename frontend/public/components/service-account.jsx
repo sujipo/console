@@ -64,10 +64,10 @@ const KubeConfigify = (kind, sa) => ({
 const menuActions = [KubeConfigify, Cog.factory.Delete];
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-sm-2 hidden-xs" sortField="secrets">Secrets</ColHead>
-  <ColHead {...props} className="col-sm-2 hidden-xs" sortField="metadata.creationTimestamp">Age</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-sm-2 hidden-xs" sortField="secrets">私密</ColHead>
+  <ColHead {...props} className="col-sm-2 hidden-xs" sortField="metadata.creationTimestamp">时长</ColHead>
 </ListHeader>;
 
 const ServiceAccountRow = ({obj: serviceaccount}) => {
@@ -99,7 +99,7 @@ const Details = ({obj: serviceaccount}) => {
   return (
     <React.Fragment>
       <div className="co-m-pane__body">
-        <SectionHeading text="Service Account Overview" />
+        <SectionHeading text="服务账号概览" />
         <ResourceSummary resource={serviceaccount} showPodSelector={false} showNodeSelector={false} />
       </div>
       <SectionHeading text="Secrets" style={{marginLeft: '30px', marginTop: '30px', marginBottom: '-20px'}} />

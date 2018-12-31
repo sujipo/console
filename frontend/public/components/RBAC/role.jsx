@@ -30,8 +30,8 @@ const menuActions = [
 ];
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
+  <ColHead {...props} className="col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
 </ListHeader>;
 
 const Row = ({obj: role}) => <div className="row co-resource-list__item">
@@ -69,17 +69,17 @@ class Details extends React.Component {
         <div className="row">
           <div className="col-xs-6">
             <dl className="co-m-pane__details">
-              <dt>Role Name</dt>
+              <dt>角色名称</dt>
               <dd>{name}</dd>
               {namespace && <div>
-                <dt>Namespace</dt>
+                <dt>命名空间</dt>
                 <dd><ResourceLink kind="Namespace" name={namespace} /></dd>
               </div>}
             </dl>
           </div>
           <div className="col-xs-6">
             <dl className="co-m-pane__details">
-              <dt>Created At</dt>
+              <dt>创建时间</dt>
               <dd><Timestamp timestamp={creationTimestamp} /></dd>
             </dl>
           </div>
@@ -106,10 +106,10 @@ class Details extends React.Component {
 }
 
 const BindingHeader = props => <ListHeader>
-  <ColHead {...props} className="col-xs-4" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-xs-2" sortField="subject.kind">Subject Kind</ColHead>
-  <ColHead {...props} className="col-xs-4" sortField="subject.name">Subject Name</ColHead>
-  <ColHead {...props} className="col-xs-2" sortField="metadata.namespace">Namespace</ColHead>
+  <ColHead {...props} className="col-xs-4" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-xs-2" sortField="subject.kind">主题分类</ColHead>
+  <ColHead {...props} className="col-xs-4" sortField="subject.name">主题名称</ColHead>
+  <ColHead {...props} className="col-xs-2" sortField="metadata.namespace">命名空间</ColHead>
 </ListHeader>;
 
 const BindingRow = ({obj: binding}) => <ResourceRow obj={binding}>
@@ -143,7 +143,7 @@ export const BindingsForRolePage = (props) => {
     staticFilters={[{'role-binding-roleRef': name}]}
     resources={resources}
     textFilter="role-binding"
-    filterLabel="Role Bindings by role or subject"
+    filterLabel="按角色或主题进行角色绑定"
     namespace={ns}
     flatten={bindingsFlatten} />;
 };
@@ -155,7 +155,7 @@ export const RolesDetailsPage = props => <DetailsPage
 
 export const ClusterRolesDetailsPage = RolesDetailsPage;
 
-const EmptyMsg = () => <MsgBox title="No Roles Found" detail="Roles grant access to types of objects in the cluster. Roles are applied to a team or user via a Role Binding." />;
+const EmptyMsg = () => <MsgBox title="没有发现角色" detail="角色授予对集群中对象类型的访问权。角色通过角色绑定应用于团队或用户。" />;
 
 const RolesList = props => <List {...props} EmptyMsg={EmptyMsg} Header={Header} Row={Row} />;
 
@@ -176,7 +176,7 @@ export const RolesPage = connectToFlags(FLAGS.PROJECTS_AVAILBLE, FLAGS.PROJECTS_
     canCreate={true}
     showTitle={showTitle}
     namespace={namespace}
-    createButtonText="Create Role"
+    createButtonText="创建角色"
     createProps={{to: `/k8s/ns/${namespace || 'default'}/roles/new`}}
     filterLabel="Roles by name"
     flatten={resources => _.flatMap(resources, 'data').filter(r => !!r)}
@@ -194,6 +194,6 @@ export const RolesPage = connectToFlags(FLAGS.PROJECTS_AVAILBLE, FLAGS.PROJECTS_
         {id: 'system', title: 'System Roles'},
       ],
     }]}
-    title="Roles"
+    title="角色"
   />;
 });

@@ -78,11 +78,11 @@ const menuActions = ({subjectIndex, subjects}, startImpersonate) => {
 };
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-4 hidden-xs" sortField="roleRef.name">Role Ref</ColHead>
-  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortField="subject.kind">Subject Kind</ColHead>
-  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortField="subject.name">Subject Name</ColHead>
-  <ColHead {...props} className="col-md-2 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 hidden-xs" sortField="roleRef.name">角色关联</ColHead>
+  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortField="subject.kind">主题分类</ColHead>
+  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortField="subject.name">主题名称</ColHead>
+  <ColHead {...props} className="col-md-2 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
 </ListHeader>;
 
 export const BindingName = connect(null, {startImpersonate: UIActions.startImpersonate})(
@@ -118,7 +118,7 @@ const Row = ({obj: binding}) => <ResourceRow obj={binding}>
   </OverflowYFade>
 </ResourceRow>;
 
-const EmptyMsg = () => <MsgBox title="No Role Bindings Found" detail="Roles grant access to types of objects in the cluster. Roles are applied to a group or user via a Role Binding." />;
+const EmptyMsg = () => <MsgBox title="没有找到角色绑定" detail="角色授予对集群中对象类型的访问权。角色通过角色绑定应用到组或用户。" />;
 
 export const BindingsList = props => <List {...props} EmptyMsg={EmptyMsg} Header={Header} Row={Row} />;
 
@@ -142,9 +142,9 @@ export const RoleBindingsPage = ({namespace, showTitle=true, fake}) => <MultiLis
   createButtonText="Create Binding"
   createProps={{to: '/k8s/cluster/rolebindings/new'}}
   fake={fake}
-  filterLabel="Role Bindings by role or subject"
+  filterLabel="按角色或主题进行角色绑定"
   flatten={flatten}
-  label="Role Bindings"
+  label="角色绑定"
   ListComponent={BindingsList}
   namespace={namespace}
   resources={roleResources}
@@ -165,7 +165,7 @@ export const RoleBindingsPage = ({namespace, showTitle=true, fake}) => <MultiLis
   }]}
   showTitle={showTitle}
   textFilter="role-binding"
-  title="Role Bindings"
+  title="角色绑定"
 />;
 
 class ListDropdown_ extends React.Component {
@@ -202,7 +202,7 @@ class ListDropdown_ extends React.Component {
 
     if (loadError) {
       this.setState({
-        title: <div className="cos-error-title">Error Loading {nextProps.desc}</div>
+        title: <div className="cos-error-title">错误加载 {nextProps.desc}</div>
       });
       return;
     }
@@ -272,7 +272,7 @@ class ListDropdown_ extends React.Component {
 
     return <div>
       { Component }
-      { loaded && _.isEmpty(items) && <p className="alert alert-info"><span className="pficon pficon-info" aria-hidden="true"></span>No {desc} found or defined.</p> }
+      { loaded && _.isEmpty(items) && <p className="alert alert-info"><span className="pficon pficon-info" aria-hidden="true"></span>没有 {desc} 发现或定义。</p> }
     </div>;
   }
 }
@@ -347,13 +347,13 @@ const ClusterRoleDropdown = props => <ListDropdown
 />;
 
 const bindingKinds = [
-  {value: 'RoleBinding', title: 'Namespace Role Binding (RoleBinding)', desc: 'Grant the permissions to a user or set of users within the selected namespace.'},
-  {value: 'ClusterRoleBinding', title: 'Cluster-wide Role Binding (ClusterRoleBinding)', desc: 'Grant the permissions to a user or set of users at the cluster level and in all namespaces.'},
+  {value: 'RoleBinding', title: '命名空间角色绑定 (RoleBinding)', desc: '将权限授予选定名称空间内的用户或用户集。'},
+  {value: 'ClusterRoleBinding', title: '集群范围角色绑定 (ClusterRoleBinding)', desc: '在集群级别和所有名称空间中向一个用户或一组用户授予权限。'},
 ];
 const subjectKinds = [
   {value: 'User', title: 'User'},
   {value: 'Group', title: 'Group'},
-  {value: 'ServiceAccount', title: 'Service Account'},
+  {value: 'ServiceAccount', title: '服务账号'},
 ];
 
 const Section = ({label, children}) => <div className="row">
@@ -433,7 +433,7 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
       if (!kind || !metadata.name || !roleRef.kind || !roleRef.name || !subject.kind || !subject.name ||
       (kind === 'RoleBinding' && !metadata.namespace) ||
       (subject.kind === 'ServiceAccount') && !subject.namespace) {
-        this.setState({error: 'Please complete all fields.'});
+        this.setState({error: '请填写所有栏位。'});
         return;
       }
 
@@ -468,20 +468,20 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
         </Helmet>
         <form className="co-m-pane__body-group" onSubmit={this.save}>
           <h1 className="co-m-pane__heading">{title}</h1>
-          <p className="co-m-pane__explanation">Associate a user/group to the selected role to define the type of access and resources that are allowed.</p>
+          <p className="co-m-pane__explanation">将用户/组关联到所选角色，以定义允许的访问类型和资源。</p>
 
           {!_.get(fixed, 'kind') && <RadioGroup currentValue={kind} items={bindingKinds} onChange={this.setKind} />}
 
           <div className="separator"></div>
 
           <Section label="Role Binding">
-            <label htmlFor="role-binding-name" className="rbac-edit-binding__input-label">Name</label>
+            <label htmlFor="role-binding-name" className="rbac-edit-binding__input-label">名称</label>
             {_.get(fixed, 'metadata.name')
               ? <ResourceName kind={kind} name={metadata.name} />
               : <input className="form-control" type="text" onChange={this.changeName} placeholder="Role binding name" value={metadata.name} required id="role-binding-name" />}
             {kind === 'RoleBinding' && <div>
               <div className="separator"></div>
-              <label htmlFor="ns-dropdown" className="rbac-edit-binding__input-label">Namespace</label>
+              <label htmlFor="ns-dropdown" className="rbac-edit-binding__input-label">命名空间</label>
               <NsDropdown fixed={!!_.get(fixed, 'metadata.namespace')} selectedKey={metadata.namespace} onChange={this.changeNamespace} id="ns-dropdown" />
             </div>}
           </Section>
@@ -489,7 +489,7 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
           <div className="separator"></div>
 
           <Section label="Role">
-            <label htmlFor="role-dropdown" className="rbac-edit-binding__input-label">Role Name</label>
+            <label htmlFor="role-dropdown" className="rbac-edit-binding__input-label">角色名称</label>
             <RoleDropdown
               fixed={!!_.get(fixed, 'roleRef.name')}
               namespace={metadata.namespace}
@@ -506,11 +506,11 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
             <RadioGroup currentValue={subject.kind} items={subjectKinds} onChange={this.changeSubjectKind} />
             {subject.kind === 'ServiceAccount' && <div>
               <div className="separator"></div>
-              <label htmlFor="subject-namespace" className="rbac-edit-binding__input-label">Subject Namespace</label>
+              <label htmlFor="subject-namespace" className="rbac-edit-binding__input-label">主题命名空间</label>
               <NsDropdown id="subject-namespace" selectedKey={subject.namespace} onChange={this.changeSubjectNamespace} />
             </div>}
             <div className="separator"></div>
-            <label htmlFor="subject-name" className="rbac-edit-binding__input-label">Subject Name</label>
+            <label htmlFor="subject-name" className="rbac-edit-binding__input-label">主题名称</label>
             <input className="form-control" type="text" onChange={this.changeSubjectName} placeholder="Subject name" value={subject.name} required id="subject-name" />
           </Section>
 
@@ -518,7 +518,7 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
 
           <ButtonBar errorMessage={this.state.error} inProgress={this.state.inProgress}>
             <button type="submit" className="btn btn-primary" id="save-changes">{saveButtonText || 'Create Binding'}</button>
-            <Link to={formatNamespacedRouteForResource('rolebindings')} className="btn btn-default" id="cancel">Cancel</Link>
+            <Link to={formatNamespacedRouteForResource('rolebindings')} className="btn btn-default" id="cancel">取消</Link>
           </ButtonBar>
         </form>
       </div>;
@@ -557,7 +557,7 @@ const BindingLoadingWrapper = props => {
 };
 
 export const EditRoleBinding = ({match: {params}, kind}) => <Firehose resources={[{kind: kind, name: params.name, namespace: params.ns, isList: false, prop: 'obj'}]}>
-  <BindingLoadingWrapper fixedKeys={['kind', 'metadata', 'roleRef']} subjectIndex={getSubjectIndex()} titleVerb="Edit" saveButtonText="Save Binding" />
+  <BindingLoadingWrapper fixedKeys={['kind', 'metadata', 'roleRef']} subjectIndex={getSubjectIndex()} titleVerb="Edit" saveButtonText="保存绑定" />
 </Firehose>;
 
 export const CopyRoleBinding = ({match: {params}, kind}) => <Firehose resources={[{kind: kind, name: params.name, namespace: params.ns, isList: false, prop: 'obj'}]}>

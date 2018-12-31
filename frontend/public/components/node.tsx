@@ -40,21 +40,21 @@ const Header = props => {
     return null;
   }
   return <ListHeader>
-    <ColHead {...props} className="col-xs-4" sortField="metadata.name">Node Name</ColHead>
-    <ColHead {...props} className="col-sm-2 col-xs-4" sortFunc="nodeReadiness">Status</ColHead>
-    <ColHead {...props} className="col-sm-3 col-xs-4" sortFunc="nodeUpdateStatus">OS Update</ColHead>
-    <ColHead {...props} className="col-sm-3 hidden-xs" sortField="status.addresses">Node Addresses</ColHead>
+    <ColHead {...props} className="col-xs-4" sortField="metadata.name">节点名称</ColHead>
+    <ColHead {...props} className="col-sm-2 col-xs-4" sortFunc="nodeReadiness">状态</ColHead>
+    <ColHead {...props} className="col-sm-3 col-xs-4" sortFunc="nodeUpdateStatus">操作系统更新</ColHead>
+    <ColHead {...props} className="col-sm-3 hidden-xs" sortField="status.addresses">节点地址</ColHead>
   </ListHeader>;
 };
 
 const HeaderSearch = props => <ListHeader>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-5" sortField="metadata.name">Node Name</ColHead>
-  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortFunc="nodeReadiness">Status</ColHead>
-  <ColHead {...props} className="col-sm-5 col-xs-7" sortField="metadata.labels">Node Labels</ColHead>
-  <ColHead {...props} className="col-md-2 col-sm-3 hidden-xs" sortField="status.addresses">Node Addresses</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-5" sortField="metadata.name">节点名称</ColHead>
+  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortFunc="nodeReadiness">状态</ColHead>
+  <ColHead {...props} className="col-sm-5 col-xs-7" sortField="metadata.labels">节点标签</ColHead>
+  <ColHead {...props} className="col-md-2 col-sm-3 hidden-xs" sortField="status.addresses">节点地址</ColHead>
 </ListHeader>;
 
-const NodeStatus = ({node}) => isNodeReady(node) ? <span className="node-ready"><i className="fa fa-check"></i> Ready</span> : <span className="node-not-ready"><i className="fa fa-minus-circle"></i> Not Ready</span>;
+const NodeStatus = ({node}) => isNodeReady(node) ? <span className="node-ready"><i className="fa fa-check"></i> 就绪</span> : <span className="node-not-ready"><i className="fa fa-minus-circle"></i> 未就绪</span>;
 
 const NodeCLUpdateStatus = ({node}) => {
   const updateStatus = containerLinuxUpdateOperator.getUpdateStatus(node);
@@ -164,45 +164,45 @@ const NodeGraphs = requirePrometheus(({node}) => {
 const Details = ({obj: node}) => {
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="Node Overview" />
+      <SectionHeading text="节点概览" />
       <NodeGraphs node={node} />
       <div className="row">
         <div className="col-md-6 col-xs-12">
           <dl className="co-m-pane__details">
-            <dt>Node Name</dt>
+            <dt>节点名称</dt>
             <dd>{node.metadata.name || '-'}</dd>
-            <dt>External ID</dt>
+            <dt>外部ID</dt>
             <dd>{_.get(node, 'spec.externalID', '-')}</dd>
-            <dt>Node Addresses</dt>
+            <dt>节点地址</dt>
             <dd><NodeIPList ips={_.get(node, 'status.addresses')} expand={true} /></dd>
-            <dt>Node Labels</dt>
+            <dt>节点标签</dt>
             <dd><LabelList kind="Node" labels={node.metadata.labels} /></dd>
-            <dt>Annotations</dt>
+            <dt>注释</dt>
             <dd><a className="co-m-modal-link" onClick={Cog.factory.ModifyAnnotations(NodeModel, node).callback}>{pluralize(_.size(node.metadata.annotations), 'Annotation')}</a></dd>
-            <dt>Provider ID</dt>
+            <dt>提供者ID</dt>
             <dd>{cloudProviderNames([cloudProviderID(node)])}</dd>
             {_.has(node, 'spec.unschedulable') && <dt>Unschedulable</dt>}
             {_.has(node, 'spec.unschedulable') && <dd className="text-capitalize">{_.get(node, 'spec.unschedulable', '-').toString()}
             </dd>}
-            <dt>Created</dt>
+            <dt>创建时间</dt>
             <dd><Timestamp timestamp={node.metadata.creationTimestamp} /></dd>
           </dl>
         </div>
         <div className="col-md-6 col-xs-12">
           <dl className="co-m-pane__details">
-            <dt>Operating System</dt>
+            <dt>操作系统</dt>
             <dd className="text-capitalize">{_.get(node, 'status.nodeInfo.operatingSystem', '-')}</dd>
-            <dt>Architecture</dt>
+            <dt>架构</dt>
             <dd className="text-uppercase">{_.get(node, 'status.nodeInfo.architecture', '-')}</dd>
-            <dt>Kernel Version</dt>
+            <dt>内核版本</dt>
             <dd>{_.get(node, 'status.nodeInfo.kernelVersion', '-')}</dd>
-            <dt>Boot ID</dt>
+            <dt>引导ID</dt>
             <dd>{_.get(node, 'status.nodeInfo.bootID', '-')}</dd>
-            <dt>Container Runtime</dt>
+            <dt>容器运行时间</dt>
             <dd>{_.get(node, 'status.nodeInfo.containerRuntimeVersion', '-')}</dd>
-            <dt>Kubelet Version</dt>
+            <dt>Kubelet版本</dt>
             <dd>{_.get(node, 'status.nodeInfo.kubeletVersion', '-')}</dd>
-            <dt>Kube-Proxy Version</dt>
+            <dt>Kube-Proxy版本</dt>
             <dd>{_.get(node, 'status.nodeInfo.kubeProxyVersion', '-')}</dd>
           </dl>
         </div>
@@ -214,15 +214,15 @@ const Details = ({obj: node}) => {
       <div className="row">
         <div className="col-md-6 col-xs-12">
           <dl className="co-m-pane__details">
-            <dt>Current Version</dt>
+            <dt>当前版本</dt>
             <dd>{containerLinuxUpdateOperator.getVersion(node)}</dd>
-            <dt>Channel</dt>
+            <dt>通道</dt>
             <dd className="text-capitalize">{containerLinuxUpdateOperator.getChannel(node)}</dd>
           </dl>
         </div>
         <div className="col-md-6 col-xs-12">
           <dl className="co-m-pane__details">
-            <dt>Update Status</dt>
+            <dt>更新状态</dt>
             <dd><NodeCLUpdateStatus node={node} /></dd>
           </dl>
         </div>
@@ -235,11 +235,11 @@ const Details = ({obj: node}) => {
         <table className="table">
           <thead>
             <tr>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Reason</th>
-              <th>Updated</th>
-              <th>Changed</th>
+              <th>类别</th>
+              <th>状态</th>
+              <th>原因</th>
+              <th>更新</th>
+              <th>变化</th>
             </tr>
           </thead>
           <tbody>
@@ -261,8 +261,8 @@ const Details = ({obj: node}) => {
         <table className="table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Size</th>
+              <th>名称</th>
+              <th>大小</th>
             </tr>
           </thead>
           <tbody>

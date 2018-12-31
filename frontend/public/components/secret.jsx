@@ -28,18 +28,18 @@ const menuActions = [
   Cog.factory.ModifyLabels,
   Cog.factory.ModifyAnnotations,
   (kind, obj) => ({
-    label: `Edit ${kind.label}`,
+    label: `编辑${kind.label}`,
     href: editInYaml(obj) ? `${resourceObjPath(obj, kind.kind)}/edit-yaml` : `${resourceObjPath(obj, kind.kind)}/edit`,
   }),
   Cog.factory.Delete,
 ];
 
 const SecretHeader = props => <ListHeader>
-  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-4 hidden-xs" sortField="type">Type</ColHead>
-  <ColHead {...props} className="col-md-1 hidden-sm hidden-xs" sortFunc="dataSize">Size</ColHead>
-  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortField="metadata.creationTimestamp">Created</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 hidden-xs" sortField="type">类别</ColHead>
+  <ColHead {...props} className="col-md-1 hidden-sm hidden-xs" sortFunc="dataSize">大小</ColHead>
+  <ColHead {...props} className="col-md-2 hidden-sm hidden-xs" sortField="metadata.creationTimestamp">创建时间</ColHead>
 </ListHeader>;
 
 const SecretRow = ({obj: secret}) => {
@@ -133,7 +133,7 @@ const SecretsPage = props => {
     createLink: (type) => `/k8s/ns/${props.namespace || 'default'}/secrets/new/${type !== 'yaml' ? type : ''}`
   };
 
-  return <ListPage ListComponent={SecretsList} canCreate={true} rowFilters={filters} createButtonText="Create" createProps={createProps} {...props} />;
+  return <ListPage ListComponent={SecretsList} canCreate={true} rowFilters={filters} createButtonText="创建" createProps={createProps} {...props} />;
 };
 
 const SecretsDetailsPage = props => <DetailsPage
