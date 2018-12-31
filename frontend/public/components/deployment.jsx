@@ -13,7 +13,7 @@ import { formatDuration } from './utils/datetime';
 const {ModifyCount, EditEnvironment, common} = Cog.factory;
 
 const UpdateStrategy = (kind, deployment) => ({
-  label: 'Edit Update Strategy',
+  label: '编辑更新策略',
   callback: () => configureUpdateStrategyModal({deployment}),
 });
 
@@ -55,7 +55,7 @@ const DeploymentDetails = ({obj: deployment}) => {
 
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="Deployment Overview" />
+      <SectionHeading text="部署概览" />
       <DeploymentPodCounts resource={deployment} resourceKind={DeploymentModel} />
       <div className="co-m-pane__body-group">
         <div className="row">

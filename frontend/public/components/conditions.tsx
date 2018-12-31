@@ -28,18 +28,18 @@ export const Conditions: React.SFC<ConditionsProps> = ({conditions}) => {
     {conditions
       ? <div className="co-m-table-grid co-m-table-grid--bordered">
         <div className="row co-m-table-grid__head">
-          <div className="col-xs-4 col-sm-2 col-md-2">Type</div>
-          <div className="col-xs-4 col-sm-2 col-md-2">Status</div>
-          <div className="hidden-xs hidden-sm col-md-2">Updated</div>
-          <div className="col-xs-4 col-sm-3 col-md-2">Reason</div>
-          <div className="hidden-xs col-sm-5 col-md-4">Message</div>
+          <div className="col-xs-4 col-sm-2 col-md-2">类别</div>
+          <div className="col-xs-4 col-sm-2 col-md-2">状态</div>
+          <div className="hidden-xs hidden-sm col-md-2">更新</div>
+          <div className="col-xs-4 col-sm-3 col-md-2">原因</div>
+          <div className="hidden-xs col-sm-5 col-md-4">消息</div>
         </div>
         <div className="co-m-table-grid__body">
           {rows}
         </div>
       </div>
       : <div className="cos-status-box">
-        <div className="text-center">No Conditions Found</div>
+        <div className="text-center">没有发现条件</div>
       </div>}
   </React.Fragment>;
 };

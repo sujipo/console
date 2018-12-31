@@ -71,23 +71,23 @@ export const DeploymentConfigsDetails: React.SFC<{obj: any}> = ({obj: deployment
             <dl className="co-m-pane__details">
               <dt>Latest Version</dt>
               <dd>{_.get(deploymentConfig, 'status.latestVersion', '-')}</dd>
-              {reason && <dt>Reason</dt>}
+              {reason && <dt>原因</dt>}
               {reason && <dd>{reason}</dd>}
-              <dt>Update Strategy</dt>
+              <dt>更新策略</dt>
               <dd>{_.get(deploymentConfig, 'spec.strategy.type', 'Rolling')}</dd>
-              {timeout && <dt>Timeout</dt>}
+              {timeout && <dt>超时</dt>}
               {timeout && <dd>{pluralize(timeout, 'second')}</dd>}
-              {updatePeriod && <dt>Update Period</dt>}
+              {updatePeriod && <dt>更新周期</dt>}
               {updatePeriod && <dd>{pluralize(updatePeriod, 'second')}</dd>}
-              {interval && <dt>Interval</dt>}
+              {interval && <dt>间隔</dt>}
               {interval && <dd>{pluralize(interval, 'second')}</dd>}
-              {isRecreate || <dt>Max Unavailable</dt>}
+              {isRecreate || <dt>最大不可用</dt>}
               {isRecreate || <dd>{_.get(deploymentConfig, 'spec.strategy.rollingParams.maxUnavailable', 1)} of {pluralize(deploymentConfig.spec.replicas, 'pod')}</dd>}
-              {isRecreate || <dt>Max Surge</dt>}
-              {isRecreate || <dd>{_.get(deploymentConfig, 'spec.strategy.rollingParams.maxSurge', 1)} greater than {pluralize(deploymentConfig.spec.replicas, 'pod')}</dd>}
-              <dt>Min Ready Seconds</dt>
+              {isRecreate || <dt>最大激增</dt>}
+              {isRecreate || <dd>{_.get(deploymentConfig, 'spec.strategy.rollingParams.maxSurge', 1)} 大于 {pluralize(deploymentConfig.spec.replicas, 'pod')}</dd>}
+              <dt>最小就绪秒数</dt>
               <dd>{deploymentConfig.spec.minReadySeconds ? pluralize(deploymentConfig.spec.minReadySeconds, 'second') : 'Not Configured'}</dd>
-              {triggers && <dt>Triggers</dt>}
+              {triggers && <dt>触发器</dt>}
               {triggers && <dd>{triggers}</dd>}
             </dl>
           </div>

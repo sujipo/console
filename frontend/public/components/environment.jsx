@@ -242,16 +242,16 @@ export const EnvironmentPage = connect(stateToProps)(
 
       return <div className="co-m-pane__body">
         { !readOnly &&
-            <p className="co-m-pane__explanation">Define environment variables as key-value pairs to store configuration settings. You can enter text or add values from a ConfigMap or Secret. Drag and drop environment variables to change the order in which they are run. A variable can reference any other variables that come before it in the list, for example <code>FULLDOMAIN = $(SUBDOMAIN).example.com</code>.</p>
+            <p className="co-m-pane__explanation">将环境变量定义为键-值对以存储配置设置。您可以从配置映射或私密中输入文本或添加值。 拖放环境变量以更改它们运行的顺序。 变量可以引用列表中它前面的任何其他变量, 例如 <code>FULLDOMAIN = $(SUBDOMAIN).example.com</code>。</p>
         }
         {containerVars}
         <div className="co-m-pane__body-group">
           <div className="environment-buttons">
             {errorMessage && <p className="alert alert-danger"><span className="pficon pficon-error-circle-o" aria-hidden="true"></span>{errorMessage}</p>}
-            {stale && <p className="alert alert-info"><span className="pficon pficon-info" aria-hidden="true"></span>The information on this page is no longer current. Click Reload to update and lose edits, or Save Changes to overwrite.</p>}
+            {stale && <p className="alert alert-info"><span className="pficon pficon-info" aria-hidden="true"></span>本页上的信息不再是最新的。单击重载更新并丢失编辑，或保存更改以覆盖。</p>}
             {success && <p className="alert alert-success"><span className="pficon pficon-ok" aria-hidden="true"></span>{success}</p>}
-            {!readOnly && <button disabled={inProgress} type="submit" className="btn btn-primary" onClick={this.saveChanges}>Save Changes</button>}
-            {!readOnly && <button disabled={inProgress} type="button" className="btn btn-default" onClick={this.reload}>Reload</button>}
+            {!readOnly && <button disabled={inProgress} type="submit" className="btn btn-primary" onClick={this.saveChanges}>保存更改</button>}
+            {!readOnly && <button disabled={inProgress} type="button" className="btn btn-default" onClick={this.reload}>重载</button>}
           </div>
         </div>
       </div>;

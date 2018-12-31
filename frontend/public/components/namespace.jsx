@@ -155,7 +155,7 @@ class PullSecret extends SafetyFirst {
 }
 
 const ResourceUsage = requirePrometheus(({ns}) => <div className="co-m-pane__body">
-  <SectionHeading text="Resource Usage" />
+  <SectionHeading text="资源使用" />
   <div className="row">
     <div className="col-sm-6 col-xs-12">
       <Line title="CPU Shares" query={[
