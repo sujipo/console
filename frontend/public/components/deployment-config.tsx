@@ -95,11 +95,11 @@ export const DeploymentConfigsDetails: React.SFC<{obj: any}> = ({obj: deployment
       </div>
     </div>
     <div className="co-m-pane__body">
-      <SectionHeading text="Containers" />
+      <SectionHeading text="容器" />
       <ContainerTable containers={deploymentConfig.spec.template.spec.containers} />
     </div>
     <div className="co-m-pane__body">
-      <SectionHeading text="Conditions" />
+      <SectionHeading text="条件" />
       <Conditions conditions={deploymentConfig.status.conditions} />
     </div>
   </React.Fragment>;

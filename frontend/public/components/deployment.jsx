@@ -39,10 +39,10 @@ const ContainerRow = ({container}) => {
 
 export const ContainerTable = ({containers}) => <div className="co-m-table-grid co-m-table-grid--bordered">
   <div className="row co-m-table-grid__head">
-    <div className="col-xs-6 col-sm-4 col-md-3">Name</div>
-    <div className="col-xs-6 col-sm-4 col-md-3">Image</div>
-    <div className="col-sm-4 col-md-3 hidden-xs">Resource Limits</div>
-    <div className="col-md-3 hidden-xs hidden-sm">Ports</div>
+    <div className="col-xs-6 col-sm-4 col-md-3">名称</div>
+    <div className="col-xs-6 col-sm-4 col-md-3">镜像</div>
+    <div className="col-sm-4 col-md-3 hidden-xs">资源限制</div>
+    <div className="col-md-3 hidden-xs hidden-sm">端口</div>
   </div>
   <div className="co-m-table-grid__body">
     {_.map(containers, (c, i) => <ContainerRow key={i} container={c} />)}
@@ -61,13 +61,13 @@ const DeploymentDetails = ({obj: deployment}) => {
         <div className="row">
           <div className="col-sm-6">
             <ResourceSummary resource={deployment}>
-              <dt>Status</dt>
-              <dd>{deployment.status.availableReplicas === deployment.status.updatedReplicas ? <span>Active</span> : <div><span className="co-icon-space-r"><LoadingInline /></span> Updating</div>}</dd>
+              <dt>状态</dt>
+              <dd>{deployment.status.availableReplicas === deployment.status.updatedReplicas ? <span>活跃</span> : <div><span className="co-icon-space-r"><LoadingInline /></span> 更新</div>}</dd>
             </ResourceSummary>
           </div>
           <div className="col-sm-6">
             <dl className="co-m-pane__details">
-              <dt>Update Strategy</dt>
+              <dt>更新策略</dt>
               <dd>{deployment.spec.strategy.type || 'RollingUpdate'}</dd>
               {isRecreate || <dt>Max Unavailable</dt>}
               {isRecreate || <dd>{deployment.spec.strategy.rollingUpdate.maxUnavailable || 1} of {pluralize(deployment.spec.replicas, 'pod')}</dd>}
@@ -83,11 +83,11 @@ const DeploymentDetails = ({obj: deployment}) => {
       </div>
     </div>
     <div className="co-m-pane__body">
-      <SectionHeading text="Containers" />
+      <SectionHeading text="容器" />
       <ContainerTable containers={deployment.spec.template.spec.containers} />
     </div>
     <div className="co-m-pane__body">
-      <SectionHeading text="Conditions" />
+      <SectionHeading text="条件" />
       <Conditions conditions={deployment.status.conditions} />
     </div>
   </React.Fragment>;

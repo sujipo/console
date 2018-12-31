@@ -204,7 +204,7 @@ const Details = ({obj: pod}) => {
     </div>
 
     {pod.spec.initContainers && <ContainerTable key="initContainerTable" heading="Init Containers" containers={pod.spec.initContainers} pod={pod} />}
-    <ContainerTable key="containerTable" heading="Containers" containers={pod.spec.containers} pod={pod} />
+    <ContainerTable key="containerTable" heading="容器" containers={pod.spec.containers} pod={pod} />
 
     <div className="co-m-pane__body">
       <SectionHeading text="Pod 卷" />
@@ -248,7 +248,7 @@ const PodExecLoader = ({obj}) => <div className="co-m-pane__body">
 export const PodsDetailsPage = props => <DetailsPage
   {...props}
   breadcrumbsFor={obj => breadcrumbsForOwnerRefs(obj).concat({
-    name: 'Pod Details',
+    name: 'Pod 详情',
     path: props.match.url,
   })}
   menuActions={menuActions}
@@ -260,7 +260,7 @@ export const PodsDetailsPage = props => <DetailsPage
     navFactory.events(ResourceEventStream),
     {
       href: 'terminal',
-      name: 'Terminal',
+      name: '终端',
       component: PodExecLoader,
     },
   ]}
