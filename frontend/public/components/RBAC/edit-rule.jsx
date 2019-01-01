@@ -263,7 +263,7 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
     render () {
       const {name, namespace, namespacedSet, safeResources, adminResources, rule} = this.props;
       const {verbControl, resourceControl, nonResourceURLs, APIGroups, role} = this.state;
-      const heading = `${rule === undefined ? 'Create' : 'Edit'} Access Rule`;
+      const heading = `${rule === undefined ? '创建' : '编辑'}访问规则`;
 
       return (
         <div className="co-m-pane edit-rule">
@@ -275,14 +275,14 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
             <div className="row">
               <div className="col-xs-12">
                 <p className="text-secondary">
-                Each role is made up of a set of rules, which defines the type of access and resources that are allowed to be manipulated.
+                每个角色由一组规则组成，这些规则定义了允许操作的访问类型和资源。
                 </p>
               </div>
             </div>
 
             <div className="row rule-row">
               <div className="col-xs-2">
-                <strong>{ this.kind.label } Name</strong>
+                <strong>{ this.kind.label }名称</strong>
               </div>
               <div className="col-xs-10">
                 <ResourceIcon kind={this.kind.kind} className="no-margin" /> {name}
@@ -293,7 +293,7 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
               namespace &&
             <div className="row rule-row">
               <div className="col-xs-2">
-                <strong>Namespace</strong>
+                <strong>命名空间</strong>
               </div>
               <div className="col-xs-10">
                 <ResourceIcon kind="Namespace" className="no-margin" /> {namespace}
@@ -304,7 +304,7 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
 
             <div className="row rule-row">
               <div className="col-xs-2">
-                <strong>Type of Access</strong>
+                <strong>访问类别</strong>
               </div>
               <div className="col-xs-10">
                 <RadioButton name="verbControl" activeValue={verbControl} onChange={this.set}
@@ -321,7 +321,7 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
               <div className="col-xs-10">
                 <HRMinor />
                 <p>
-                  <strong>Actions</strong>
+                  <strong>动作</strong>
                 </p>
                 <div className="newspaper-columns">
                   {
@@ -335,7 +335,7 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
 
             <div className="row rule-row">
               <div className="col-xs-2">
-                <strong>Allowed Resources</strong>
+                <strong>获准资源</strong>
               </div>
 
               <div className="col-xs-10">
@@ -366,7 +366,7 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
               </div>
               <div className="col-xs-10">
                 <HRMinor />
-                <p><strong>Safe Resources</strong></p>
+                <p><strong>安全资源</strong></p>
                 <div className="newspaper-columns">
                   { safeResources
                     ? safeResources
@@ -384,7 +384,7 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
               <div className="col-xs-10">
                 <HRMinor />
                 <p>
-                  <strong>Admin Resources</strong>
+                  <strong>管理资源</strong>
                 </p>
                 <div className="newspaper-columns">
                   { adminResources
@@ -402,8 +402,8 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
               </div>
               <div className="col-xs-10">
                 <HRMinor />
-                <label htmlFor="api-groups">API Groups</label>
-                <p className="text-secondary">Restrict this role to a subset of API URLs that don&rsquo;t correspond to objects.</p>
+                <label htmlFor="api-groups">API组</label>
+                <p className="text-secondary">将此角色限制为与对象不对应的API URL的子集。</p>
 
                 <div>
                   <input id="api-groups" type="text" value={APIGroups} className="form-control text-input" onChange={e => this.setApiGroups(e.target.value)} placeholder="Comma separated list of the api groups for the selected resources." />
@@ -416,8 +416,8 @@ const EditRule = connect(stateToProps, {getResources: k8sActions.getResources}) 
             <div className="row">
               <div className="col-xs-12">
                 <ButtonBar errorMessage={this.state.errorMessage} inProgress={this.state.inProgress}>
-                  <button type="submit" className="btn btn-primary" onClick={this.save}>Save Rule</button>
-                  {role && <Link to={`${resourceObjPath(role, this.kind.kind)}`} className="btn btn-default">Cancel</Link>}
+                  <button type="submit" className="btn btn-primary" onClick={this.save}>保存规则</button>
+                  {role && <Link to={`${resourceObjPath(role, this.kind.kind)}`} className="btn btn-default">取消</Link>}
                 </ButtonBar>
               </div>
             </div>

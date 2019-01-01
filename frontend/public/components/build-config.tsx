@@ -33,7 +33,7 @@ const menuActions = [
 
 export const BuildConfigsDetails: React.SFC<BuildConfigsDetailsProps> = ({obj: buildConfig}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="Build Config Overview" />
+    <SectionHeading text="构建配置概述" />
     <div className="row">
       <div className="col-sm-6">
         <ResourceSummary resource={buildConfig} showPodSelector={false} showNodeSelector={false} />
@@ -66,10 +66,10 @@ export const BuildConfigsDetailsPage: React.SFC<BuildConfigsDetailsPageProps> = 
 BuildConfigsDetailsPage.displayName = 'BuildConfigsDetailsPage';
 
 const BuildConfigsHeader = props => <ListHeader>
-  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.labels">Labels</ColHead>
-  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.creationTimestamp">Created</ColHead>
+  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.labels">标签</ColHead>
+  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.creationTimestamp">创建时间</ColHead>
 </ListHeader>;
 
 const BuildConfigsRow: React.SFC<BuildConfigsRowProps> = ({obj}) => <div className="row co-resource-list__item">
@@ -107,7 +107,7 @@ BuildConfigsList.displayName = 'BuildConfigsList';
 export const BuildConfigsPage: React.SFC<BuildConfigsPageProps> = props =>
   <ListPage
     {...props}
-    title="Build Configs"
+    title="构建配置"
     kind={BuildConfigsReference}
     ListComponent={BuildConfigsList}
     canCreate={true}

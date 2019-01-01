@@ -11,13 +11,13 @@ import { NodeModel } from '../models';
 import { CamelCaseWrap } from './utils/camel-case-wrap';
 
 const MarkAsUnschedulable = (kind, obj) => ({
-  label: 'Mark as Unschedulable',
+  label: '标记为不可调度',
   hidden: _.get(obj, 'spec.unschedulable'),
   callback: () => configureUnschedulableModal({resource: obj}),
 });
 
 const MarkAsSchedulable = (kind, obj) => ({
-  label: 'Mark as Schedulable',
+  label: '标记为可调度',
   hidden: !_.get(obj, 'spec.unschedulable', false),
   callback: () => makeNodeSchedulable(obj),
 });
@@ -181,7 +181,7 @@ const Details = ({obj: node}) => {
             <dd><a className="co-m-modal-link" onClick={Cog.factory.ModifyAnnotations(NodeModel, node).callback}>{pluralize(_.size(node.metadata.annotations), 'Annotation')}</a></dd>
             <dt>提供者ID</dt>
             <dd>{cloudProviderNames([cloudProviderID(node)])}</dd>
-            {_.has(node, 'spec.unschedulable') && <dt>Unschedulable</dt>}
+            {_.has(node, 'spec.unschedulable') && <dt>不可调度</dt>}
             {_.has(node, 'spec.unschedulable') && <dd className="text-capitalize">{_.get(node, 'spec.unschedulable', '-').toString()}
             </dd>}
             <dt>创建时间</dt>
@@ -210,7 +210,7 @@ const Details = ({obj: node}) => {
     </div>
 
     { containerLinuxUpdateOperator.isOperatorInstalled(node) && <div className="co-m-pane__body">
-      <SectionHeading text="Container Linux" />
+      <SectionHeading text="容器Linux" />
       <div className="row">
         <div className="col-md-6 col-xs-12">
           <dl className="co-m-pane__details">
@@ -230,7 +230,7 @@ const Details = ({obj: node}) => {
     </div> }
 
     <div className="co-m-pane__body">
-      <SectionHeading text="Node Conditions" />
+      <SectionHeading text="节点条件" />
       <div className="co-table-container">
         <table className="table">
           <thead>
@@ -256,7 +256,7 @@ const Details = ({obj: node}) => {
     </div>
 
     <div className="co-m-pane__body">
-      <SectionHeading text="Images" />
+      <SectionHeading text="镜像" />
       <div className="co-table-container">
         <table className="table">
           <thead>

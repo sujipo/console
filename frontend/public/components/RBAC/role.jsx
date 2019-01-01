@@ -65,7 +65,7 @@ class Details extends React.Component {
 
     return <div>
       <div className="co-m-pane__body">
-        <SectionHeading text="Role Overview" />
+        <SectionHeading text="角色概览" />
         <div className="row">
           <div className="col-xs-6">
             <dl className="co-m-pane__details">
@@ -86,7 +86,7 @@ class Details extends React.Component {
         </div>
       </div>
       <div className="co-m-pane__body">
-        <SectionHeading text="Rules" />
+        <SectionHeading text="规则" />
         <div className="co-m-pane__filter-bar co-m-pane__filter-bar--alt">
           {/* This page is temporarily disabled until we update the safe resources list.
           <div className="co-m-pane__filter-bar-group">
@@ -96,7 +96,7 @@ class Details extends React.Component {
           </div>
           */}
           <div className="co-m-pane__filter-bar-group co-m-pane__filter-bar-group--filter">
-            <TextFilter label="Rules by action or resource" onChange={this.changeFilter} />
+            <TextFilter label="规则通过行动或资源" onChange={this.changeFilter} />
           </div>
         </div>
         <RulesList rules={rules} name={name} namespace={namespace} />
@@ -150,7 +150,7 @@ export const BindingsForRolePage = (props) => {
 
 export const RolesDetailsPage = props => <DetailsPage
   {...props}
-  pages={[navFactory.details(Details), navFactory.editYaml(), {href: 'bindings', name: 'Role Bindings', component: BindingsForRolePage}]}
+  pages={[navFactory.details(Details), navFactory.editYaml(), {href: 'bindings', name: '角色绑定', component: BindingsForRolePage}]}
   menuActions={menuActions} />;
 
 export const ClusterRolesDetailsPage = RolesDetailsPage;
@@ -178,7 +178,7 @@ export const RolesPage = connectToFlags(FLAGS.PROJECTS_AVAILBLE, FLAGS.PROJECTS_
     namespace={namespace}
     createButtonText="创建角色"
     createProps={{to: `/k8s/ns/${namespace || 'default'}/roles/new`}}
-    filterLabel="Roles by name"
+    filterLabel="规则通过名称"
     flatten={resources => _.flatMap(resources, 'data').filter(r => !!r)}
     resources={[
       {kind: 'Role', namespaced: true, optional: !projectsAvailable},
