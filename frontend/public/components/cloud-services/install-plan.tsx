@@ -13,11 +13,11 @@ import { SubscriptionModel, ClusterServiceVersionModel, InstallPlanModel, Catalo
 import { breadcrumbsForOwnerRefs } from '../utils/breadcrumbs';
 
 export const InstallPlanHeader: React.SFC<InstallPlanHeaderProps> = (props) => <ListHeader>
-  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="hidden-xs col-sm-4 col-md-3 col-lg-2">Components</ColHead>
-  <ColHead {...props} className="hidden-xs hidden-sm col-md-3 col-lg-2">Subscriptions</ColHead>
-  <ColHead {...props} className="hidden-xs hidden-sm hidden-md col-lg-2" sortField="status.phase">Status</ColHead>
+  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="hidden-xs col-sm-4 col-md-3 col-lg-2">组件</ColHead>
+  <ColHead {...props} className="hidden-xs hidden-sm col-md-3 col-lg-2">订阅</ColHead>
+  <ColHead {...props} className="hidden-xs hidden-sm hidden-md col-lg-2" sortField="status.phase">状态</ColHead>
 </ListHeader>;
 
 export const InstallPlanRow: React.SFC<InstallPlanRowProps> = (props) => {
@@ -49,16 +49,16 @@ export const InstallPlanRow: React.SFC<InstallPlanRowProps> = (props) => {
   </ResourceRow>;
 };
 export const InstallPlansList: React.SFC<InstallPlansListProps> = (props) => {
-  const EmptyMsg = () => <MsgBox title="No Install Plans Found" detail="Install Plans are created automatically by subscriptions or manually using kubectl." />;
+  const EmptyMsg = () => <MsgBox title="没有找到安装计划" detail="安装计划是通过订阅或使用kubectl手动创建的。" />;
   return <List {...props} Header={InstallPlanHeader} Row={InstallPlanRow} EmptyMsg={EmptyMsg} />;
 };
 
 export const InstallPlansPage: React.SFC<InstallPlansPageProps> = (props) => <ListPage
   {...props}
-  title="Install Plans"
+  title="安装计划"
   showTitle={true}
   ListComponent={InstallPlansList}
-  filterLabel="Install Plans by name"
+  filterLabel="安装计划通过名称"
   kind={referenceForModel(InstallPlanModel)} />;
 
 export const InstallPlanDetails: React.SFC<InstallPlanDetailsProps> = ({obj}) => {
@@ -66,10 +66,10 @@ export const InstallPlanDetails: React.SFC<InstallPlanDetailsProps> = ({obj}) =>
 
   return <React.Fragment>
     { needsApproval && <div className="co-well">
-      <h4>Review Manual Install Plan</h4>
-      <p>Inspect the requirements for the components specified in this install plan before approving.</p>
+      <h4>审核人工安装计划</h4>
+      <p>在批准之前，检查本安装计划中指定的组件的要求。</p>
       <Link to={`/k8s/ns/${obj.metadata.namespace}/${referenceForModel(InstallPlanModel)}/${obj.metadata.name}/components`}>
-        <button className="btn btn-info">Preview Install Plan</button>
+        <button className="btn btn-info">预览安装计划</button>
       </Link>
     </div> }
     <div className="co-m-pane__body">
@@ -81,15 +81,15 @@ export const InstallPlanDetails: React.SFC<InstallPlanDetailsProps> = ({obj}) =>
           </div>
           <div className="col-sm-6">
             <dl className="co-m-pane__details">
-              <dt>Status</dt>
+              <dt>状态</dt>
               <dd>{_.get(obj.status, 'phase', 'Unknown')}</dd>
-              <dt>Components</dt>
+              <dt>组件</dt>
               { (obj.spec.clusterServiceVersionNames || []).map((csvName, i) => <dd key={i}>
                 { obj.status.phase === 'Complete'
                   ? <ResourceLink kind={referenceForModel(ClusterServiceVersionModel)} name={csvName} namespace={obj.metadata.namespace} title={csvName} />
                   : <React.Fragment><ResourceIcon kind={referenceForModel(ClusterServiceVersionModel)} />{csvName}</React.Fragment> }
               </dd>) }
-              <dt>Catalog Sources</dt>
+              <dt>应用来源</dt>
               { (_.get(obj.status, 'catalogSources') || []).map((catalogName, i) => <dd key={i}>
                 <ResourceLink kind={referenceForModel(CatalogSourceModel)} name={catalogName} namespace="openshift" title={catalogName} />
               </dd>) }
@@ -127,8 +127,8 @@ export class InstallPlanPreview extends React.Component<InstallPlanPreviewProps,
       ? <React.Fragment>
         { this.state.error && <div className="co-clusterserviceversion-detail__error-box">{this.state.error}</div> }
         { this.state.needsApproval && <div className="co-well">
-          <h4>Review Manual Install Plan</h4>
-          <p>Once approved, the following resources will be created in order to satisfy the requirements for the components specified in the plan.</p>
+          <h4>审核人工安装计划</h4>
+          <p>一旦批准，将创建以下资源，以满足计划中指定的组件的需求。</p>
           <button
             className="btn btn-info"
             disabled={!this.state.needsApproval}
@@ -142,10 +142,10 @@ export class InstallPlanPreview extends React.Component<InstallPlanPreviewProps,
             <table className="table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Kind</th>
-                  <th>API Version</th>
-                  <th>Status</th>
+                  <th>名称</th>
+                  <th>种类</th>
+                  <th>API版本</th>
+                  <th>状态</th>
                 </tr>
               </thead>
               <tbody>
@@ -166,7 +166,7 @@ export class InstallPlanPreview extends React.Component<InstallPlanPreviewProps,
         </div>) }
       </React.Fragment>
       : <div className="co-m-pane__body">
-        <MsgBox title="No Components Resolved" detail="This install plan has not been fully resolved yet." />
+        <MsgBox title="没有组件解决" detail="这个安装计划还没有完全解决。" />
       </div>;
   }
 }
@@ -179,10 +179,10 @@ export const InstallPlanDetailsPage: React.SFC<InstallPlanDetailsPageProps> = (p
   pages={[
     navFactory.details(InstallPlanDetails),
     navFactory.editYaml(),
-    {href: 'components', name: 'Components', component: InstallPlanPreview},
+    {href: 'components', name: '组件', component: InstallPlanPreview},
   ]}
   breadcrumbsFor={(obj) => breadcrumbsForOwnerRefs(obj).concat({
-    name: 'Install Plan Details',
+    name: '安装计划详情',
     path: props.match.url,
   })}
   menuActions={Cog.factory.common} />;

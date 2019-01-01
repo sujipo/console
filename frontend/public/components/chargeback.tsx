@@ -45,12 +45,12 @@ const ChargebackNavBar: React.SFC<{match: {url: string}}> = props => <div>
 
 
 const ReportsHeader = props => <ListHeader>
-  <ColHead {...props} className="col-lg-3 col-md-3 col-xs-4" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-xs-4" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs">Report Generation Query</ColHead>
-  <ColHead {...props} className="col-lg-1 col-md-2 col-xs-4" sortField="spec.status.phase">Status</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortField="spec.reportingStart">Reporting Start</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortField="spec.reportingEnd">Reporting End</ColHead>
+  <ColHead {...props} className="col-lg-3 col-md-3 col-xs-4" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-xs-4" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs">报告生成查询</ColHead>
+  <ColHead {...props} className="col-lg-1 col-md-2 col-xs-4" sortField="spec.status.phase">状态</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortField="spec.reportingStart">报告开始</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortField="spec.reportingEnd">报告结束</ColHead>
 </ListHeader>;
 
 const ReportsRow: React.SFC<ReportsRowProps> = ({obj}) => {
@@ -385,10 +385,10 @@ export const ReportsDetailsPage: React.SFC<ReportsDetailsPageProps> = props => {
 
 
 const ReportGenerationQueriesHeader = props => <ListHeader>
-  <ColHead {...props} className="col-md-3 col-sm-4" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-4" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-md-3 hidden-sm hidden-xs">Labels</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-4" sortField="metadata.creationTimestamp">Created At</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-md-3 hidden-sm hidden-xs">标签</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4" sortField="metadata.creationTimestamp">创建时间</ColHead>
 </ListHeader>;
 
 const ReportGenerationQueriesRow: React.SFC<ReportGenerationQueriesRowProps> = ({obj}) => {
@@ -423,7 +423,7 @@ const ReportGenerationQueriesDetails: React.SFC<ReportGenerationQueriesDetailsPr
                 <thead>
                   <tr>
                     <th>Column</th>
-                    <th>Type</th>
+                    <th>类别</th>
                   </tr>
                 </thead>
                 <tbody>

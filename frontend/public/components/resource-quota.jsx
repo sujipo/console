@@ -6,8 +6,8 @@ import { Cog, SectionHeading, navFactory, ResourceCog, ResourceLink, ResourceSum
 const menuActions = [Cog.factory.ModifyLabels, Cog.factory.ModifyAnnotations, Cog.factory.Edit, Cog.factory.Delete];
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-md-5 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-7 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
+  <ColHead {...props} className="col-md-5 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-7 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
 </ListHeader>;
 
 const kind = 'ResourceQuota';

@@ -8,7 +8,7 @@ import { containerLinuxUpdateOperator } from '../utils';
 const Status = ({status, upgradeCount}) => {
   return <div className="co-cluster-updates__details">
     <dl className="co-cluster-updates__detail">
-      <dt>Status</dt>
+      <dt>状态</dt>
       <dd>
         {upgradeCount > 0 && <span className="co-cluster-updates__text-icon fa fa-circle-o-notch fa-spin co-cluster-updates__operator-icon--updating"></span>}
         <span className={upgradeCount > 0 ? 'co-cluster-updates--updating' : 'co-cluster-updates--up-to-date'}>{status}</span>

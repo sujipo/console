@@ -63,7 +63,7 @@ export const DeploymentConfigsDetails: React.SFC<{obj: any}> = ({obj: deployment
         <div className="row">
           <div className="col-sm-6">
             <ResourceSummary resource={deploymentConfig}>
-              <dt>Status</dt>
+              <dt>状态</dt>
               <dd>{deploymentConfig.status.availableReplicas === deploymentConfig.status.updatedReplicas ? <span>Active</span> : <div><span className="co-icon-space-r"><LoadingInline /></span> Updating</div>}</dd>
             </ResourceSummary>
           </div>

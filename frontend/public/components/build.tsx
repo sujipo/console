@@ -67,7 +67,7 @@ export const BuildsDetails: React.SFC<BuildsDetailsProps> = ({ obj: build }) => 
         </div>
         <div className="col-sm-6">
           <BuildStrategy resource={build}>
-            <dt>Status</dt>
+            <dt>状态</dt>
             <dd>{build.status.phase}</dd>
             {logSnippet && <dt>Log Snippet</dt>}
             {logSnippet && <dd><pre>{logSnippet}</pre></dd>}
@@ -142,10 +142,10 @@ export const BuildsDetailsPage: React.SFC<BuildsDetailsPageProps> = props =>
 BuildsDetailsPage.displayName = 'BuildsDetailsPage';
 
 const BuildsHeader = props => <ListHeader>
-  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="status.phase">Status</ColHead>
-  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.creationTimestamp">Created</ColHead>
+  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="status.phase">状态</ColHead>
+  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.creationTimestamp">创建时间</ColHead>
 </ListHeader>;
 
 const BuildsRow: React.SFC<BuildsRowProps> = ({ obj }) => <div className="row co-resource-list__item">

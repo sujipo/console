@@ -28,9 +28,9 @@ const PVCStatus = ({pvc}) => {
 };
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-sm-4 hidden-xs" sortField="status.phase">Status</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-sm-4 hidden-xs" sortField="status.phase">状态</ColHead>
 </ListHeader>;
 
 const kind = 'PersistentVolumeClaim';
@@ -66,7 +66,7 @@ const Details_ = ({flags, obj: pvc}) => {
       </div>
       <div className="col-sm-6">
         <dl>
-          <dt>Status</dt>
+          <dt>状态</dt>
           <dd><PVCStatus pvc={pvc} /></dd>
           <dt>Storage Class</dt>
           <dd>
@@ -78,7 +78,7 @@ const Details_ = ({flags, obj: pvc}) => {
           </React.Fragment>}
           <dt>Requested</dt>
           <dd>{requestedStorage || '-'}</dd>
-          {storage && <React.Fragment><dt>Size</dt><dd>{storage}</dd></React.Fragment>}
+          {storage && <React.Fragment><dt>大小</dt><dd>{storage}</dd></React.Fragment>}
           {!_.isEmpty(accessModes) && <React.Fragment><dt>Access Modes</dt><dd>{accessModes.join(', ')}</dd></React.Fragment>}
         </dl>
       </div>

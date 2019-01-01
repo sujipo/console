@@ -69,10 +69,10 @@ export const ImageStreamsDetails: React.SFC<ImageStreamsDetailsProps> = ({obj: i
         : <div className="row">
           <div className="co-m-table-grid co-m-table-grid--bordered">
             <div className="row co-m-table-grid__head">
-              <div className="col-md-2 col-sm-4 col-xs-4">Name</div>
+              <div className="col-md-2 col-sm-4 col-xs-4">名称</div>
               <div className="col-md-3 col-sm-4 col-xs-8">From</div>
-              <div className="col-md-4 col-sm-4 hidden-xs">Identifier</div>
-              <div className="col-md-3 hidden-sm hidden-xs">Last Updated</div>
+              <div className="col-md-4 col-sm-4 hidden-xs">标识符</div>
+              <div className="col-md-3 hidden-sm hidden-xs">最后更新</div>
             </div>
             <div className="co-m-table-grid__body">
               {_.map(imageStream.status.tags, (statusTag) =>
@@ -98,10 +98,10 @@ export const ImageStreamsDetailsPage: React.SFC<ImageStreamsDetailsPageProps> = 
 ImageStreamsDetailsPage.displayName = 'ImageStreamsDetailsPage';
 
 const ImageStreamsHeader = props => <ListHeader>
-  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.labels">Labels</ColHead>
-  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.creationTimestamp">Created</ColHead>
+  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-sm-3 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.labels">标签</ColHead>
+  <ColHead {...props} className="col-sm-3 hidden-xs" sortField="metadata.creationTimestamp">创建时间</ColHead>
 </ListHeader>;
 
 const ImageStreamsRow: React.SFC<ImageStreamsRowProps> = ({obj}) => <div className="row co-resource-list__item">

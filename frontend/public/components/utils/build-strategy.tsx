@@ -29,7 +29,7 @@ export const BuildStrategy: React.SFC<BuildStrategyProps> = ({ resource, childre
 
   return <dl className="co-m-pane__details">
     {children}
-    <dt>Type</dt>
+    <dt>类别</dt>
     <dd>{strategy.type}</dd>
     {git && <dt>Git Repository</dt>}
     {git && <dd>{git.uri}</dd>}

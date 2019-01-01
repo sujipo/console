@@ -55,7 +55,7 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
             {labels.name && <dd>{labels.name}</dd>}
             {labels.summary && <dt>Summary</dt>}
             {labels.summary && <dd>{labels.summary}</dd>}
-            {humanizedSize && <dt>Size</dt>}
+            {humanizedSize && <dt>大小</dt>}
             {humanizedSize && <dd>{humanizedSize}</dd>}
           </ResourceSummary>
         </div>
@@ -86,8 +86,8 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
           <table className="table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Value</th>
+                <th>名称</th>
+                <th>值</th>
               </tr>
             </thead>
             <tbody>
@@ -107,8 +107,8 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
           <table className="table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Value</th>
+                <th>名称</th>
+                <th>值</th>
               </tr>
             </thead>
             <tbody>

@@ -40,10 +40,10 @@ export const Resources = connectToPlural((props: ResourceProps) => {
   const isCR = (k8sObj) => crds.find((kind) => kind === k8sObj.kind);
 
   const ResourceHeader: React.SFC<ResourceHeaderProps> = (headerProps) => <ListHeader>
-    <ColHead {...headerProps} className="col-xs-4" sortField="metadata.name">Name</ColHead>
-    <ColHead {...headerProps} className="col-xs-2" sortField="kind">Type</ColHead>
-    <ColHead {...headerProps} className="col-xs-2" sortField="status.phase">Status</ColHead>
-    <ColHead {...headerProps} className="col-xs-4" sortField="metadata.creationTimestamp">Created</ColHead>
+    <ColHead {...headerProps} className="col-xs-4" sortField="metadata.name">名称</ColHead>
+    <ColHead {...headerProps} className="col-xs-2" sortField="kind">类别</ColHead>
+    <ColHead {...headerProps} className="col-xs-2" sortField="status.phase">状态</ColHead>
+    <ColHead {...headerProps} className="col-xs-4" sortField="metadata.creationTimestamp">创建时间</ColHead>
   </ListHeader>;
 
   const ResourceRow: React.SFC<ResourceRowProps> = ({obj}) => <div className="row co-resource-list__item">

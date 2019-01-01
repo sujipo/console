@@ -56,7 +56,7 @@ export const WebhookTriggers: React.SFC<WebhookTriggersProps> = ({ resource }) =
         </colgroup>
         <thead>
           <tr>
-            <th>Type</th>
+            <th>类别</th>
             <th>Webhook URL</th>
             <th>Secret</th>
           </tr>

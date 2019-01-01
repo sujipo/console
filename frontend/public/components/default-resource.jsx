@@ -10,9 +10,9 @@ import { referenceFor, kindForReference } from '../module/k8s';
 const menuActions = [Cog.factory.ModifyLabels, Cog.factory.ModifyAnnotations, Cog.factory.Edit, Cog.factory.Delete];
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-xs-6 col-sm-4" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-xs-6 col-sm-4" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-sm-4 hidden-xs" sortField="metadata.creationTimestamp">Created</ColHead>
+  <ColHead {...props} className="col-xs-6 col-sm-4" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-xs-6 col-sm-4" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-sm-4 hidden-xs" sortField="metadata.creationTimestamp">创建时间</ColHead>
 </ListHeader>;
 
 const RowForKind = kind => function RowForKind_ ({obj}) {

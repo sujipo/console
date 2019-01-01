@@ -47,9 +47,9 @@ class Details extends SafetyFirst {
         <div className="row">
           <div className="col-sm-6 col-xs-12">
             <dl className="co-m-pane__details">
-              <dt>Name</dt>
+              <dt>名称</dt>
               <dd>{metadata.name}</dd>
-              <dt>Labels</dt>
+              <dt>标签</dt>
               <dd><LabelList kind="Alertmanager" labels={metadata.labels} /></dd>
               {spec.nodeSelector && <dt>Alert Manager Node Selector</dt>}
               {spec.nodeSelector && <dd><Selector selector={spec.nodeSelector} kind="Node" /></dd>}
@@ -57,7 +57,7 @@ class Details extends SafetyFirst {
           </div>
           <div className="col-sm-6 col-xs-12">
             <dl className="co-m-pane__details">
-              <dt>Version</dt>
+              <dt>版本</dt>
               <dd>{spec.version}</dd>
               <dt>Replicas</dt>
               <dd>{this.state.desiredCountOutdated ? <LoadingInline /> : <a className="co-m-modal-link" href="#"
@@ -133,10 +133,10 @@ const AlertManagerRow = ({obj: alertManager}) => {
 };
 
 const AlertManagerHeader = props => <ListHeader>
-  <ColHead {...props} className="col-md-2 col-sm-3 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-2 col-sm-3 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-md-4 col-sm-3 hidden-xs" sortField="metadata.labels">Labels</ColHead>
-  <ColHead {...props} className="col-md-1 hidden-sm hidden-xs" sortField="spec.version">Version</ColHead>
+  <ColHead {...props} className="col-md-2 col-sm-3 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-2 col-sm-3 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-md-4 col-sm-3 hidden-xs" sortField="metadata.labels">标签</ColHead>
+  <ColHead {...props} className="col-md-1 hidden-sm hidden-xs" sortField="spec.version">版本</ColHead>
   <ColHead {...props} className="col-md-3 col-sm-3 hidden-xs" sortField="spec.nodeSelector">
     Node Selector
   </ColHead>

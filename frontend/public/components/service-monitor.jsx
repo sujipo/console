@@ -48,9 +48,9 @@ const ServiceMonitorRow = ({obj: sm}) => {
 };
 
 const ServiceMonitorHeader = props => <ListHeader>
-  <ColHead {...props} className="col-md-3 col-sm-3 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-3 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-6 hidden-xs" sortField="spec.selector">Service Selector</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-3 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-3 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-6 hidden-xs" sortField="spec.selector">服务选择器</ColHead>
   <ColHead {...props} className="col-md-3 hidden-sm hidden-xs" sortField="spec.namespaceSelector">
     Monitoring Namespace
   </ColHead>

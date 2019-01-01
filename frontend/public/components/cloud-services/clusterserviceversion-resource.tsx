@@ -17,12 +17,12 @@ import { ClusterServiceVersionModel } from '../../models';
 import { Gauge, Scalar, Line, Bar } from '../graphs';
 
 export const ClusterServiceVersionResourceHeader: React.SFC<ClusterServiceVersionResourceHeaderProps> = (props) => <ListHeader>
-  <ColHead {...props} className="col-xs-2" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-xs-2" sortField="metadata.labels">Labels</ColHead>
-  <ColHead {...props} className="col-xs-2" sortField="kind">Type</ColHead>
-  <ColHead {...props} className="col-xs-2">Status</ColHead>
-  <ColHead {...props} className="col-xs-2">Version</ColHead>
-  <ColHead {...props} className="col-xs-2">Last Updated</ColHead>
+  <ColHead {...props} className="col-xs-2" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-xs-2" sortField="metadata.labels">标签</ColHead>
+  <ColHead {...props} className="col-xs-2" sortField="kind">类别</ColHead>
+  <ColHead {...props} className="col-xs-2">状态</ColHead>
+  <ColHead {...props} className="col-xs-2">版本</ColHead>
+  <ColHead {...props} className="col-xs-2">最后更新</ColHead>
 </ListHeader>;
 
 export const ClusterServiceVersionResourceLink: React.SFC<ClusterServiceVersionResourceLinkProps> = (props) => {
@@ -63,9 +63,9 @@ export const ClusterServiceVersionResourceRow: React.SFC<ClusterServiceVersionRe
 };
 
 export const ClusterServiceVersionResourceList: React.SFC<ClusterServiceVersionResourceListProps> = (props) => {
-  const EmptyMsg = () => <MsgBox title="No Application Resources Found" detail="Application resources are declarative components used to define the behavior of the application." />;
+  const EmptyMsg = () => <MsgBox title="没有找到应用程序资源" detail="应用程序资源是用于定义应用程序行为的声明性组件。" />;
 
-  return <List {...props} EmptyMsg={EmptyMsg} Header={ClusterServiceVersionResourceHeader} Row={ClusterServiceVersionResourceRow} label="Application Resources" />;
+  return <List {...props} EmptyMsg={EmptyMsg} Header={ClusterServiceVersionResourceHeader} Row={ClusterServiceVersionResourceRow} label="应用程序资源" />;
 };
 
 export const ClusterServiceVersionPrometheusGraph: React.SFC<ClusterServiceVersionPrometheusGraphProps> = (props) => {
@@ -79,7 +79,7 @@ export const ClusterServiceVersionPrometheusGraph: React.SFC<ClusterServiceVersi
     case PrometheusQueryTypes.Bar:
       return <Bar title={props.query.name} query={props.query.query} metric={props.query.metric} humanize={humanizeNumber} basePath={props.basePath} />;
     default:
-      return <span>Unknown graph type: {props.query.type}</span>;
+      return <span>未知的图表类型: {props.query.type}</span>;
   }
 };
 
@@ -91,7 +91,7 @@ export const ClusterServiceVersionResourcesPage = connect(inFlightStateToProps)(
     const {owned = []} = obj.spec.customresourcedefinitions;
     const firehoseResources = owned.map((desc) => ({kind: referenceForCRDDesc(desc), namespaced: true, prop: desc.kind}));
 
-    const EmptyMsg = () => <MsgBox title="No Application Resources Defined" detail="This application was not properly installed or configured." />;
+    const EmptyMsg = () => <MsgBox title="没有定义应用程序资源" detail="此应用程序没有正确安装或配置。" />;
     const createLink = (name: string) => `/k8s/ns/${obj.metadata.namespace}/${ClusterServiceVersionModel.plural}/${obj.metadata.name}/${referenceForCRDDesc(_.find(owned, {name}))}/new`;
     const createProps = owned.length > 1
       ? {items: owned.reduce((acc, crd) => ({...acc, [crd.name]: crd.displayName}), {}), createLink}
@@ -116,12 +116,12 @@ export const ClusterServiceVersionResourcesPage = connect(inFlightStateToProps)(
       ? <MultiListPage
         {...props}
         ListComponent={ClusterServiceVersionResourceList}
-        filterLabel="Resources by name"
+        filterLabel="资源通过名称"
         resources={firehoseResources}
         namespace={obj.metadata.namespace}
         canCreate={owned.length > 0 && obj.status.phase === ClusterServiceVersionPhase.CSVPhaseSucceeded}
         createProps={createProps}
-        createButtonText={owned.length > 1 ? 'Create New' : `Create ${owned[0].displayName}`}
+        createButtonText={owned.length > 1 ? '创建新的' : `创建${owned[0].displayName}`}
         flatten={flatten}
         rowFilters={firehoseResources.length > 1 ? rowFilters : null}
       />
@@ -194,11 +194,11 @@ export const ClusterServiceVersionResourceDetails = connectToModel(
                 { this.state.expanded
                   ? <ResourceSummary resource={this.props.obj} showPodSelector={false} />
                   : <dl className="co-m-pane__details">
-                    <dt>Name</dt>
+                    <dt>名称</dt>
                     <dd>{metadata.name}</dd>
-                    <dt>Namespace</dt>
+                    <dt>命名空间</dt>
                     <dd><ResourceLink namespace="" kind="Namespace" name={metadata.namespace} title={metadata.namespace} /></dd>
-                    <dt>Created At</dt>
+                    <dt>创建时间</dt>
                     <dd><Timestamp timestamp={metadata.creationTimestamp} /></dd>
                   </dl> }
               </div>

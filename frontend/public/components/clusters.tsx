@@ -12,7 +12,7 @@ const menuActions = [Cog.factory.ModifyLabels, Cog.factory.ModifyAnnotations, Co
 
 const ClustersHeader = props => <ListHeader>
   <ColHead {...props} className="col-xs-4" sortField="metadata.name">Cluster Name</ColHead>
-  <ColHead {...props} className="col-xs-3">Type</ColHead>
+  <ColHead {...props} className="col-xs-3">类别</ColHead>
   <ColHead {...props} className="col-xs-5">Addresses</ColHead>
 </ListHeader>;
 

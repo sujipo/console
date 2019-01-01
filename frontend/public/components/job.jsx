@@ -17,11 +17,11 @@ const ModifyJobParallelism = (kind, obj) => ({
 const menuActions = [ModifyJobParallelism, ...Cog.factory.common];
 
 const JobHeader = props => <ListHeader>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-lg-4 col-md-4 col-sm-4 hidden-xs" sortField="metadata.labels">Labels</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortFunc="jobCompletions">Completions</ColHead>
-  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortFunc="jobType">Type</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-lg-4 col-md-4 col-sm-4 hidden-xs" sortField="metadata.labels">标签</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-2 hidden-sm hidden-xs" sortFunc="jobCompletions">完成</ColHead>
+  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortFunc="jobType">类别</ColHead>
 </ListHeader>;
 
 const JobRow = ({obj: job}) => {
@@ -66,7 +66,7 @@ const Details = ({obj: job}) => <div className="co-m-pane__body">
     <div className="col-md-6">
       <SectionHeading text="Job Status" />
       <dl className="co-m-pane__details">
-        <dt>Status</dt>
+        <dt>状态</dt>
         <dd>{job.status.conditions ? job.status.conditions[0].type : 'In Progress'}</dd>
         <dt>Start Time</dt>
         <dd><Timestamp timestamp={job.status.startTime} /></dd>

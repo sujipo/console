@@ -32,10 +32,10 @@ const getTLSCert = (ingress) => {
 };
 
 const IngressListHeader = props => <ListHeader>
-  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-md-3 col-sm-4 hidden-xs" sortField="metadata.labels">Labels</ColHead>
-  <ColHead {...props} className="col-md-3 hidden-sm hidden-xs" sortFunc="ingressValidHosts">Hosts</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-md-3 col-sm-4 hidden-xs" sortField="metadata.labels">标签</ColHead>
+  <ColHead {...props} className="col-md-3 hidden-sm hidden-xs" sortFunc="ingressValidHosts">主机</ColHead>
 </ListHeader>;
 
 const IngressListRow = ({obj: ingress}) => <ResourceRow obj={ingress}>
@@ -56,7 +56,7 @@ const IngressListRow = ({obj: ingress}) => <ResourceRow obj={ingress}>
 const RulesHeader = () => <div className="row co-m-table-grid__head">
   <div className="col-xs-3">Host</div>
   <div className="col-xs-3">Path</div>
-  <div className="col-xs-3">Service</div>
+  <div className="col-xs-3">服务</div>
   <div className="col-xs-2">Service Port</div>
 </div>;
 

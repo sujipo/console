@@ -15,11 +15,11 @@ import { createSubscriptionChannelModal } from '../modals/subscription-channel-m
 import { createInstallPlanApprovalModal } from '../modals/installplan-approval-modal';
 
 export const SubscriptionHeader: React.SFC<SubscriptionHeaderProps> = (props) => <ListHeader>
-  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="hidden-xs col-sm-4 col-md-3 col-lg-2">Status</ColHead>
-  <ColHead {...props} className="hidden-xs hidden-sm col-md-3 col-lg-2">Channel</ColHead>
-  <ColHead {...props} className="hidden-xs hidden-sm hidden-md col-lg-2">Approval Strategy</ColHead>
+  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-xs-6 col-sm-4 col-md-3" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="hidden-xs col-sm-4 col-md-3 col-lg-2">状态</ColHead>
+  <ColHead {...props} className="hidden-xs hidden-sm col-md-3 col-lg-2">通道</ColHead>
+  <ColHead {...props} className="hidden-xs hidden-sm hidden-md col-lg-2">批准策略</ColHead>
 </ListHeader>;
 
 const subscriptionState = (state: SubscriptionState) => {
@@ -146,7 +146,7 @@ export class SubscriptionUpdates extends React.Component<SubscriptionUpdatesProp
       <div className="co-detail-table__row row">
         <div className="co-detail-table__section col-sm-3">
           <dl className="co-m-pane__details">
-            <dt className="co-detail-table__section-header">Channel</dt>
+            <dt className="co-detail-table__section-header">通道</dt>
             <dd>{ this.state.waitingForUpdate
               ? <LoadingInline />
               : <a className="co-m-modal-link" onClick={() => channelModal()}>{obj.spec.channel || 'default'}</a>

@@ -80,7 +80,7 @@ class CreateNamespaceModal extends PromiseComponent {
       <ModalTitle>Create New {label}</ModalTitle>
       <ModalBody>
         <div className="form-group">
-          <label htmlFor="input-name" className="control-label">Name</label>
+          <label htmlFor="input-name" className="control-label">名称</label>
           <div className="modal-body__field">
             <input id="input-name" name="name" type="text" className="form-control" onChange={this.handleChange.bind(this)} value={this.state.name || ''} autoFocus required />
           </div>
@@ -98,7 +98,7 @@ class CreateNamespaceModal extends PromiseComponent {
           </div>
         </div>}
         {!this.props.createProject && <div className="form-group">
-          <label htmlFor="tags-input" className="control-label">Labels</label>
+          <label htmlFor="tags-input" className="control-label">标签</label>
           <div className="modal-body__field">
             <SelectorInput labelClassName="co-text-namespace" onChange={this.onLabels.bind(this)} tags={[]} />
           </div>

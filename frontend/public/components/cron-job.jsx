@@ -8,10 +8,10 @@ import { ResourceEventStream } from './events';
 const menuActions = [Cog.factory.Edit, Cog.factory.Delete];
 
 const Header = props => <ListHeader>
-  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 hidden-xs" sortField="spec.schedule">Schedule</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.schedule">Concurrency Policy</ColHead>
+  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 hidden-xs" sortField="spec.schedule">计划表</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.schedule">并发策略</ColHead>
   <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortField="spec.schedule">Starting Deadline Seconds</ColHead>
 </ListHeader>;
 
@@ -42,13 +42,13 @@ const Details = ({obj: cronjob}) => {
       <div className="col-md-6">
         <SectionHeading text="CronJob Overview" />
         <ResourceSummary resource={cronjob} showNodeSelector={false} showPodSelector={false} showAnnotations={false}>
-          <dt>Schedule</dt>
+          <dt>计划表</dt>
           <dd>{cronjob.spec.schedule}</dd>
-          <dt>Concurrency Policy</dt>
+          <dt>并发策略</dt>
           <dd>{cronjob.spec.concurrencyPolicy || '-'}</dd>
           <dt>Starting Deadline Seconds</dt>
           <dd>{cronjob.spec.startingDeadlineSeconds || '-'}</dd>
-          <dt>Last Schedule Time</dt>
+          <dt>最后安排时间</dt>
           <dd><Timestamp timestamp={cronjob.status.lastScheduleTime} /></dd>
         </ResourceSummary>
       </div>

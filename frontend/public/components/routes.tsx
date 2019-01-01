@@ -118,11 +118,11 @@ export const RouteStatus: React.SFC<RouteStatusProps> = ({obj: route}) => {
 RouteStatus.displayName = 'RouteStatus';
 
 const RouteListHeader: React.SFC<RouteHeaderProps> = props => <ListHeader>
-  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">Name</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">Namespace</ColHead>
-  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 hidden-xs" sortField="spec.host">Location</ColHead>
-  <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.to.name">Service</ColHead>
-  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs">Status</ColHead>
+  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.name">名称</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
+  <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 hidden-xs" sortField="spec.host">位置</ColHead>
+  <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.to.name">服务</ColHead>
+  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs">状态</ColHead>
 </ListHeader>;
 
 const RouteListRow: React.SFC<RoutesRowProps> = ({obj: route}) => <ResourceRow obj={route}>
@@ -239,9 +239,9 @@ const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fra
         </ResourceSummary>
       </div>
       <div className="col-sm-6">
-        <dt>Location</dt>
+        <dt>位置</dt>
         <dd><RouteLocation obj={route} /></dd>
-        <dt>Status</dt>
+        <dt>状态</dt>
         <dd>
           <RouteStatus obj={route} />
         </dd>
@@ -265,7 +265,7 @@ const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fra
       <table className="table">
         <thead>
           <tr>
-            <th>Service</th>
+            <th>服务</th>
             <th>Weight</th>
             <th>Percent</th>
           </tr>

@@ -28,7 +28,7 @@ export class ProfilePage extends SafetyFirst {
       <NavTitle detail={true} title="Profile" />
       <div className="co-m-pane__body">
         <dl className="co-m-pane__details">
-          <dt>Name</dt>
+          <dt>名称</dt>
           <dd>{authSvc.name() || '-'}</dd>
           <dt>Email Address</dt>
           <dd>{authSvc.email() || '-'}</dd>

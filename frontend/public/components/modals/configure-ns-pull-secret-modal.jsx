@@ -180,7 +180,7 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
 
         <div className="row co-m-form-row">
           <div className="col-xs-3">
-            <label>Namespace</label>
+            <label>命名空间</label>
           </div>
           <div className="col-xs-9">
             <ResourceIcon kind="Namespace" className="co-m-resource-icon--align-left" /> &nbsp;{namespace.metadata.name}
