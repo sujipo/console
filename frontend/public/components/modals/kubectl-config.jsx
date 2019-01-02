@@ -113,19 +113,19 @@ class KubectlConfigModal extends PromiseComponent {
 
       {/*step 1: get verification code*/}
       { this.state.step === steps.GET_VERIFICATION_CODE && <form onSubmit={this._getVerificationCode} name="get-verification-code">
-        <ModalTitle>Set Up kubectl</ModalTitle>
+        <ModalTitle>设置kubectl</ModalTitle>
         <ModalBody>
-          <p>Tectonic will generate a kubectl configuration file for you. First, we need to generate a set of offline credentials.</p>
-          <p>Your identity will be verified before generation.</p>
+          <p>构造将为您生成一个kubectl配置文件。首先，我们需要生成一组离线凭证。</p>
+          <p>你的身份将在配置生成前被认证</p>
         </ModalBody>
-        <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText="Verify Identity" cancel={this.props.cancel} />
+        <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText="核对身份" cancel={this.props.cancel} />
       </form> }
 
       {/*step 2: verify code*/}
       { this.state.step === steps.VERIFY_CODE && <form onSubmit={this._verifyCode} name="enter-verification-code">
-        <ModalTitle>Download kubectl Configuration</ModalTitle>
+        <ModalTitle>下载kubectl配置</ModalTitle>
         <ModalBody>
-          <p>Enter the code from the previous screen to generate your credentials:</p>
+          <p>从前面的屏幕输入代码来生成凭证:</p>
           <div className="row co-m-form-row">
             <div className="col-sm-6">
               <input autoComplete="off" autoCorrect="off" autoCapitalize="off" autoFocus={true} spellCheck={false}
@@ -133,16 +133,16 @@ class KubectlConfigModal extends PromiseComponent {
             </div>
           </div>
         </ModalBody>
-        <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText="Generate Configuration" cancel={this.props.cancel} />
+        <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText="生成配置" cancel={this.props.cancel} />
       </form> }
 
       {/*step 3: download configuration*/}
       { this.state.step === steps.DOWNLOAD_CONFIGURATION && <div>
-        <ModalTitle>Download kubectl Configuration</ModalTitle>
+        <ModalTitle>下载kubectl配置</ModalTitle>
         <ModalBody>
           <p>
             <button type="button" className="btn btn-block btn-link co-btn--download" onClick={this._downloadConfiguration}>
-              <i className="fa fa-download"></i>&nbsp;Download Configuration
+              <i className="fa fa-download"></i>&nbsp;下载配置
             </button>
           </p>
           <p>1. Download the kubectl binary for <a href={this.state.kubectlMacUrl} target="_blank">Mac</a> or <a href={this.state.kubectlLinuxUrl} target="_blank">Linux</a> or <a href={this.state.kubectlWinUrl} target="_blank">Windows</a></p>
@@ -150,7 +150,7 @@ class KubectlConfigModal extends PromiseComponent {
           <p>3. Done! Interact with the cluster, i.e. <code>kubectl get namespaces</code></p>
         </ModalBody>
         <ModalFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress}>
-          <button type="button" className="btn btn-primary" onClick={this._closeModal}>I&rsquo;m Done.</button>
+          <button type="button" className="btn btn-primary" onClick={this._closeModal}>我完成了</button>
         </ModalFooter>
       </div> }
 

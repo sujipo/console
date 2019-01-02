@@ -113,9 +113,9 @@ NameValueEditor.propTypes = {
   secrets: PropTypes.object
 };
 NameValueEditor.defaultProps = {
-  nameString: 'Key',
-  valueString: 'Value',
-  addString: 'Add More',
+  nameString: '键',
+  valueString: '值',
+  addString: '添加更多',
   allowSorting: false,
   readOnly: false,
   nameValueId: 0

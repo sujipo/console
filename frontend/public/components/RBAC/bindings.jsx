@@ -139,7 +139,7 @@ const roleResources = [
 
 export const RoleBindingsPage = ({namespace, showTitle=true, fake}) => <MultiListPage
   canCreate={true}
-  createButtonText="Create Binding"
+  createButtonText="创建绑定"
   createProps={{to: '/k8s/cluster/rolebindings/new'}}
   fake={fake}
   filterLabel="按角色或主题进行角色绑定"

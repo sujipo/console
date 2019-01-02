@@ -35,10 +35,10 @@ export class InstallPlanApprovalModal extends PromiseComponent {
 
   render() {
     return <form onSubmit={this.submit.bind(this)} name="form">
-      <ModalTitle className="modal-header">Change Update Approval Strategy</ModalTitle>
+      <ModalTitle className="modal-header">变更更新批准策略</ModalTitle>
       <ModalBody>
         <div className="co-m-form-row">
-          <p>What strategy is used for approving updates?</p>
+          <p>批准更新的策略是什么?</p>
         </div>
         <div className="co-m-form-row row">
           <div className="col-sm-12">
@@ -50,7 +50,7 @@ export class InstallPlanApprovalModal extends PromiseComponent {
               subTitle="(default)">
               <div className="co-m-radio-desc">
                 <p className="text-muted">
-                  New updates will be installed as soon as they become available.
+                新的更新将会尽快安装。
                 </p>
               </div>
             </RadioInput>
@@ -63,14 +63,14 @@ export class InstallPlanApprovalModal extends PromiseComponent {
               title={InstallPlanApproval.Manual}>
               <div className="co-m-radio-desc">
                 <p className="text-muted">
-                  New updates need to be manually approved before installation begins.
+                新的更新需要在安装开始之前手动批准。
                 </p>
               </div>
             </RadioInput>
           </div>
         </div>
       </ModalBody>
-      <ModalSubmitFooter inProgress={this.state.inProgress} errorMessage={this.state.errorMessage} cancel={this.props.cancel.bind(this)} submitText="Save Channel" />
+      <ModalSubmitFooter inProgress={this.state.inProgress} errorMessage={this.state.errorMessage} cancel={this.props.cancel.bind(this)} submitText="保存通道" />
     </form>;
   }
 }

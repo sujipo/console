@@ -39,12 +39,12 @@ class ConfigureOperatorChannel extends PromiseComponent {
       'tectonic-1.9-production': 'Tectonic-1.9-production',
     };
     return <form onSubmit={this._submit} name="form">
-      <ModalTitle>Update Channel</ModalTitle>
+      <ModalTitle>更新通道</ModalTitle>
       <ModalBody>
         <div className="co-m-form-row">
           <div>
-            <p>Select a channel that reflects your desired Tectonic Version. <a href="https://coreos.com/tectonic/releases/" target="_blank" rel="noopener noreferrer">Read the release notes</a> for more information.</p>
-            <p>Critical security updates will always be delivered to any vulnerable channels.</p>
+            <p>选择一个反映你想要的构造版本的通道。 <a href="https://coreos.com/tectonic/releases/" target="_blank" rel="noopener noreferrer">阅读发布说明</a>以获取更多信息。</p>
+            <p>关键的安全更新将始终交付给任何脆弱的通道。</p>
           </div>
         </div>
         <div className="row co-m-form-row">
@@ -56,7 +56,7 @@ class ConfigureOperatorChannel extends PromiseComponent {
       <ModalSubmitFooter
         errorMessage={this.state.errorMessage}
         inProgress={this.state.inProgress}
-        submitText="Save Channel"
+        submitText="保存通道"
         cancel={this._cancel} />
     </form>;
   }

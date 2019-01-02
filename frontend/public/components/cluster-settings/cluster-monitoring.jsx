@@ -60,7 +60,7 @@ class PromSettingsModal extends PromiseComponent {
           submitDisabled={invalid}
           errorMessage={errorMessage}
           inProgress={inProgress}
-          submitText="Save Changes"
+          submitText="保存更改"
           cancel={e => this.props.cancel(e)} />
       </form>
     );
@@ -177,7 +177,7 @@ const MemCPUModalLink = ({section, type, config, obj}) => {
     } request and limit for the tectonic ${
       section === 'prometheusK8s' ? 'Prometheus instance' : 'Alertmanager'
     }.  The request may not exceed the limit.`;
-    const title = `Cluster Monitoring  ${type === 'cpu' ? 'CPU' : 'Memory'} Resource`;
+    const title = `集群监控 ${type === 'cpu' ? 'CPU' : 'Memory'}资源`;
 
     const validator = type === 'cpu' ? validate.CPU : validate.memory;
     const helpText = type === 'cpu'
@@ -297,7 +297,7 @@ class ClusterMonitoring_ extends React.PureComponent {
     }
 
     return <div>
-      <Expander title="Cluster Monitoring">
+      <Expander title="集群监控">
         <div className="co-cluster-updates__details">
           <div className="co-cluster-updates__detail">
             <dl>
@@ -323,7 +323,7 @@ class ClusterMonitoring_ extends React.PureComponent {
           </div>
         </div>
       </Expander>
-      <Expander title="Cluster Alerting">
+      <Expander title="集群告警">
         <div className="co-cluster-updates__details">
           <div className="co-cluster-updates__detail">
             <dl>
@@ -352,7 +352,7 @@ class ClusterMonitoring_ extends React.PureComponent {
 }
 
 const SettingsWrapper = props => <div className="co-cluster-updates">
-  <StatusBox {...props.obj} label="Tectonic Monitoring Configuration">
+  <StatusBox {...props.obj} label="构造监控配置">
     <ClusterMonitoring_ obj={props.obj.data} />
   </StatusBox>
 </div>;

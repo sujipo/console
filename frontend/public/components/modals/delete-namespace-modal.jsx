@@ -29,13 +29,13 @@ class DeleteNamespaceModal extends PromiseComponent {
 
   render() {
     return <form onSubmit={this._submit} name="form">
-      <ModalTitle>Delete {this.props.kind.label}</ModalTitle>
+      <ModalTitle>删除{this.props.kind.label}</ModalTitle>
       <ModalBody>
-        <p>This action cannot be undone. It will destroy all pods, services and other objects in the deleted namespace.</p>
-        <p>Confirm deletion by typing <strong>{this.props.resource.metadata.name}</strong> below:</p>
+        <p>这一行动无法撤消。它将销毁已删除名称空间中的所有pod、服务和其他对象。</p>
+        <p>在下面输入 <strong>{this.props.resource.metadata.name}</strong> 确认删除:</p>
         <input type="text" className="form-control" onKeyUp={this._matchTypedNamespace} placeholder="Enter name" autoFocus={true} />
       </ModalBody>
-      <ModalSubmitFooter submitText={`Delete ${this.props.kind.label}`} submitDisabled={!this.state.isTypedNsMatching} cancel={this._cancel} errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} />
+      <ModalSubmitFooter submitText={`删除${this.props.kind.label}`} submitDisabled={!this.state.isTypedNsMatching} cancel={this._cancel} errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} />
     </form>;
   }
 }

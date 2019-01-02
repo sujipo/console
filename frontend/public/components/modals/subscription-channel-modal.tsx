@@ -29,10 +29,10 @@ export class SubscriptionChannelModal extends PromiseComponent {
 
   render() {
     return <form onSubmit={this.submit.bind(this)} name="form">
-      <ModalTitle className="modal-header">Change Subscription Update Channel</ModalTitle>
+      <ModalTitle className="modal-header">更改订阅更新通道</ModalTitle>
       <ModalBody>
         <div className="co-m-form-row">
-          <p>Which channel is used to receive updates?</p>
+          <p>哪个通道用于接收更新?</p>
         </div>
         <div className="co-m-form-row row">
           { this.props.pkg.channels.map((channel, i) => <div key={i} className="col-sm-12">
@@ -45,7 +45,7 @@ export class SubscriptionChannelModal extends PromiseComponent {
           </div>) }
         </div>
       </ModalBody>
-      <ModalSubmitFooter inProgress={this.state.inProgress} errorMessage={this.state.errorMessage} cancel={this.props.cancel.bind(this)} submitText="Save Channel" />
+      <ModalSubmitFooter inProgress={this.state.inProgress} errorMessage={this.state.errorMessage} cancel={this.props.cancel.bind(this)} submitText="保存通道" />
     </form>;
   }
 }

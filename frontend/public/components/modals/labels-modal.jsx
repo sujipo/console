@@ -51,10 +51,10 @@ class BaseLabelsModal extends PromiseComponent {
     const { kind, resource, description, message, labelClassName } = this.props;
 
     return <form onSubmit={this._submit} name="form">
-      <ModalTitle>Edit {description || 'Labels'}</ModalTitle>
+      <ModalTitle>编辑{description || 'Labels'}</ModalTitle>
       <ModalBody>
         <div className="row co-m-form-row">
-          <div className="col-sm-12">{message || 'Labels help you organize and select resources. Adding labels below will let you query for objects that have similar, overlapping or dissimilar labels.'}</div>
+          <div className="col-sm-12">{message || '标签帮助您组织和选择资源。 在下面添加标签将允许您查询具有相似、重叠或不同标签的对象。'}</div>
         </div>
         <div className="row co-m-form-row">
           <div className="col-sm-12">
@@ -65,7 +65,7 @@ class BaseLabelsModal extends PromiseComponent {
           </div>
         </div>
       </ModalBody>
-      <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText={`Save ${description || 'Labels'}`} cancel={this._cancel} />
+      <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText={`保存${description || 'Labels'}`} cancel={this._cancel} />
     </form>;
   }
 }

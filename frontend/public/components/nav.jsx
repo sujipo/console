@@ -280,10 +280,10 @@ const MonitoringNavSection_ = ({urls, closeMenu}) => {
   const alertManagerURL = urls[MonitoringRoutes.AlertManager];
   const grafanaURL = urls[MonitoringRoutes.Grafana];
   return prometheusURL || alertManagerURL || grafanaURL
-    ? <NavSection text="Monitoring" icon="pficon pficon-screen">
-      {prometheusURL && <HrefLink href={prometheusURL} target="_blank" name="Metrics" onClick={closeMenu} isExternal={true} />}
-      {alertManagerURL && <HrefLink href={alertManagerURL} target="_blank" name="Alerts" onClick={closeMenu} isExternal={true} />}
-      {grafanaURL && <HrefLink href={grafanaURL} target="_blank" name="Dashboards" onClick={closeMenu} isExternal={true} />}
+    ? <NavSection text="监控" icon="pficon pficon-screen">
+      {prometheusURL && <HrefLink href={prometheusURL} target="_blank" name="度量指标" onClick={closeMenu} isExternal={true} />}
+      {alertManagerURL && <HrefLink href={alertManagerURL} target="_blank" name="告警" onClick={closeMenu} isExternal={true} />}
+      {grafanaURL && <HrefLink href={grafanaURL} target="_blank" name="仪表盘" onClick={closeMenu} isExternal={true} />}
     </NavSection>
     : null;
 };

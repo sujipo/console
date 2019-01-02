@@ -40,7 +40,7 @@ class TagsModal extends PromiseComponent {
 
     const keys = tags.map(t => t[NameValueEditorPair.Name]);
     if (_.uniq(keys).length !== keys.length) {
-      this.setState({errorMessage: 'Duplicate keys found.'});
+      this.setState({errorMessage: '发现重复的键。'});
       return;
     }
 
@@ -61,7 +61,7 @@ class TagsModal extends PromiseComponent {
       <ModalBody>
         <NameValueEditorComponent nameValuePairs={tags} submit={this._submit} updateParentData={this._updateTags} />
       </ModalBody>
-      <ModalSubmitFooter submitText="Save Changes" cancel={this._cancel} errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} />
+      <ModalSubmitFooter submitText="保存更改" cancel={this._cancel} errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} />
     </form>;
   }
 }
@@ -69,6 +69,6 @@ class TagsModal extends PromiseComponent {
 export const annotationsModal = createModalLauncher(props => <TagsModal
   path="/metadata/annotations"
   tags={props.resource.metadata.annotations}
-  title="Edit Annotations"
+  title="编辑注释"
   {...props}
 />);

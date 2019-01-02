@@ -34,21 +34,21 @@ export class DisableApplicationModal extends PromiseComponent {
     const {name} = this.props.subscription.spec;
 
     return <form onSubmit={this.submit.bind(this)} name="form" className="co-catalog-install-modal">
-      <ModalTitle className="modal-header">Remove Subscription</ModalTitle>
+      <ModalTitle className="modal-header">删除订阅</ModalTitle>
       <ModalBody>
         <div>
           <p>
-            This will remove the <b>{name}</b> subscription from <i>{this.props.subscription.metadata.namespace}</i> and the Operator will no longer receive updates.
+            即将从<i>{this.props.subscription.metadata.namespace}</i>中删除<b>{name}</b>订阅，操作员将不再接收更新。
           </p>
         </div>
         <div>
           <label className="co-delete-modal-checkbox-label">
             <input type="checkbox" checked={this.state.deleteCSV} onChange={() => this.setState({deleteCSV: !this.state.deleteCSV})} />
-            &nbsp;&nbsp; <strong>Also completely remove the <b>{name}</b> Operator from the selected namespace.</strong>
+            &nbsp;&nbsp; <strong>还可以从选择的名称空间中完全删除<b>{name}</b>操作员。</strong>
           </label>
         </div>
       </ModalBody>
-      <ModalSubmitFooter inProgress={this.state.inProgress} errorMessage={this.state.errorMessage} cancel={this.props.cancel.bind(this)} submitText="Remove" />
+      <ModalSubmitFooter inProgress={this.state.inProgress} errorMessage={this.state.errorMessage} cancel={this.props.cancel.bind(this)} submitText="移除" />
     </form>;
   }
 }

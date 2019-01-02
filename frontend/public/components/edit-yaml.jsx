@@ -298,7 +298,7 @@ export const EditYAML = connect(stateToProps)(
 
       return <div>
         {showHeader && <div className="yaml-editor-header">
-          {`${create ? 'Create' : 'Edit'} ${_.get(model, 'label', kind)}`}
+          {`${create ? '创建' : '编辑'} ${_.get(model, 'label', kind)}`}
         </div>}
         <div className="co-p-has-sidebar">
           <div className="co-p-has-sidebar__body">

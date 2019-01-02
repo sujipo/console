@@ -144,7 +144,7 @@ class ConfigureUpdateStrategyModal extends PromiseComponent {
       <ModalSubmitFooter
         errorMessage={this.state.errorMessage}
         inProgress={this.state.inProgress}
-        submitText="Save Strategy"
+        submitText="保存策略"
         cancel={this._cancel} />
     </form>;
   }
