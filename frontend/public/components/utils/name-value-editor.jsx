@@ -83,7 +83,7 @@ export const NameValueEditor = DragDropContext(HTML5Backend)(class NameValueEdit
                     <React.Fragment>
                       <span aria-hidden="true" className="pairs-list__action-divider">|</span>
                       <span className="btn-link pairs-list__btn" onClick={this._appendConfigMapOrSecret}>
-                        <i aria-hidden="true" className="fa fa-plus-circle pairs-list__add-icon" />Add Value from Config Map or Secret
+                        <i aria-hidden="true" className="fa fa-plus-circle pairs-list__add-icon" />从配置映射或私密添加值
                       </span>
                     </React.Fragment>
                 }
@@ -214,7 +214,7 @@ const PairElement = DragSource(DRAGGABLE_TYPE.ROW, pairSource, collectSourcePair
 
   render() {
     const {isDragging, connectDragSource, connectDragPreview, connectDropTarget, nameString, valueString, allowSorting, readOnly, pair, configMaps, secrets} = this.props;
-    const deleteButton = <React.Fragment><i className="fa fa-minus-circle pairs-list__side-btn pairs-list__delete-icon" aria-hidden="true" onClick={this._onRemove}></i><span className="sr-only">Delete</span></React.Fragment>;
+    const deleteButton = <React.Fragment><i className="fa fa-minus-circle pairs-list__side-btn pairs-list__delete-icon" aria-hidden="true" onClick={this._onRemove}></i><span className="sr-only">删除</span></React.Fragment>;
 
     return connectDropTarget(
       connectDragPreview(

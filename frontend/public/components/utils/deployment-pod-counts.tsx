@@ -68,7 +68,7 @@ export class DeploymentPodCounts extends SafetyFirst<DPCProps, DPCState> {
         <div className="co-detail-table__row row">
           <div className="co-detail-table__section col-sm-3">
             <dl className="co-m-pane__details">
-              <dt className="co-detail-table__section-header">Desired Count</dt>
+              <dt className="co-detail-table__section-header">期望数量</dt>
               <dd>
                 {
                   this.state.waitingForUpdate
@@ -80,7 +80,7 @@ export class DeploymentPodCounts extends SafetyFirst<DPCProps, DPCState> {
           </div>
           <div className="co-detail-table__section col-sm-3">
             <dl className="co-m-pane__details">
-              <dt className="co-detail-table__section-header">Up-to-date Count</dt>
+              <dt className="co-detail-table__section-header">最新数量</dt>
               <dd>
                 <Tooltip content={`Total number of non-terminated pods targeted by this ${resourceKind.label} that have the desired template spec.`}>
                   {pluralize(status.updatedReplicas, 'pod')}
@@ -90,7 +90,7 @@ export class DeploymentPodCounts extends SafetyFirst<DPCProps, DPCState> {
           </div>
           <div className="co-detail-table__section co-detail-table__section--last col-sm-6">
             <dl className="co-m-pane__details">
-              <dt className="co-detail-table__section-header">Matching Pods</dt>
+              <dt className="co-detail-table__section-header">匹配Pods</dt>
               <dd>
                 <Tooltip content={`Total number of non-terminated pods targeted by this ${resourceKind.label} (their labels match the selector).`}>
                   {pluralize(status.replicas, 'pod')}
@@ -100,9 +100,9 @@ export class DeploymentPodCounts extends SafetyFirst<DPCProps, DPCState> {
             <div className="co-detail-table__bracket"></div>
             <div className="co-detail-table__breakdown">
               <Tooltip content="Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.">
-                {status.availableReplicas || 0} available
+                {status.availableReplicas || 0} 可用
               </Tooltip>
-              <Tooltip content={`Total number of unavailable pods targeted by this ${resourceKind.label}.`}>{status.unavailableReplicas || 0} unavailable</Tooltip>
+              <Tooltip content={`Total number of unavailable pods targeted by this ${resourceKind.label}.`}>{status.unavailableReplicas || 0} 不可用</Tooltip>
             </div>
           </div>
         </div>

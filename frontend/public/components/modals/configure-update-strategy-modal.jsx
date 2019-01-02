@@ -62,11 +62,11 @@ class ConfigureUpdateStrategyModal extends PromiseComponent {
     const maxSurge = _.get(this.deployment.spec, 'strategy.rollingUpdate.maxSurge', '');
 
     return <form onSubmit={this._submit} name="form">
-      <ModalTitle>Edit Update Strategy</ModalTitle>
+      <ModalTitle>编辑更新策略</ModalTitle>
       <ModalBody>
         <div className="co-m-form-row">
           <p>
-            How should the pods be replaced when a new revision is created?
+          创建新版本时，pod应该如何替换?
           </p>
         </div>
 
@@ -81,13 +81,13 @@ class ConfigureUpdateStrategyModal extends PromiseComponent {
               autoFocus={this.state.strategyType === 'RollingUpdate'}>
               <div className="co-m-radio-desc">
                 <p className="text-muted">
-                  Execute a smooth roll out of the new revision, based on the settings below
+                根据下面的设置，执行新版本的平滑滚动
                 </p>
 
                 <div className="row co-m-form-row">
                   <div className="col-sm-3">
                     <label htmlFor="input-max-unavailable" className="control-label">
-                      Max Unavailable
+                      最大不可用
                     </label>
                   </div>
                   <div className="co-m-form-col col-sm-9">
@@ -102,13 +102,13 @@ class ConfigureUpdateStrategyModal extends PromiseComponent {
                         </span>
                       </div>
                     </div>
-                    <p className="help-block text-muted">Number or percentage of total pods at the start of the update (optional)</p>
+                    <p className="help-block text-muted">更新开始时总Pod的数量或百分比(可选)</p>
                   </div>
                 </div>
 
                 <div className="row co-m-form-row">
                   <div className="col-sm-3">
-                    <label htmlFor="input-max-surge" className="control-label">Max Surge</label>
+                    <label htmlFor="input-max-surge" className="control-label">最大激增</label>
                   </div>
                   <div className="co-m-form-col col-sm-9">
                     <div className="form-inline">
@@ -117,11 +117,11 @@ class ConfigureUpdateStrategyModal extends PromiseComponent {
                           id="input-max-surge"
                           defaultValue={maxSurge} />
                         <span className="input-group-addon">
-                          <Tooltip content="Current desired pod count">greater than { pluralize(this.deployment.spec.replicas, 'pod')}</Tooltip>
+                          <Tooltip content="Current desired pod count">大于 { pluralize(this.deployment.spec.replicas, 'pod')}</Tooltip>
                         </span>
                       </div>
                     </div>
-                    <p className="help-block text-muted">Number or percentage of total pods at the start of the update (optional)</p>
+                    <p className="help-block text-muted">更新开始时总Pod的数量或百分比(可选)</p>
                   </div>
                 </div>
               </div>
@@ -134,7 +134,7 @@ class ConfigureUpdateStrategyModal extends PromiseComponent {
               value="Recreate"
               checked={this.state.strategyType === 'Recreate'}
               title="Recreate"
-              desc="Shut down all existing pods before creating new ones"
+              desc="在创建新豆荚之前关闭所有现有豆荚"
               autoFocus={this.state.strategyType === 'Recreate'} />
           </div>
 

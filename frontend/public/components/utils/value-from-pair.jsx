@@ -122,8 +122,8 @@ const FieldRef = ({data: {fieldPath}}) => <React.Fragment>
 </React.Fragment>;
 
 const ConfigMapSecretKeyRef = ({data: {name, key}, configMaps, secrets, onChange, disabled, kind}) => {
-  const placeholderString = 'Config Map or Secret';
-  const nameTitle = _.isEmpty(name) ? <span className="text-muted">Select a resource</span> : <ResourceName kind={kind} name={name} />;
+  const placeholderString = '配置映射或私密';
+  const nameTitle = _.isEmpty(name) ? <span className="text-muted">选择一个资源</span> : <ResourceName kind={kind} name={name} />;
 
   if (disabled) {
     return <React.Fragment>

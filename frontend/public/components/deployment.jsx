@@ -69,13 +69,13 @@ const DeploymentDetails = ({obj: deployment}) => {
             <dl className="co-m-pane__details">
               <dt>更新策略</dt>
               <dd>{deployment.spec.strategy.type || 'RollingUpdate'}</dd>
-              {isRecreate || <dt>Max Unavailable</dt>}
+              {isRecreate || <dt>最大不可用</dt>}
               {isRecreate || <dd>{deployment.spec.strategy.rollingUpdate.maxUnavailable || 1} of {pluralize(deployment.spec.replicas, 'pod')}</dd>}
-              {isRecreate || <dt>Max Surge</dt>}
-              {isRecreate || <dd>{deployment.spec.strategy.rollingUpdate.maxSurge || 1} greater than {pluralize(deployment.spec.replicas, 'pod')}</dd>}
-              {progressDeadlineSeconds && <dt>Progress Deadline</dt>}
+              {isRecreate || <dt>最大激增</dt>}
+              {isRecreate || <dd>{deployment.spec.strategy.rollingUpdate.maxSurge || 1} 大于 {pluralize(deployment.spec.replicas, 'pod')}</dd>}
+              {progressDeadlineSeconds && <dt>处理截止期限</dt>}
               {progressDeadlineSeconds && <dd>{/* Convert to ms for formatDuration */ formatDuration(progressDeadlineSeconds * 1000)}</dd>}
-              <dt>Min Ready Seconds</dt>
+              <dt>最小就绪秒数</dt>
               <dd>{deployment.spec.minReadySeconds ? pluralize(deployment.spec.minReadySeconds, 'second') : 'Not Configured'}</dd>
             </dl>
           </div>

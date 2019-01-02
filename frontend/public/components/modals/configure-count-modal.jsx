@@ -84,7 +84,7 @@ export const configureReplicaCountModal = (props) => {
     title: '编辑数量',
     message: `${props.resourceKind.labelPlural} 保持期望的健康Pod数量。`,
     path: '/spec/replicas',
-    buttonText: 'Save Desired Count'
+    buttonText: '保存期望数量'
   }, props));
 };
 
@@ -94,7 +94,7 @@ export const configureJobParallelismModal = (props) => {
     title: '编辑并行性',
     message: `${props.resourceKind.labelPlural} 创建一个或多个Pod，并确保指定数量的Pod成功终止。当成功完成指定数量的任务时，任务就完成了。`,
     path: '/spec/parallelism',
-    buttonText: 'Save Desired Parallelism'
+    buttonText: '保存期望并行性'
   }, props));
 };
 
@@ -104,7 +104,7 @@ export const configureClusterSizeModal = (props) => {
     title: '编辑集群大小',
     message: `${props.resourceKind.labelPlural} 保持期望的健康Pod数量。`,
     path: '/spec/size',
-    buttonText: 'Save Cluster Size'
+    buttonText: '保存集群大小'
   }, props));
 };
 

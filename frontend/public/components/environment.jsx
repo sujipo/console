@@ -88,7 +88,7 @@ export const EnvironmentPage = connect(stateToProps)(
       Promise.all([
         k8sGet(ConfigMapModel, null, envNamespace).catch((err) => {
           if (err.response.status !== 403) {
-            const errorMessage = err.message || 'Could not load config maps.';
+            const errorMessage = err.message || '无法加载配置映射。';
             this.setState({ errorMessage });
           }
           return {
@@ -97,7 +97,7 @@ export const EnvironmentPage = connect(stateToProps)(
         }),
         k8sGet(SecretModel, null, envNamespace).catch((err) => {
           if (err.response.status !== 403) {
-            const errorMessage = err.message || 'Could not load secrets.';
+            const errorMessage = err.message || '无法加载私密。';
             this.setState({ errorMessage });
           }
           return {
@@ -216,7 +216,7 @@ export const EnvironmentPage = connect(stateToProps)(
       this.handlePromise(promise).then((res) => {
         const newEnvData = _.get(res, envPath);
         this.setState({
-          success: 'Successfully updated the environment variables.',
+          success: '成功更新环境变量。',
           errorMessage: null,
           currentEnvVars: envVarsToArray(newEnvData),
           modified: false,
@@ -236,7 +236,7 @@ export const EnvironmentPage = connect(stateToProps)(
         const keyString = _.isArray(rawEnvData) ? rawEnvData[i].name : obj.metadata.name;
         return <div key={keyString} className="co-m-pane__body-group">
           { _.isArray(rawEnvData) && <h2 className="co-section-heading co-section-heading--contains-resource-icon"><ResourceIcon kind="Container" className="co-m-resource-icon--align-left co-m-resource-icon--flex-child" /> {keyString}</h2> }
-          <NameValueEditorComponent nameValueId={i} nameValuePairs={envVar} updateParentData={this.updateEnvVars} addString="Add Value" nameString="Name" readOnly={readOnly} allowSorting={true} configMaps={configMaps} secrets={secrets} />
+          <NameValueEditorComponent nameValueId={i} nameValuePairs={envVar} updateParentData={this.updateEnvVars} addString="添加值" nameString="名称" readOnly={readOnly} allowSorting={true} configMaps={configMaps} secrets={secrets} />
         </div>;
       });
 
