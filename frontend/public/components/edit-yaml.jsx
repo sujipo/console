@@ -189,23 +189,23 @@ export const EditYAML = connect(stateToProps)(
       try {
         obj = safeLoad(this.doc.getValue());
       } catch (e) {
-        this.handleError(`Error parsing YAML: ${e}`);
+        this.handleError(`YAML解析错误: ${e}`);
         return;
       }
 
       if (!obj.apiVersion) {
-        this.handleError('No "apiVersion" field found in YAML.');
+        this.handleError('YAML中没有找到“API版本”字段。');
         return;
       }
 
       if (!obj.kind) {
-        this.handleError('No "kind" field found in YAML.');
+        this.handleError('YAML中没有找到“种类”字段。');
         return;
       }
 
       const model = this.getModel(obj);
       if (!model) {
-        this.handleError(`The server doesn't have a resource type "kind: ${obj.kind}, apiVersion: ${obj.apiVersion}".`);
+        this.handleError(`服务器没有资源类型 "种类: ${obj.kind}, API版本: ${obj.apiVersion}".`);
         return;
       }
       const { namespace, name } = this.props.obj.metadata;
@@ -213,22 +213,22 @@ export const EditYAML = connect(stateToProps)(
 
       if (!this.props.create) {
         if (name !== newName) {
-          this.handleError(`Cannot change resource name (original: "${name}", updated: "${newName}").`);
+          this.handleError(`无法更改资源名称 (原来: "${name}", 更新: "${newName}").`);
           return;
         }
         if (namespace !== newNamespace) {
-          this.handleError(`Cannot change resource namespace (original: "${namespace}", updated: "${newNamespace}").`);
+          this.handleError(`无法更改资源名称空间 (原来: "${namespace}", 更新: "${newNamespace}").`);
           return;
         }
         if (this.props.obj.kind !== obj.kind) {
-          this.handleError(`Cannot change resource kind (original: "${this.props.obj.kind}", updated: "${obj.kind}").`);
+          this.handleError(`无法更改资源类型 (原来: "${this.props.obj.kind}", 更新: "${obj.kind}").`);
           return;
         }
 
         const apiGroup = groupVersionFor(this.props.obj.apiVersion).group;
         const newAPIGroup = groupVersionFor(obj.apiVersion).group;
         if (apiGroup !== newAPIGroup) {
-          this.handleError(`Cannot change API group (original: "${apiGroup}", updated: "${newAPIGroup}").`);
+          this.handleError(`不能更改API组 (原来: "${apiGroup}", 更新: "${newAPIGroup}").`);
           return;
         }
       }
@@ -248,7 +248,7 @@ export const EditYAML = connect(stateToProps)(
               // TODO: (ggreer). show message on new page. maybe delete old obj?
               return;
             }
-            const success = `${newName} has been updated to version ${o.metadata.resourceVersion}`;
+            const success = `${newName} 已经更新到版本 ${o.metadata.resourceVersion}`;
             this.setState({success, error: null});
             this.loadYaml(true, o);
           })
@@ -310,13 +310,13 @@ export const EditYAML = connect(stateToProps)(
                     {error && <p className="alert alert-danger"><span className="pficon pficon-error-circle-o"></span>{error}</p>}
                     {success && <p className="alert alert-success"><span className="pficon pficon-ok"></span>{success}</p>}
                     {stale && <p className="alert alert-info">
-                      <span className="pficon pficon-info"></span>This object has been updated. Click reload to see the new version.
+                      <span className="pficon pficon-info"></span>此对象已更新。单击重新载入查看新版本。
                     </p>}
-                    {create && <button type="submit" className="btn btn-primary" id="save-changes" onClick={() => this.save()}>Create</button>}
-                    {!create && <button type="submit" className="btn btn-primary" id="save-changes" onClick={() => this.save()}>Save Changes</button>}
-                    {!create && <button type="submit" className="btn btn-default" id="reload-object" onClick={() => this.reload()}>Reload</button>}
-                    <button className="btn btn-default" id="cancel" onClick={() => this.onCancel()}>Cancel</button>
-                    <button type="submit" className="btn btn-default pull-right hidden-sm hidden-xs" onClick={() => this.download()}><i className="fa fa-download"></i>&nbsp;Download</button>
+                    {create && <button type="submit" className="btn btn-primary" id="save-changes" onClick={() => this.save()}>创建</button>}
+                    {!create && <button type="submit" className="btn btn-primary" id="save-changes" onClick={() => this.save()}>保存更改</button>}
+                    {!create && <button type="submit" className="btn btn-default" id="reload-object" onClick={() => this.reload()}>重新载入</button>}
+                    <button className="btn btn-default" id="cancel" onClick={() => this.onCancel()}>取消</button>
+                    <button type="submit" className="btn btn-default pull-right hidden-sm hidden-xs" onClick={() => this.download()}><i className="fa fa-download"></i>&nbsp;下载</button>
                   </div>
                 </div>
               </div>

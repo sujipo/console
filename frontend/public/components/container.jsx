@@ -151,7 +151,7 @@ const Details = (props) => {
 
     <div className="row">
       <div className="col-lg-4">
-        <SectionHeading text="容器概览" />
+        <SectionHeading text="容器概述" />
         <dl className="co-m-pane__details">
           <dt>状态</dt>
           <dd>{state.label}</dd>

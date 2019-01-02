@@ -31,7 +31,7 @@ const ImageStreamTagsRow: React.SFC<ImageStreamTagsRowProps> = ({imageStream, sp
     <span className="col-md-3 col-sm-4 col-xs-8 co-break-word">
       {from && referencesTag && <ResourceLink kind={ImageStreamTagsReference} name={getImageStreamTagName(imageStream.metadata.name, from.name)} namespace={imageStream.metadata.namespace} title={from.name} />}
       {from && !referencesTag && <Overflow value={from.name} />}
-      {!from && <span className="text-muted">pushed image</span>}
+      {!from && <span className="text-muted">推送镜像</span>}
     </span>
     <span className="col-md-4 col-sm-4 hidden-xs">
       {image && <Overflow value={image} />}
@@ -54,23 +54,23 @@ export const ImageStreamsDetails: React.SFC<ImageStreamsDetailsProps> = ({obj: i
     <div className="co-m-pane__body">
       <SectionHeading text="Image Stream Overview" />
       <ResourceSummary resource={imageStream} showPodSelector={false} showNodeSelector={false}>
-        {imageRepository && <dt>Image Repository</dt>}
+        {imageRepository && <dt>镜像库</dt>}
         {imageRepository && <dd>{imageRepository}</dd>}
-        {publicImageRepository && <dt>Public Image Repository</dt>}
+        {publicImageRepository && <dt>公共镜像库</dt>}
         {publicImageRepository && <dd>{publicImageRepository}</dd>}
-        <dt>Image Count</dt>
+        <dt>镜像数</dt>
         <dd>{imageCount ? imageCount : 0}</dd>
       </ResourceSummary>
     </div>
     <div className="co-m-pane__body">
       <SectionHeading text="Tags" />
       {_.isEmpty(imageStream.status.tags)
-        ? <span className="text-muted">No tags</span>
+        ? <span className="text-muted">没有标签</span>
         : <div className="row">
           <div className="co-m-table-grid co-m-table-grid--bordered">
             <div className="row co-m-table-grid__head">
               <div className="col-md-2 col-sm-4 col-xs-4">名称</div>
-              <div className="col-md-3 col-sm-4 col-xs-8">From</div>
+              <div className="col-md-3 col-sm-4 col-xs-8">来自</div>
               <div className="col-md-4 col-sm-4 hidden-xs">标识符</div>
               <div className="col-md-3 hidden-sm hidden-xs">最后更新</div>
             </div>

@@ -59,9 +59,9 @@ export const BuildsDetails: React.SFC<BuildsDetailsProps> = ({ obj: build }) => 
       <div className="row">
         <div className="col-sm-6">
           <ResourceSummary resource={build} showPodSelector={false} showNodeSelector={false}>
-            {triggeredBy && <dt>Triggered By</dt>}
+            {triggeredBy && <dt>触发动作</dt>}
             {triggeredBy && <dd>{triggeredBy}</dd>}
-            {startTimestamp && <dt>Started</dt>}
+            {startTimestamp && <dt>开始时间</dt>}
             {startTimestamp && <dd><Timestamp timestamp={startTimestamp} /></dd>}
           </ResourceSummary>
         </div>
@@ -69,11 +69,11 @@ export const BuildsDetails: React.SFC<BuildsDetailsProps> = ({ obj: build }) => 
           <BuildStrategy resource={build}>
             <dt>状态</dt>
             <dd>{build.status.phase}</dd>
-            {logSnippet && <dt>Log Snippet</dt>}
+            {logSnippet && <dt>日志片段</dt>}
             {logSnippet && <dd><pre>{logSnippet}</pre></dd>}
-            {message && <dt>Reason</dt>}
+            {message && <dt>原因</dt>}
             {message && <dd>{message}</dd>}
-            {duration && <dt>Duration</dt>}
+            {duration && <dt>持续时间</dt>}
             {duration && <dd>{duration}</dd>}
           </BuildStrategy>
         </div>
@@ -115,8 +115,7 @@ export const BuildEnvironmentComponent = (props) => {
       readOnly={readOnly} />;
   }
   return <div className="cos-status-box">
-    <div className="text-center">The environment variable editor does not support build
-      strategy: {obj.spec.strategy.type}.
+    <div className="text-center">环境变量编辑器不支持构建策略: {obj.spec.strategy.type}.
     </div>
   </div>;
 };
@@ -133,7 +132,7 @@ export const BuildsDetailsPage: React.SFC<BuildsDetailsPageProps> = props =>
   <DetailsPage
     {...props}
     breadcrumbsFor={obj => breadcrumbsForOwnerRefs(obj).concat({
-      name: 'Build Details',
+      name: '构建详情',
       path: props.match.url,
     })}
     kind={BuildsReference}

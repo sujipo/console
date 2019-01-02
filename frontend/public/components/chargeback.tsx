@@ -39,7 +39,7 @@ const dataURL = (obj, format='json') => {
 };
 
 const ChargebackNavBar: React.SFC<{match: {url: string}}> = props => <div>
-  <NavTitle title="Chargeback Reporting" style={{paddingBottom: 15}} />
+  <NavTitle title="退款报告" style={{paddingBottom: 15}} />
   <NavBar pages={reportPages} basePath={props.match.url.split('/').slice(0, -1).join('/')} />
 </div>;
 
@@ -73,24 +73,24 @@ class ReportsDetails extends React.Component<ReportsDetailsProps> {
     const phase = _.get(obj, ['status', 'phase']);
     return <div>
       <div className="co-m-pane__body">
-        <SectionHeading text="Report Overview" />
+        <SectionHeading text="报表概述" />
         <div className="row">
           <div className="col-sm-6 col-xs-12">
             <ResourceSummary resource={obj} showNodeSelector={false} showPodSelector={false} showAnnotations={true} />
           </div>
           <div className="col-sm-6 col-xs-12">
             <dl className="co-m-pane__details">
-              <dt>Phase</dt>
+              <dt>阶段</dt>
               <dd>{phase}</dd>
-              <dt>Reporting Start</dt>
+              <dt>报表开始</dt>
               <dd><Timestamp timestamp={_.get(obj, ['spec', 'reportingStart'])} /></dd>
-              <dt>Reporting End</dt>
+              <dt>报表结束</dt>
               <dd><Timestamp timestamp={_.get(obj, ['spec', 'reportingEnd'])} /></dd>
-              <dt>Generation Query</dt>
+              <dt>生成查询</dt>
               <dd><ResourceLink kind={ReportGenerationQueryReference} name={_.get(obj, ['spec', 'generationQuery'])} namespace={obj.metadata.namespace} title={obj.metadata.namespace} /></dd>
-              <dt>Grace Period</dt>
+              <dt>优惠期</dt>
               <dd>{_.get(obj, ['spec', 'gracePeriod'])}</dd>
-              <dt>Run Immediately?</dt>
+              <dt>立即运行吗?</dt>
               <dd>{Boolean(_.get(obj, ['spec', 'runImmediately'])).toString()}</dd>
             </dl>
           </div>
@@ -319,7 +319,7 @@ class ReportData extends SafetyFirst<ReportDataProps, ReportDataState> {
 
     return <div>
       <div className="co-m-pane__body">
-        <SectionHeading text="Usage Report">
+        <SectionHeading text="使用情况报告">
           <DownloadButton className="pull-right" url={downloadURL} filename={`${name}.${format}`} />
         </SectionHeading>
         <div className="row">
@@ -358,16 +358,16 @@ const ReportsPage_: React.SFC<ReportsPageProps> = props => {
   }
   return <div>
     <div className="co-well">
-      <h4>Getting Started</h4>
+      <h4>准备开始</h4>
       <p>
-      Chargeback is not yet installed and enabled.
-      See our documention for instructions on how to install Chargeback Report on your Tectonic Cluster.
+      退款还没有安装和启用。
+      有关如何在你的构造集群上安装退款报告的说明，请参阅我们的文档。
       </p>
       <p>
-        Chargeback is an alpha feature.
+      退款是一个alpha特性。
       </p>
       <a href="https://coreos.com/tectonic/docs/latest/reports/install-chargeback.html" target="_blank" rel="noopener noreferrer">
-        <button className="btn btn-info">Installing Chargeback Report <i className="fa fa-external-link" /></button>
+        <button className="btn btn-info">安装退款报告 <i className="fa fa-external-link" /></button>
       </a>
     </div>
     <ListPage {...props} title="Chargeback Reporting" kind={ReportReference} ListComponent={ReportsList} canCreate={true} fake={true} />
@@ -411,18 +411,18 @@ const ReportGenerationQueriesDetails: React.SFC<ReportGenerationQueriesDetailsPr
 
   return <div>
     <div className="co-m-pane__body">
-      <SectionHeading text="Chargeback Report Generation Query" />
+      <SectionHeading text="报表生成查询" />
       <ResourceSummary resource={obj} showNodeSelector={false} showPodSelector={false} showAnnotations={true}>
-        <dt>Query</dt>
+        <dt>查询</dt>
         <dd><pre><code>{_.get(obj, ['spec', 'query'])}</code></pre></dd>
         <div className="row">
           <div className="col-xs-12">
-            <h3>Columns</h3>
+            <h3>列</h3>
             <div className="co-table-container">
               <table className="table">
                 <thead>
                   <tr>
-                    <th>Column</th>
+                    <th>列</th>
                     <th>类别</th>
                   </tr>
                 </thead>

@@ -76,8 +76,8 @@ export const PackageList: React.SFC<PackageListProps> = (props) => <List
     currentCSV={props.clusterServiceVersions.find(({metadata}) => metadata.name === rowProps.obj.channels[0].currentCSV)}
     catalogSource={props.catalogSource}
     subscription={props.subscriptions.find(sub => sub.spec.name === rowProps.obj.packageName)} />}
-  label="Packages"
-  EmptyMsg={() => <MsgBox title="没有发现包" detail="该应用作者没有添加任何包。" />} />;
+  label="软件包"
+  EmptyMsg={() => <MsgBox title="没有发现软件包" detail="该应用作者没有添加任何软件包。" />} />;
 
 export const CatalogSourceDetails = withFallback<CatalogSourceDetailsProps>(({obj, configMap, subscription}) => {
   const packages = packagesFor(configMap) || [];
@@ -137,16 +137,16 @@ export const CatalogSourceList = withFallback((props: CatalogSourceListProps) =>
 
   return props.loaded
     ? <React.Fragment>
-      <p className="co-m-pane__explanation">目录是可以在集群上使用的Operator组。订阅并授予名称空间访问权以使用已安装的Operator。</p>
-      { _.isEmpty(data) && <MsgBox title="没有找到应用资源" detail="应用资源包含打包的Operator，可以订阅这些Operator进行自动升级。" /> }
+      <p className="co-m-pane__explanation">应用是可以在集群上使用的运营商资源。订阅并授予名称空间访问权以使用已安装的运营商资源。</p>
+      { _.isEmpty(data) && <MsgBox title="没有找到应用资源" detail="应用资源包含打包的运营商资源，可以订阅这些运营商资源进行自动升级。" /> }
       {/* TODO(alecmerdler): Handle filtering based on package name */}
       { data.map((obj) => <div key={obj.metadata.uid} className="co-catalogsource-list__section">
         <div className="co-catalogsource-list__section__packages">
           <div>
             <h3>{obj.spec.displayName || obj.metadata.name}</h3>
-            <span className="text-muted">Packaged by {obj.spec.publisher}</span>
+            <span className="text-muted">打包通过{obj.spec.publisher}</span>
           </div>
-          <Link to={`/k8s/ns/${obj.metadata.namespace}/${CatalogSourceModel.plural}/${obj.metadata.name}`}>View catalog details</Link>
+          <Link to={`/k8s/ns/${obj.metadata.namespace}/${CatalogSourceModel.plural}/${obj.metadata.name}`}>查看应用详情</Link>
         </div>
         <PackageList catalogSource={obj} clusterServiceVersions={csvsFor(obj)} packages={pkgsFor(obj)} subscriptions={subsFor(obj)} filters={props.filters} />
       </div>) }
@@ -160,10 +160,10 @@ export const CatalogSourcesPage: React.SFC<CatalogSourcePageProps> = (props) => 
 
   return <MultiListPage
     {...props}
-    title="Operator Catalog Sources"
+    title="运营商应用资源"
     showTitle={true}
     ListComponent={CatalogSourceList}
-    filterLabel="Packages by name"
+    filterLabel="软件包通过名称"
     flatten={flatten}
     resources={[
       {kind: referenceForModel(CatalogSourceModel), isList: true, namespaced: true, prop: 'catalogSource'},
@@ -222,7 +222,7 @@ export const CreateSubscriptionYAML: React.SFC<CreateSubscriptionYAMLProps> = (p
       return <CreateYAML {...props as any} plural={SubscriptionModel.plural} template={template} />;
     }
     return <LoadingBox />;
-  }, () => <MsgBox title="没有发现包" detail="无法为不存在的包创建订阅。" />);
+  }, () => <MsgBox title="没有发现软件包" detail="无法为不存在的软件包创建订阅。" />);
 
   return <Firehose resources={[{
     kind: ConfigMapModel.kind,

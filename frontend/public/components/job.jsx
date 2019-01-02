@@ -8,7 +8,7 @@ import { Cog, SectionHeading, LabelList, ResourceCog, ResourceLink, ResourceSumm
 import { ResourceEventStream } from './events';
 
 const ModifyJobParallelism = (kind, obj) => ({
-  label: 'Edit Parallelism',
+  label: '编辑排比',
   callback: () => configureJobParallelismModal({
     resourceKind: kind,
     resource: obj,
@@ -55,11 +55,11 @@ const Details = ({obj: job}) => <div className="co-m-pane__body">
     <div className="col-md-6">
       <SectionHeading text="Job Overview" />
       <ResourceSummary resource={job} showNodeSelector={false}>
-        <dt>Desired Completions</dt>
+        <dt>期望完成</dt>
         <dd>{job.spec.completions || '-'}</dd>
-        <dt>Parallelism</dt>
+        <dt>排比</dt>
         <dd>{job.spec.parallelism || '-'}</dd>
-        <dt>Deadline</dt>
+        <dt>死亡期限</dt>
         <dd>{job.spec.activeDeadlineSeconds ? `${job.spec.activeDeadlineSeconds} seconds` : '-'}</dd>
       </ResourceSummary>
     </div>
@@ -68,15 +68,15 @@ const Details = ({obj: job}) => <div className="co-m-pane__body">
       <dl className="co-m-pane__details">
         <dt>状态</dt>
         <dd>{job.status.conditions ? job.status.conditions[0].type : 'In Progress'}</dd>
-        <dt>Start Time</dt>
+        <dt>启动时间</dt>
         <dd><Timestamp timestamp={job.status.startTime} /></dd>
-        <dt>Completion Time</dt>
+        <dt>完成时间</dt>
         <dd><Timestamp timestamp={job.status.completionTime} /></dd>
-        <dt>Succeeded Pods</dt>
+        <dt>成功Pod数</dt>
         <dd>{job.status.succeeded || 0}</dd>
-        <dt>Active Pods</dt>
+        <dt>活动Pod数</dt>
         <dd>{job.status.active || 0}</dd>
-        <dt>Failed Pods</dt>
+        <dt>失败Pod数</dt>
         <dd>{job.status.failed || 0}</dd>
       </dl>
     </div>

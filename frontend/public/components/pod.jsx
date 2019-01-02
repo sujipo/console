@@ -170,7 +170,7 @@ const Details = ({obj: pod}) => {
     <ScrollToTopOnMount />
 
     <div className="co-m-pane__body">
-      <SectionHeading text="Pod 概览" />
+      <SectionHeading text="Pod 概述" />
       <PodGraphs pod={pod} />
       <div className="row">
         <div className="col-sm-6">

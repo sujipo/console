@@ -100,8 +100,8 @@ const MetricsTable: React.SFC<MetricsTableProps> = ({obj: hpa}) => {
     <div className="co-m-table-grid co-m-table-grid--bordered">
       <div className="row co-m-table-grid__head">
         <div className="col-xs-6">类别</div>
-        <div className="col-xs-3">Current</div>
-        <div className="col-xs-3">Target</div>
+        <div className="col-xs-3">当前</div>
+        <div className="col-xs-3">目标</div>
       </div>
       <div className="co-m-table-grid__body">
         {hpa.spec.metrics.map((metric, i) => {
@@ -142,15 +142,15 @@ export const HorizontalPodAutoscalersDetails: React.SFC<HorizontalPodAutoscalers
           <dd>
             <ResourceLink kind={hpa.spec.scaleTargetRef.kind} name={hpa.spec.scaleTargetRef.name} namespace={hpa.metadata.namespace} title={hpa.spec.scaleTargetRef.name} />
           </dd>
-          <dt>Min Pods</dt>
+          <dt>最小Pod数</dt>
           <dd>{hpa.spec.minReplicas}</dd>
-          <dt>Max Pods</dt>
+          <dt>最大Pod数</dt>
           <dd>{hpa.spec.maxReplicas}</dd>
-          <dt>Last Scale Time</dt>
+          <dt>最后缩放时间</dt>
           <dd><Timestamp timestamp={hpa.status.lastScaleTime} /></dd>
-          <dt>Current Pods</dt>
+          <dt>当前Pod数</dt>
           <dd>{hpa.status.currentReplicas}</dd>
-          <dt>Desired Pods</dt>
+          <dt>期望Pod数</dt>
           <dd>{hpa.status.desiredReplicas}</dd>
         </dl>
       </div>
@@ -179,8 +179,8 @@ const HorizontalPodAutoscalersHeader = props => <ListHeader>
   <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 col-xs-6 " sortField="metadata.namespace">命名空间</ColHead>
   <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 hidden-xs" sortField="metadata.labels">标签</ColHead>
   <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.scaleTargetRef.name">缩放目标</ColHead>
-  <ColHead {...props} className="col-lg-1 hidden-md hidden-sm hidden-xs" sortField="spec.minReplicas">Min Pods</ColHead>
-  <ColHead {...props} className="col-lg-1 hidden-md hidden-sm hidden-xs" sortField="spec.maxReplicas">Max Pods</ColHead>
+  <ColHead {...props} className="col-lg-1 hidden-md hidden-sm hidden-xs" sortField="spec.minReplicas">最小Pod数</ColHead>
+  <ColHead {...props} className="col-lg-1 hidden-md hidden-sm hidden-xs" sortField="spec.maxReplicas">最大Pod数</ColHead>
 </ListHeader>;
 
 const HorizontalPodAutoscalersRow: React.SFC<HorizontalPodAutoscalersRowProps> = ({obj}) => <div className="row co-resource-list__item">

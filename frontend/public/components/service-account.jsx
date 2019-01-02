@@ -99,7 +99,7 @@ const Details = ({obj: serviceaccount}) => {
   return (
     <React.Fragment>
       <div className="co-m-pane__body">
-        <SectionHeading text="服务账号概览" />
+        <SectionHeading text="服务账号概述" />
         <ResourceSummary resource={serviceaccount} showPodSelector={false} showNodeSelector={false} />
       </div>
       <SectionHeading text="Secrets" style={{marginLeft: '30px', marginTop: '30px', marginBottom: '-20px'}} />

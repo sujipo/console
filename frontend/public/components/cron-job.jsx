@@ -12,7 +12,7 @@ const Header = props => <ListHeader>
   <ColHead {...props} className="col-lg-3 col-md-3 col-sm-4 col-xs-6" sortField="metadata.namespace">命名空间</ColHead>
   <ColHead {...props} className="col-lg-2 col-md-3 col-sm-4 hidden-xs" sortField="spec.schedule">计划表</ColHead>
   <ColHead {...props} className="col-lg-2 col-md-3 hidden-sm hidden-xs" sortField="spec.schedule">并发策略</ColHead>
-  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortField="spec.schedule">Starting Deadline Seconds</ColHead>
+  <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortField="spec.schedule">死亡判断秒数</ColHead>
 </ListHeader>;
 
 const kind = 'CronJob';
@@ -46,7 +46,7 @@ const Details = ({obj: cronjob}) => {
           <dd>{cronjob.spec.schedule}</dd>
           <dt>并发策略</dt>
           <dd>{cronjob.spec.concurrencyPolicy || '-'}</dd>
-          <dt>Starting Deadline Seconds</dt>
+          <dt>死亡判断秒数</dt>
           <dd>{cronjob.spec.startingDeadlineSeconds || '-'}</dd>
           <dt>最后安排时间</dt>
           <dd><Timestamp timestamp={cronjob.status.lastScheduleTime} /></dd>
@@ -55,11 +55,11 @@ const Details = ({obj: cronjob}) => {
       <div className="col-md-6">
         <SectionHeading text="Job Overview" />
         <dl className="co-m-pane__details">
-          <dt>Desired Completions</dt>
+          <dt>期望完成</dt>
           <dd>{job.spec.completions || '-'}</dd>
-          <dt>Parallelism</dt>
+          <dt>对应</dt>
           <dd>{job.spec.parallelism || '-'}</dd>
-          <dt>Deadline</dt>
+          <dt>死亡期限</dt>
           <dd>{job.spec.activeDeadlineSeconds ? `${job.spec.activeDeadlineSeconds} seconds` : '-'}</dd>
         </dl>
       </div>

@@ -27,7 +27,7 @@ class PodsComponent extends React.PureComponent {
 export const navFactory = {
   details: component => ({
     href: '',
-    name: '概览',
+    name: '概述',
     component,
   }),
   events: component => ({

@@ -57,7 +57,7 @@ export const ClusterServiceVersionRow = withFallback<ClusterServiceVersionRowPro
 
 export const ClusterServiceVersionList: React.SFC<ClusterServiceVersionListProps> = (props) => {
   const EmptyMsg = () => <MsgBox
-    title="No Cluster Service Versions Found"
+    title="没有找到集群服务版本"
     detail={<div>
       集群服务版本是根据目录源中的每个名称空间安装的。有关更多信息，请查看 <a href="https://coreos.com/tectonic/docs/latest/alm/using-ocs.html" target="_blank" className="co-external-link" rel="noopener noreferrer">使用开放云服务</a>。
 
@@ -82,16 +82,16 @@ export const ClusterServiceVersionsPage = connect(stateToProps)((props: ClusterS
   return props.match.params.ns && !props.namespaceEnabled
     ? <Box className="text-center">
       <img className="co-clusterserviceversion-list__disabled-icon" src={operatorLogo} />
-      <MsgBox title="Operator Lifecycle Manager not enabled for this namespace" detail="Please contact a system administrator and ask them to enable Operator Lifecycle Manager to continue." />
+      <MsgBox title="操作员生命周期管理器在这个命名空间没有启用" detail="请联系系统管理员，让他们启用操作员生命周期管理器。" />
     </Box>
     : <React.Fragment>
-      <NavTitle title="Cluster Service Versions" />
+      <NavTitle title="集群服务版本" />
       <ListPage
         {...props}
         namespace={props.match.params.ns}
         kind={referenceForModel(ClusterServiceVersionModel)}
         ListComponent={ClusterServiceVersionList}
-        filterLabel="Cluster Service Versions by name"
+        filterLabel="集群服务版本通过名称"
         showTitle={false} />
     </React.Fragment>;
 });
@@ -111,7 +111,7 @@ export const ClusterServiceVersionDetails: React.SFC<ClusterServiceVersionDetail
         { status.phase !== ClusterServiceVersionPhase.CSVPhaseSucceeded && <button disabled={true} className="btn btn-primary">创建新的</button> }
         { status.phase === ClusterServiceVersionPhase.CSVPhaseSucceeded && ownedCRDs.length > 1 && <Dropdown
           buttonClassName="btn-primary"
-          title="Create New"
+          title="创建新的"
           items={ownedCRDs.reduce((acc, crd) => ({...acc, [crd.name]: crd.displayName}), {})}
           onChange={(name) => history.push(route(name))} /> }
         { status.phase === ClusterServiceVersionPhase.CSVPhaseSucceeded && ownedCRDs.length === 1 && <Link to={route(ownedCRDs[0].name)} className="btn btn-primary">{`创建${ownedCRDs[0].displayName}`}</Link> }

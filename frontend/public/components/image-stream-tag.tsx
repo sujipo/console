@@ -51,9 +51,9 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
         <div className="col-md-6 col-sm-12">
           <SectionHeading text="Image Overview" />
           <ResourceSummary resource={imageStreamTag} showPodSelector={false} showNodeSelector={false}>
-            {labels.name && <dt>Image Name</dt>}
+            {labels.name && <dt>镜像名称</dt>}
             {labels.name && <dd>{labels.name}</dd>}
-            {labels.summary && <dt>Summary</dt>}
+            {labels.summary && <dt>摘要</dt>}
             {labels.summary && <dd>{labels.summary}</dd>}
             {humanizedSize && <dt>大小</dt>}
             {humanizedSize && <dd>{humanizedSize}</dd>}
@@ -62,17 +62,17 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
         <div className="col-md-6 col-sm-12">
           <SectionHeading text="Configuration" />
           <dl className="co-m-pane__details">
-            {entrypoint && <dt>Entrypoint</dt>}
+            {entrypoint && <dt>入口</dt>}
             {entrypoint && <dd><Overflow value={entrypoint} /></dd>}
-            {cmd && <dt>Command</dt>}
+            {cmd && <dt>命令</dt>}
             {cmd && <dd><Overflow value={cmd} /></dd>}
-            {config.WorkingDir && <dt>Working Dir</dt>}
+            {config.WorkingDir && <dt>工作目录</dt>}
             {config.WorkingDir && <dd><Overflow value={config.WorkingDir} /></dd>}
-            {exposedPorts && <dt>Exposed Ports</dt>}
+            {exposedPorts && <dt>外露接口</dt>}
             {exposedPorts && <dd><Overflow value={exposedPorts} /></dd>}
-            {config.User && <dt>User</dt>}
+            {config.User && <dt>用户</dt>}
             {config.User && <dd>{config.User}</dd>}
-            {architecture && <dt>Architecture</dt>}
+            {architecture && <dt>架构</dt>}
             {architecture && <dd>{architecture}</dd>}
           </dl>
         </div>
@@ -81,7 +81,7 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
     <div className="co-m-pane__body-group">
       <SectionHeading text="Image Labels" />
       {_.isEmpty(sortedLabels)
-        ? <span className="text-muted">No labels</span>
+        ? <span className="text-muted">没有标签</span>
         : <div className="co-table-container">
           <table className="table">
             <thead>
@@ -102,7 +102,7 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
     <div className="co-m-pane__body-group">
       <SectionHeading text="Environment Variables" />
       {_.isEmpty(config.Env)
-        ? <span className="text-muted">No environment variables</span>
+        ? <span className="text-muted">没有环境变量</span>
         : <div className="co-table-container">
           <table className="table">
             <thead>

@@ -164,7 +164,7 @@ const NodeGraphs = requirePrometheus(({node}) => {
 const Details = ({obj: node}) => {
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="节点概览" />
+      <SectionHeading text="节点概述" />
       <NodeGraphs node={node} />
       <div className="row">
         <div className="col-md-6 col-xs-12">

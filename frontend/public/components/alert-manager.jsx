@@ -43,7 +43,7 @@ class Details extends SafetyFirst {
     const {metadata, spec} = alertManager;
     return <div>
       <div className="co-m-pane__body">
-        <SectionHeading text="Alert Manager Overview" />
+        <SectionHeading text="告警管理器概述" />
         <div className="row">
           <div className="col-sm-6 col-xs-12">
             <dl className="co-m-pane__details">
@@ -51,7 +51,7 @@ class Details extends SafetyFirst {
               <dd>{metadata.name}</dd>
               <dt>标签</dt>
               <dd><LabelList kind="Alertmanager" labels={metadata.labels} /></dd>
-              {spec.nodeSelector && <dt>Alert Manager Node Selector</dt>}
+              {spec.nodeSelector && <dt>告警管理器节点选择器</dt>}
               {spec.nodeSelector && <dd><Selector selector={spec.nodeSelector} kind="Node" /></dd>}
             </dl>
           </div>
@@ -59,11 +59,11 @@ class Details extends SafetyFirst {
             <dl className="co-m-pane__details">
               <dt>版本</dt>
               <dd>{spec.version}</dd>
-              <dt>Replicas</dt>
+              <dt>副本</dt>
               <dd>{this.state.desiredCountOutdated ? <LoadingInline /> : <a className="co-m-modal-link" href="#"
                 onClick={this._openReplicaCountModal}>{pluralize(spec.replicas, 'pod')}</a>}</dd>
-              <dt>Resource Request</dt>
-              <dd><span className="text-muted">Memory:</span> {_.get(spec, 'resources.requests.memory')}</dd>
+              <dt>资源需求</dt>
+              <dd><span className="text-muted">内存:</span> {_.get(spec, 'resources.requests.memory')}</dd>
             </dl>
           </div>
         </div>
@@ -138,7 +138,7 @@ const AlertManagerHeader = props => <ListHeader>
   <ColHead {...props} className="col-md-4 col-sm-3 hidden-xs" sortField="metadata.labels">标签</ColHead>
   <ColHead {...props} className="col-md-1 hidden-sm hidden-xs" sortField="spec.version">版本</ColHead>
   <ColHead {...props} className="col-md-3 col-sm-3 hidden-xs" sortField="spec.nodeSelector">
-    Node Selector
+    节点选择器
   </ColHead>
 </ListHeader>;
 

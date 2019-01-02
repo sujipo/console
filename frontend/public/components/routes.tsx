@@ -162,26 +162,26 @@ class TLSSettings extends SafetyFirst<TLSDataProps, TLSDataState> {
     return !tls ?
       'TLS is not enabled.' :
       <dl>
-        <dt>Termination Type</dt>
+        <dt>终端类型</dt>
         <dd>{tls.termination}</dd>
-        <dt>Insecure Traffic</dt>
+        <dt>非安全通信</dt>
         <dd>{tls.insecureEdgeTerminationPolicy || '-'}</dd>
-        <dt>Certificate</dt>
+        <dt>证书</dt>
         <dd>{tls.certificate ? <CopyToClipboard value={tls.certificate} /> : '-'}</dd>
-        <dt className="co-m-route-tls-reveal__title">Key {tls.key &&
+        <dt className="co-m-route-tls-reveal__title">键 {tls.key &&
           <button className="btn btn-link co-m-route-tls-reveal__btn" type="button" onClick={this.toggleKey}>
             {
               showPrivateKey
-                ? <React.Fragment><i className="fa fa-eye-slash" aria-hidden="true"></i> Hide</React.Fragment>
-                : <React.Fragment><i className="fa fa-eye" aria-hidden="true"></i> Reveal</React.Fragment>
+                ? <React.Fragment><i className="fa fa-eye-slash" aria-hidden="true"></i> 隐藏</React.Fragment>
+                : <React.Fragment><i className="fa fa-eye" aria-hidden="true"></i> 显示</React.Fragment>
             }
           </button>}
         </dt>
         <dd>{tls.key ? <CopyToClipboard value={tls.key} visibleValue={visibleKeyValue} /> : '-'}</dd>
-        <dt>CA Certificate</dt>
+        <dt>CA证书</dt>
         <dd>{tls.caCertificate ? <CopyToClipboard value={tls.caCertificate} /> : '-'}</dd>
         {tls.termination === 'reencrypt' && <React.Fragment>
-          <dt>Destination CA Cert</dt>
+          <dt>目的地CA证书</dt>
           <dd>{tls.destinationCACertificate ? <CopyToClipboard value={tls.destinationCACertificate} /> : '-'}</dd>
         </React.Fragment>}
       </dl>;
@@ -214,12 +214,12 @@ const RouteIngressStatus: React.SFC<RouteIngressStatusProps> = ({ingresses}) =>
       <div key={ingress.routerName} className="co-m-route-ingress-status">
         <SectionHeading text={`Router: ${ingress.routerName}`} />
         <dl>
-          <dt>Hostname</dt>
+          <dt>主机名</dt>
           <dd>{ingress.host}</dd>
-          <dt>Wildcard Policy</dt>
+          <dt>通配符策略</dt>
           <dd>{ingress.wildcardPolicy}</dd>
         </dl>
-        <h3 className="co-section-heading-secondary">Conditions</h3>
+        <h3 className="co-section-heading-secondary">条件</h3>
         <Conditions conditions={ingress.conditions} />
       </div>)}
   </React.Fragment>;
@@ -234,7 +234,7 @@ const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fra
           <dd><ResourceLink kind={route.spec.to.kind} name={route.spec.to.name} namespace={route.metadata.namespace}
             title={route.spec.to.name} />
           </dd>
-          <dt>Target Port</dt>
+          <dt>目标端口</dt>
           <dd>{_.get(route, 'spec.port.targetPort', '-')}</dd>
         </ResourceSummary>
       </div>
@@ -245,9 +245,9 @@ const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fra
         <dd>
           <RouteStatus obj={route} />
         </dd>
-        <dt>Hostname</dt>
+        <dt>主机名</dt>
         <dd>{route.spec.host}</dd>
-        <dt>Path</dt>
+        <dt>路径</dt>
         <dd>{route.spec.path || '-'}</dd>
       </div>
     </div>
@@ -259,15 +259,15 @@ const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fra
   { !_.isEmpty(route.spec.alternateBackends) && <div className="co-m-pane__body">
     <SectionHeading text="Traffic" />
     <p className="co-m-pane__explanation">
-      This route splits traffic across multiple services.
+      这条路线将多个服务之间的流量分开。
     </p>
     <div className="co-table-container">
       <table className="table">
         <thead>
           <tr>
             <th>服务</th>
-            <th>Weight</th>
-            <th>Percent</th>
+            <th>比重</th>
+            <th>百分比</th>
           </tr>
         </thead>
         <tbody>
@@ -279,7 +279,7 @@ const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fra
   </div> }
   {_.isEmpty(route.status.ingress)
     ? <div className="cos-status-box">
-      <div className="text-center">No Route Status</div>
+      <div className="text-center">没有路由状态</div>
     </div>
     : <div className="co-m-pane__body">
       <RouteIngressStatus ingresses={route.status.ingress} />

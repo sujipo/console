@@ -30,11 +30,11 @@ const ConfigMapRow = ({obj: configMap}) => <ResourceRow obj={configMap}>
 const ConfigMapDetails = ({obj: configMap}) => {
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="Config Map Overview" />
+      <SectionHeading text="配置映射概述" />
       <ResourceSummary resource={configMap} showPodSelector={false} showNodeSelector={false} />
     </div>
     <div className="co-m-pane__body">
-      <SectionHeading text="Data" />
+      <SectionHeading text="数据" />
       <ConfigMapData data={configMap.data} />
     </div>
   </React.Fragment>;

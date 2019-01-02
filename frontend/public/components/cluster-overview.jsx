@@ -245,9 +245,9 @@ const ClusterOverviewPage_ = props => {
   return <React.Fragment>
     <StartGuide dismissible={true} style={{margin: 15}} />
     <Helmet>
-      <title>{fake ? '概览' : title}</title>
+      <title>{fake ? '概述' : title}</title>
     </Helmet>
-    <NavTitle title={fake ? '概览' : title} style={{alignItems: 'baseline', display: 'flex', justifyContent: 'space-between'}}>
+    <NavTitle title={fake ? '概述' : title} style={{alignItems: 'baseline', display: 'flex', justifyContent: 'space-between'}}>
       <p className="hidden-lg">
         <HashLink smooth to="#software-info">软件信息</HashLink>
       </p>

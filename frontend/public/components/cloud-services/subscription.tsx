@@ -68,25 +68,25 @@ export const SubscriptionsList: React.SFC<SubscriptionsListProps> = (props) => <
   {...props}
   Row={SubscriptionRow}
   Header={SubscriptionHeader}
-  EmptyMsg={() => <MsgBox title="No Subscriptions Found" detail="Each namespace can subscribe to a single channel of a package for automatic updates." />} />;
+  EmptyMsg={() => <MsgBox title="没有发现订阅" detail="每个名称空间都可以订阅包的单个通道以进行自动更新。" />} />;
 
 export const SubscriptionsPage: React.SFC<SubscriptionsPageProps> = (props) => <ListPage
   {...props}
   kind={referenceForModel(SubscriptionModel)}
-  title="Subscriptions"
+  title="订阅"
   showTitle={true}
   canCreate={true}
   createProps={{to: props.namespace ? `/k8s/ns/${props.namespace}/${CatalogSourceModel.plural}` : `/k8s/all-namespaces/${CatalogSourceModel.plural}`}}
-  createButtonText="Create Subscription"
+  createButtonText="创建订阅"
   ListComponent={SubscriptionsList}
-  filterLabel="Subscriptions by package" />;
+  filterLabel="订阅通过软件包" />;
 
 export const SubscriptionDetails: React.SFC<SubscriptionDetailsProps> = (props) => {
   const {obj, installedCSV, pkg} = props;
   const catalogNS = obj.spec.sourceNamespace || olmNamespace;
 
   return <div className="co-m-pane__body">
-    <SectionHeading text="Subscription Overview" />
+    <SectionHeading text="订阅概述" />
     <div className="co-m-pane__body-group">
       <SubscriptionUpdates pkg={pkg} obj={obj} installedCSV={installedCSV} />
     </div>
@@ -155,7 +155,7 @@ export class SubscriptionUpdates extends React.Component<SubscriptionUpdatesProp
         </div>
         <div className="co-detail-table__section col-sm-3">
           <dl className="co-m-pane__details">
-            <dt className="co-detail-table__section-header">Approval</dt>
+            <dt className="co-detail-table__section-header">批准</dt>
             <dd>{ this.state.waitingForUpdate
               ? <LoadingInline />
               : <a className="co-m-modal-link" onClick={() => approvalModal()}>{obj.spec.installPlanApproval || 'Automatic'}</a>
@@ -164,17 +164,17 @@ export class SubscriptionUpdates extends React.Component<SubscriptionUpdatesProp
         </div>
         <div className="co-detail-table__section co-detail-table__section--last col-sm-6">
           <dl className="co-m-pane__details">
-            <dt className="co-detail-table__section-header">Upgrade Status</dt>
+            <dt className="co-detail-table__section-header">升级状态</dt>
             <dd>{subscriptionState(_.get(obj.status, 'state'))}</dd>
           </dl>
           <div className="co-detail-table__bracket"></div>
           <div className="co-detail-table__breakdown">
             { _.get(obj.status, 'installedCSV') && installedCSV
-              ? <Link to={`/k8s/ns/${obj.metadata.namespace}/${ClusterServiceVersionModel.plural}/${_.get(obj.status, 'installedCSV')}`}>1 installed</Link>
-              : <span>0 installed</span> }
+              ? <Link to={`/k8s/ns/${obj.metadata.namespace}/${ClusterServiceVersionModel.plural}/${_.get(obj.status, 'installedCSV')}`}>1 已安装</Link>
+              : <span>0 已安装</span> }
             { _.get(obj.status, 'state') === SubscriptionState.SubscriptionStateUpgradePending && _.get(obj.status, 'installplan')
-              ? <Link to={`/k8s/ns/${obj.metadata.namespace}/${InstallPlanModel.plural}/${_.get(obj.status, 'installplan.name')}`}>1 installing</Link>
-              : <span>0 installing</span> }
+              ? <Link to={`/k8s/ns/${obj.metadata.namespace}/${InstallPlanModel.plural}/${_.get(obj.status, 'installplan.name')}`}>1 安装中</Link>
+              : <span>0 安装中</span> }
           </div>
         </div>
       </div>
