@@ -199,7 +199,7 @@ export const ReplicationControllerModel: K8sKind = {
 };
 
 export const HorizontalPodAutoscalerModel: K8sKind = {
-  label: '水平Pod自动缩放',
+  label: 'Pod自动缩放器',
   path: 'horizontalpodautoscalers',
   plural: 'horizontalpodautoscalers',
   apiVersion: 'v2beta1',
@@ -208,7 +208,7 @@ export const HorizontalPodAutoscalerModel: K8sKind = {
   namespaced: true,
   kind: 'HorizontalPodAutoscaler',
   id: 'horizontalpodautoscaler',
-  labelPlural: '水平Pod自动缩放'
+  labelPlural: 'Pod自动缩放器'
 };
 
 export const ServiceAccountModel: K8sKind = {

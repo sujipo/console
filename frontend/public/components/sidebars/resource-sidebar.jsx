@@ -18,7 +18,7 @@ export class ResourceSidebarWrapper extends React.Component {
     if (!showSidebar) {
       return <div className="co-p-has-sidebar__sidebar--hidden hidden-sm">
         <button className="btn btn-link" onClick={() => this.setState({showSidebar: !showSidebar})}>
-          <span className="fa fa-fw fa-info-circle co-p-has-sidebar__sidebar-link-icon"></span>View samples
+          <span className="fa fa-fw fa-info-circle co-p-has-sidebar__sidebar-link-icon"></span>查看例子
         </button>
       </div>;
     }
@@ -29,7 +29,7 @@ export class ResourceSidebarWrapper extends React.Component {
           <span className="pficon pficon-close"></span>
         </button>
         <h1 className="co-p-has-sidebar__sidebar-heading co-resource-sidebar-header text-capitalize">
-          {label} samples
+          {label}例子
         </h1>
         { this.props.children }
       </div>
@@ -48,10 +48,10 @@ export const SampleYaml = ({sample, loadSampleYaml, downloadSampleYaml}) => {
       {details}
     </p>
     <button className="btn btn-link" onClick={() => loadSampleYaml(templateName, kind)}>
-      <span className="fa fa-fw fa-paste" aria-hidden="true"></span> Try it
+      <span className="fa fa-fw fa-paste" aria-hidden="true"></span> 试试看
     </button>
     <button className="btn btn-link pull-right" onClick={() => downloadSampleYaml(templateName, kind)}>
-      <span className="fa fa-fw fa-download" aria-hidden="true"></span> Download yaml
+      <span className="fa fa-fw fa-download" aria-hidden="true"></span> 下载yaml
     </button>
   </li>;
 };

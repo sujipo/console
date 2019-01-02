@@ -214,7 +214,7 @@ export const HorizontalPodAutoscalersPage: React.SFC<HorizontalPodAutoscalersPag
     kind={HorizontalPodAutoscalersReference}
     ListComponent={HorizontalPodAutoscalersList}
     canCreate={true}
-    filterLabel="HPAs by name"
+    filterLabel="Pod自动缩放器通过名称"
   />;
 HorizontalPodAutoscalersPage.displayName = 'HorizontalPodAutoscalersListPage';
 
