@@ -396,7 +396,7 @@ export class Nav extends React.Component {
             <ResourceNSLink resource="daemonsets" name="守护程序集" onClick={this.close} />
             <ResourceNSLink resource="replicasets" name="副本集" onClick={this.close} />
             <ResourceNSLink resource="replicationcontrollers" name="副本控制器" onClick={this.close} />
-            <ResourceNSLink resource="horizontalpodautoscalers" name="HPAs" onClick={this.close} />
+            <ResourceNSLink resource="horizontalpodautoscalers" name="水平Pod自动缩放" onClick={this.close} />
           </NavSection>
 
           <NavSection text="网络" img={routingImg} activeImg={routingActiveImg} >
@@ -430,7 +430,7 @@ export class Nav extends React.Component {
             <ResourceNSLink resource="rolebindings" name="角色绑定" onClick={this.close} startsWith={rolebindingsStartsWith} />
             <ResourceNSLink resource="resourcequotas" name="资源配额" onClick={this.close} />
             <ResourceNSLink resource="chargeback.coreos.com:v1alpha1:Report" name="退款" onClick={this.close} disallowed={FLAGS.OPENSHIFT} />
-            <ResourceClusterLink resource="customresourcedefinitions" name="CRDs" onClick={this.close} required={FLAGS.CAN_LIST_CRD} />
+            <ResourceClusterLink resource="customresourcedefinitions" name="自定义资源" onClick={this.close} required={FLAGS.CAN_LIST_CRD} />
           </NavSection>
 
           <UserNavSection closeMenu={this.close} />

@@ -199,7 +199,7 @@ export const ReplicationControllerModel: K8sKind = {
 };
 
 export const HorizontalPodAutoscalerModel: K8sKind = {
-  label: 'Horizontal Pod Autoscaler',
+  label: '水平Pod自动缩放',
   path: 'horizontalpodautoscalers',
   plural: 'horizontalpodautoscalers',
   apiVersion: 'v2beta1',
@@ -208,7 +208,7 @@ export const HorizontalPodAutoscalerModel: K8sKind = {
   namespaced: true,
   kind: 'HorizontalPodAutoscaler',
   id: 'horizontalpodautoscaler',
-  labelPlural: 'Horizontal Pod Autoscalers'
+  labelPlural: '水平Pod自动缩放'
 };
 
 export const ServiceAccountModel: K8sKind = {
@@ -531,7 +531,7 @@ export const TectonicVersionModel: K8sKind = {
 };
 
 export const ChannelOperatorConfigModel: K8sKind = {
-  label: 'Channel Operator Config',
+  label: '通道运营商配置',
   apiGroup: 'tco.coreos.com',
   apiVersion: 'v1',
   path: 'channeloperatorconfigs',
@@ -540,11 +540,11 @@ export const ChannelOperatorConfigModel: K8sKind = {
   namespaced: true,
   kind: 'ChannelOperatorConfig',
   id: 'channeloperatorconfig',
-  labelPlural: 'Channel Operator Configs'
+  labelPlural: '通道运营商配置'
 };
 
 export const AppVersionModel: K8sKind = {
-  label: 'AppVersion',
+  label: 'App版本',
   apiGroup: 'tco.coreos.com',
   apiVersion: 'v1',
   path: 'appversions',
@@ -553,7 +553,7 @@ export const AppVersionModel: K8sKind = {
   namespaced: true,
   kind: 'AppVersion',
   id: 'appversion',
-  labelPlural: 'AppVersions'
+  labelPlural: 'App版本'
 };
 
 export const PersistentVolumeModel: K8sKind = {
@@ -631,7 +631,7 @@ export const NetworkPolicyModel: K8sKind = {
 };
 
 export const CustomResourceDefinitionModel: K8sKind = {
-  label: '资源自定义',
+  label: '自定义资源',
   apiGroup: 'apiextensions.k8s.io',
   apiVersion: 'v1beta1',
   path: 'customresourcedefinitions',
@@ -640,7 +640,7 @@ export const CustomResourceDefinitionModel: K8sKind = {
   plural: 'customresourcedefinitions',
   kind: 'CustomResourceDefinition',
   id: 'customresourcedefinition',
-  labelPlural: '资源自定义'
+  labelPlural: '自定义资源'
 };
 
 export const CronJobModel: K8sKind = {

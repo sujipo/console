@@ -20,7 +20,7 @@ const BuildsReference: K8sResourceKindReference = 'Build';
 const { common, EditEnvironment } = Cog.factory;
 
 const cloneBuildAction = (kind, build) => ({
-  label: 'Rebuild',
+  label: '重新构建',
   callback: () => cloneBuild(build).then(clone => {
     history.push(resourceObjPath(clone, referenceFor(clone)));
   }).catch(err => {
@@ -182,7 +182,7 @@ const filters = [{
 export const BuildsPage: React.SFC<BuildsPageProps> = props =>
   <ListPage
     {...props}
-    title="Builds"
+    title="构建"
     kind={BuildsReference}
     ListComponent={BuildsList}
     canCreate={false}
