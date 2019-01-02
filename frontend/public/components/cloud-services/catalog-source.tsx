@@ -101,7 +101,7 @@ export const CatalogSourceDetails = withFallback<CatalogSourceDetailsProps>(({ob
         </div>
       </div>
       <div className="co-m-pane__body">
-        <SectionHeading text="Packages" />
+        <SectionHeading text="软件包" />
         <PackageList packages={packages} catalogSource={obj} clusterServiceVersions={clusterServiceVersions} subscriptions={subscriptions} />
       </div>
     </div>

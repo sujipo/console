@@ -429,7 +429,7 @@ export class Nav extends React.Component {
             <ResourceNSLink resource="roles" name="角色" startsWith={rolesStartsWith} onClick={this.close} />
             <ResourceNSLink resource="rolebindings" name="角色绑定" onClick={this.close} startsWith={rolebindingsStartsWith} />
             <ResourceNSLink resource="resourcequotas" name="资源配额" onClick={this.close} />
-            <ResourceNSLink resource="chargeback.coreos.com:v1alpha1:Report" name="Chargeback" onClick={this.close} disallowed={FLAGS.OPENSHIFT} />
+            <ResourceNSLink resource="chargeback.coreos.com:v1alpha1:Report" name="退款" onClick={this.close} disallowed={FLAGS.OPENSHIFT} />
             <ResourceClusterLink resource="customresourcedefinitions" name="CRDs" onClick={this.close} required={FLAGS.CAN_LIST_CRD} />
           </NavSection>
 

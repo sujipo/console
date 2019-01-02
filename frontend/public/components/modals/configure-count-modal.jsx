@@ -81,8 +81,8 @@ export const configureCountModal = createModalLauncher(ConfigureCountModal);
 export const configureReplicaCountModal = (props) => {
   return configureCountModal(_.defaults({}, {
     defaultValue: 0,
-    title: 'Edit Count',
-    message: `${props.resourceKind.labelPlural} maintain the desired number of healthy pods.`,
+    title: '编辑数量',
+    message: `${props.resourceKind.labelPlural} 保持期望的健康Pod数量。`,
     path: '/spec/replicas',
     buttonText: 'Save Desired Count'
   }, props));
@@ -91,8 +91,8 @@ export const configureReplicaCountModal = (props) => {
 export const configureJobParallelismModal = (props) => {
   return configureCountModal(_.defaults({}, {
     defaultValue: 1,
-    title: 'Edit Parallelism',
-    message: `${props.resourceKind.labelPlural} create one or more pods and ensure that a specified number of them successfully terminate. When the specified number of completions is successfully reached, the job is complete.`,
+    title: '编辑并行性',
+    message: `${props.resourceKind.labelPlural} 创建一个或多个Pod，并确保指定数量的Pod成功终止。当成功完成指定数量的任务时，任务就完成了。`,
     path: '/spec/parallelism',
     buttonText: 'Save Desired Parallelism'
   }, props));
@@ -101,8 +101,8 @@ export const configureJobParallelismModal = (props) => {
 export const configureClusterSizeModal = (props) => {
   return configureCountModal(_.defaults({}, {
     defaultValue: 0,
-    title: 'Edit Cluster Size',
-    message: `${props.resourceKind.labelPlural} maintain the desired number of healthy pods.`,
+    title: '编辑集群大小',
+    message: `${props.resourceKind.labelPlural} 保持期望的健康Pod数量。`,
     path: '/spec/size',
     buttonText: 'Save Cluster Size'
   }, props));

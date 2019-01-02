@@ -248,7 +248,7 @@ const PodExecLoader = ({obj}) => <div className="co-m-pane__body">
 export const PodsDetailsPage = props => <DetailsPage
   {...props}
   breadcrumbsFor={obj => breadcrumbsForOwnerRefs(obj).concat({
-    name: 'Pod 详情',
+    name: 'Pod详情',
     path: props.match.url,
   })}
   menuActions={menuActions}

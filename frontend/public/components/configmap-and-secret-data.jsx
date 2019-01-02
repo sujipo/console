@@ -5,7 +5,7 @@ import * as _ from 'lodash-es';
 import { CopyToClipboard, EmptyBox, SectionHeading } from './utils';
 
 export const MaskedData = () => <React.Fragment>
-  <span className="sr-only">Value hidden</span>
+  <span className="sr-only">隐藏的值</span>
   <span aria-hidden="true">&bull;&bull;&bull;&bull;&bull;</span>
 </React.Fragment>;
 
@@ -51,16 +51,16 @@ export class SecretData extends React.PureComponent {
       dl.push(<dd key={`${k}-v`}>{value}</dd>);
     });
     return <React.Fragment>
-      <SectionHeading text="Data">
+      <SectionHeading text="数据">
         {dl.length
           ? <button className="btn btn-link" type="button" onClick={this.toggleSecret}>
             {showSecret
-              ? <React.Fragment><i className="fa fa-eye-slash" aria-hidden="true"></i> Hide Values</React.Fragment>
-              : <React.Fragment><i className="fa fa-eye" aria-hidden="true"></i> Reveal Values</React.Fragment>}
+              ? <React.Fragment><i className="fa fa-eye-slash" aria-hidden="true"></i> 隐藏值</React.Fragment>
+              : <React.Fragment><i className="fa fa-eye" aria-hidden="true"></i> 显示值</React.Fragment>}
           </button>
           : null}
       </SectionHeading>
-      {dl.length ? <dl>{dl}</dl> : <EmptyBox label="Data" />}
+      {dl.length ? <dl>{dl}</dl> : <EmptyBox label="数据" />}
     </React.Fragment>;
   }
 }

@@ -96,7 +96,7 @@ const resourceRow = (metric, current, key) => {
 
 const MetricsTable: React.SFC<MetricsTableProps> = ({obj: hpa}) => {
   return <React.Fragment>
-    <SectionHeading text="Metrics" />
+    <SectionHeading text="度量" />
     <div className="co-m-table-grid co-m-table-grid--bordered">
       <div className="row co-m-table-grid__head">
         <div className="col-xs-6">类别</div>
@@ -160,7 +160,7 @@ export const HorizontalPodAutoscalersDetails: React.SFC<HorizontalPodAutoscalers
     <MetricsTable obj={hpa} />
   </div>
   <div className="co-m-pane__body">
-    <SectionHeading text="Conditions" />
+    <SectionHeading text="条件" />
     <Conditions conditions={hpa.status.conditions} />
   </div>
 </React.Fragment>;

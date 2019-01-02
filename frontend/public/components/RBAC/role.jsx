@@ -137,7 +137,7 @@ export const BindingsForRolePage = (props) => {
   }
   return <MultiListPage
     canCreate={true}
-    createButtonText="Create Binding"
+    createButtonText="创建绑定"
     createProps={{to: `/k8s/${ns ? `ns/${ns}` : 'cluster'}/rolebindings/new?rolekind=${kind}&rolename=${name}`}}
     ListComponent={BindingsListComponent}
     staticFilters={[{'role-binding-roleRef': name}]}

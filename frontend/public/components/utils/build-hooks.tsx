@@ -13,11 +13,11 @@ export const BuildHooks: React.SFC<BuildHooksProps> = ({ resource }) => {
     ? <div className="co-m-pane__body">
       <SectionHeading text="Post-Commit Hooks" />
       <dl className="co-m-pane__details">
-        {!_.isEmpty(postCommitCommand) && <dt>Command</dt>}
+        {!_.isEmpty(postCommitCommand) && <dt>命令</dt>}
         {!_.isEmpty(postCommitCommand) && <dd><code>{postCommitCommand.join(' ')}</code></dd>}
-        {postCommitScript && <dt>Script</dt>}
+        {postCommitScript && <dt>脚本</dt>}
         {postCommitScript && <dd><code>{postCommitScript}</code></dd>}
-        {!_.isEmpty(postCommitArgs) && <dt>Args</dt>}
+        {!_.isEmpty(postCommitArgs) && <dt>参数</dt>}
         {!_.isEmpty(postCommitArgs) && <dd><code>{postCommitArgs.join(' ')}</code></dd>}
       </dl>
     </div>

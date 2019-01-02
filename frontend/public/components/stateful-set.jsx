@@ -12,7 +12,7 @@ const Row = props => <WorkloadListRow {...props} kind={kind} actions={menuAction
 
 const Details = ({obj: ss}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="StatefulSet Overview" />
+    <SectionHeading text="状态集概述" />
     <ResourceSummary resource={ss} showNodeSelector={false} />
   </div>
 </React.Fragment>;

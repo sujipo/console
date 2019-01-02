@@ -77,7 +77,7 @@ class CreateNamespaceModal extends PromiseComponent {
   render() {
     const label = this.props.createProject ? 'Project' : 'Namespace';
     return <form onSubmit={this._submit.bind(this)} name="form" className="co-p-new-user-modal">
-      <ModalTitle>Create New {label}</ModalTitle>
+      <ModalTitle>创建新的{label}</ModalTitle>
       <ModalBody>
         <div className="form-group">
           <label htmlFor="input-name" className="control-label">名称</label>
@@ -86,13 +86,13 @@ class CreateNamespaceModal extends PromiseComponent {
           </div>
         </div>
         {this.props.createProject && <div className="form-group">
-          <label htmlFor="input-display-name" className="control-label">Display Name</label>
+          <label htmlFor="input-display-name" className="control-label">显示名称</label>
           <div className="modal-body__field">
             <input id="input-display-name" name="displayName" type="text" className="form-control" onChange={this.handleChange.bind(this)} value={this.state.displayName || ''} />
           </div>
         </div>}
         {this.props.createProject && <div className="form-group">
-          <label htmlFor="input-description" className="control-label">Description</label>
+          <label htmlFor="input-description" className="control-label">描述</label>
           <div className="modal-body__field">
             <textarea id="input-description" name="description" className="form-control" onChange={this.handleChange.bind(this)} value={this.state.description || ''} />
           </div>
@@ -104,16 +104,16 @@ class CreateNamespaceModal extends PromiseComponent {
           </div>
         </div>}
         {!this.props.createProject && <div className="form-group">
-          <label htmlFor="network-policy" className="control-label">Default Network Policy</label>
+          <label htmlFor="network-policy" className="control-label">默认网络政策</label>
           <div className="modal-body__field ">
             <select id="network-policy" onChange={e => this.setState({np: e.target.value})} value={this.state.np} className="form-control">
-              <option value={allow}>No restrictions (default)</option>
-              <option value={deny}>Deny all inbound traffic.</option>
+              <option value={allow}>没有限制(默认)</option>
+              <option value={deny}>拒绝所有入境通信。</option>
             </select>
           </div>
         </div>}
       </ModalBody>
-      <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText={`Create ${label}`} cancel={this.props.cancel.bind(this)} />
+      <ModalSubmitFooter errorMessage={this.state.errorMessage} inProgress={this.state.inProgress} submitText={`创建${label}`} cancel={this.props.cancel.bind(this)} />
     </form>;
   }
 }

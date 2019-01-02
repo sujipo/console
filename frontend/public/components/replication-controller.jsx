@@ -9,7 +9,7 @@ import { EnvironmentPage } from './environment';
 
 const Details = ({obj: replicationController}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="Replication Controller Overview" />
+    <SectionHeading text="复制控制器概述" />
     <div className="row">
       <div className="col-md-6">
         <ResourceSummary resource={replicationController} />

@@ -41,7 +41,7 @@ const ClustersRow: React.SFC<ClustersRowProps> = ({obj}) => {
 
 const ClustersDetails: React.SFC<ClustersDetailsProps> = ({obj}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="Cluster Overview" />
+    <SectionHeading text="集群概述" />
     <ResourceSummary resource={obj} showNodeSelector={false} showPodSelector={false} />
   </div>
 </React.Fragment>;

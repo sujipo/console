@@ -13,8 +13,8 @@ export const EndpointRow: React.SFC<EndpointRowProps> = ({endpoint}) => {
 
   return <div>
     <div className="row co-ip-header">
-      <div className="col-xs-6">Port</div>
-      <div className="col-xs-2">Interval</div>
+      <div className="col-xs-6">端口</div>
+      <div className="col-xs-2">间隔</div>
       <div className="col-xs-4"></div>
     </div>
     <div className="rows">

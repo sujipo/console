@@ -115,14 +115,14 @@ const RulesRows = (props) => {
 
 const Details = ({obj: ingress}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="Ingress Overview" />
+    <SectionHeading text="入口概述" />
     <ResourceSummary resource={ingress} showPodSelector={false} showNodeSelector={false}>
       <dt>TLS证书</dt>
       <dd>{getTLSCert(ingress)}</dd>
     </ResourceSummary>
   </div>
   <div className="co-m-pane__body">
-    <SectionHeading text="Ingress Rules" />
+    <SectionHeading text="入口规则" />
     <p className="co-m-pane__explanation">这些规则由路由层(入口控制器)处理，该层在规则修改时进行更新。 入口控制器实现定义了如何转发或操纵头和其他元数据。</p>
     <div className="co-m-table-grid co-m-table-grid--bordered">
       <RulesHeader />

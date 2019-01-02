@@ -37,16 +37,16 @@ const DaemonSetRow = ({obj: daemonset}) => <ResourceRow obj={daemonset}>
 </ResourceRow>;
 
 const Details = ({obj: daemonset}) => <div className="co-m-pane__body">
-  <SectionHeading text="Daemon Set Overview" />
+  <SectionHeading text="守护进程集概述" />
   <div className="row">
     <div className="col-lg-6">
       <ResourceSummary resource={daemonset} />
     </div>
     <div className="col-lg-6">
       <dl className="co-m-pane__details">
-        <dt>Current Count</dt>
+        <dt>当前数量</dt>
         <dd>{daemonset.status.currentNumberScheduled || '-'}</dd>
-        <dt>Desired Count</dt>
+        <dt>期望数量</dt>
         <dd>{daemonset.status.desiredNumberScheduled || '-'}</dd>
       </dl>
     </div>

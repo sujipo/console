@@ -50,7 +50,7 @@ export const BuildsDetails: React.SFC<BuildsDetailsProps> = ({ obj: build }) => 
 
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="Build Overview" />
+      <SectionHeading text="构建概述" />
       {hasPipeline && <div className="row">
         <div className="col-xs-12">
           <BuildPipeline obj={build} />

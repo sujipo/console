@@ -8,7 +8,7 @@ import { Cog, SectionHeading, LabelList, ResourceCog, ResourceLink, ResourceSumm
 import { ResourceEventStream } from './events';
 
 const ModifyJobParallelism = (kind, obj) => ({
-  label: '编辑排比',
+  label: '编辑并行性',
   callback: () => configureJobParallelismModal({
     resourceKind: kind,
     resource: obj,
@@ -53,18 +53,18 @@ const JobRow = ({obj: job}) => {
 const Details = ({obj: job}) => <div className="co-m-pane__body">
   <div className="row">
     <div className="col-md-6">
-      <SectionHeading text="Job Overview" />
+      <SectionHeading text="任务概述" />
       <ResourceSummary resource={job} showNodeSelector={false}>
         <dt>期望完成</dt>
         <dd>{job.spec.completions || '-'}</dd>
-        <dt>排比</dt>
+        <dt>并行性</dt>
         <dd>{job.spec.parallelism || '-'}</dd>
         <dt>死亡期限</dt>
         <dd>{job.spec.activeDeadlineSeconds ? `${job.spec.activeDeadlineSeconds} seconds` : '-'}</dd>
       </ResourceSummary>
     </div>
     <div className="col-md-6">
-      <SectionHeading text="Job Status" />
+      <SectionHeading text="任务状态" />
       <dl className="co-m-pane__details">
         <dt>状态</dt>
         <dd>{job.status.conditions ? job.status.conditions[0].type : 'In Progress'}</dd>

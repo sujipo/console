@@ -27,7 +27,7 @@ const Row = ({obj}) => <div className="row co-resource-list__item">
 
 const Details = ({obj}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="PersistentVolume Overview" />
+    <SectionHeading text="持久卷概述" />
     <ResourceSummary resource={obj} podSelector="spec.podSelector" showNodeSelector={false} />
   </div>
 </React.Fragment>;

@@ -49,7 +49,7 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
     <div className="co-m-pane__body-group">
       <div className="row">
         <div className="col-md-6 col-sm-12">
-          <SectionHeading text="Image Overview" />
+          <SectionHeading text="镜像概述" />
           <ResourceSummary resource={imageStreamTag} showPodSelector={false} showNodeSelector={false}>
             {labels.name && <dt>镜像名称</dt>}
             {labels.name && <dd>{labels.name}</dd>}
@@ -60,7 +60,7 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
           </ResourceSummary>
         </div>
         <div className="col-md-6 col-sm-12">
-          <SectionHeading text="Configuration" />
+          <SectionHeading text="配置" />
           <dl className="co-m-pane__details">
             {entrypoint && <dt>入口</dt>}
             {entrypoint && <dd><Overflow value={entrypoint} /></dd>}
@@ -79,7 +79,7 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
       </div>
     </div>
     <div className="co-m-pane__body-group">
-      <SectionHeading text="Image Labels" />
+      <SectionHeading text="镜像标签" />
       {_.isEmpty(sortedLabels)
         ? <span className="text-muted">没有标签</span>
         : <div className="co-table-container">
@@ -100,7 +100,7 @@ export const ImageStreamTagsDetails: React.SFC<ImageStreamTagsDetailsProps> = ({
         </div>}
     </div>
     <div className="co-m-pane__body-group">
-      <SectionHeading text="Environment Variables" />
+      <SectionHeading text="环境变量" />
       {_.isEmpty(config.Env)
         ? <span className="text-muted">没有环境变量</span>
         : <div className="co-table-container">

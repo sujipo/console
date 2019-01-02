@@ -38,9 +38,9 @@ export const NetworkPoliciesPage = props => <ListPage {...props} ListComponent={
 
 
 const IngressHeader = () => <div className="row co-m-table-grid__head">
-  <div className="col-xs-4">target pods</div>
-  <div className="col-xs-5">from</div>
-  <div className="col-xs-3">to ports</div>
+  <div className="col-xs-4">目标Pod</div>
+  <div className="col-xs-5">来自</div>
+  <div className="col-xs-3">到端口</div>
 </div>;
 
 const IngressRow = ({ingress, namespace, podSelector}) => {
@@ -95,11 +95,11 @@ const Details_ = ({flags, obj: np}) => {
     : 'https://kubernetes.io/docs/concepts/services-networking/network-policies/';
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="Namespace Overview" />
+      <SectionHeading text="命名空间概述" />
       <ResourceSummary resource={np} podSelector={'spec.podSelector'} showNodeSelector={false} />
     </div>
     <div className="co-m-pane__body">
-      <SectionHeading text="Ingress Rules" />
+      <SectionHeading text="入口规则" />
       <p className="co-m-pane__explanation">
         Pod默认接受所有流量。
         它们可以通过网络策略进行隔离，这些策略指定了白名单的入口规则。

@@ -159,7 +159,7 @@ const validateForm = validator => values => {
   }
 
   if (requestFloat > limitFloat) {
-    errors.limit = 'limit must exceed request';
+    errors.limit = '限制必须超过要求';
   }
 
   return errors;
@@ -182,23 +182,23 @@ const MemCPUModalLink = ({section, type, config, obj}) => {
     const validator = type === 'cpu' ? validate.CPU : validate.memory;
     const helpText = type === 'cpu'
       ? <div className="col-xs-12 text-muted" style={{paddingTop: 15, paddingBottom: 10}}>
-        Requests and limits for CPU resources are measured in &ldquo;cpu units&rdquo; in absolute quantities.
-        The expression &ldquo;100m&rdquo; can be read as &ldquo;one hundred millicpus&rdquo; or &ldquo;one hundred millicores&rdquo;.
-        See <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu" target="_blank" className="co-external-link" rel="noopener noreferrer">Meaning of CPU</a> for details.
+        对CPU资源的请求和限制是以绝对数量的CPU单元来度量的。
+        例如 &ldquo;100m&rdquo; 可以理解为100个cpu计量单位。
+        查看 <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu" target="_blank" className="co-external-link" rel="noopener noreferrer">Meaning of CPU</a> 获取详情。
       </div>
       : <div className="col-xs-12 text-muted" style={{paddingTop: 15, paddingBottom: 10}}>
-        Requests and limits for memory are measured in bytes.
-        For example, the following are roughly equivalent: 128974848 ≈ 129M ≈ 123Mi.
-        See <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory" target="_blank" className="co-external-link" rel="noopener  noreferrer">Meaning of memory</a> for more details.
+        请求和内存限制以字节为单位度量。
+        例如，以下内容大致相同: 128974848 ≈ 129M ≈ 123Mi.
+        查看 <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory" target="_blank" className="co-external-link" rel="noopener  noreferrer">Meaning of memory</a> 获取详情。
       </div>;
 
     const FormBody = ({error}) => <div>
       <div className="col-xs-5">
-        <label style={labelStyle} className="text-muted text-uppercase" htmlFor="request">Request</label>
+        <label style={labelStyle} className="text-muted text-uppercase" htmlFor="request">要求</label>
         <Field name="request" type="text" placeholder={type === 'cpu' ? '500m' : '2Gi'} component={renderField} autoFocus />
       </div>
       <div className="col-xs-5">
-        <label style={labelStyle} className="text-muted text-uppercase" htmlFor="limit">Limit</label>
+        <label style={labelStyle} className="text-muted text-uppercase" htmlFor="limit">限制</label>
         <Field name="limit" type="text" placeholder={type === 'cpu' ? '500m' : '2Gi'} component={renderField} />
       </div>
       {helpText}
@@ -235,11 +235,11 @@ const RetentionModalLink = ({config, obj}) => {
   const onClick = () => {
     const modal = createModalLauncher(props => <PromSettingsModal {...props} />);
     const initialValues = { retention };
-    const description = 'Specify the retention time of cluster monitoring samples.';
-    const title = 'Cluster Monitoring Sample Retention';
+    const description = '指定集群监控样本的保持时间。';
+    const title = '集群监控样本保持';
     const FormBody = () => <div>
       <div className="col-xs-5">
-        <label style={labelStyle} className="text-muted text-uppercase" htmlFor="retention">sample retention</label>
+        <label style={labelStyle} className="text-muted text-uppercase" htmlFor="retention">样本保持</label>
         <Field name="retention" type="text" component={renderField} autoFocus placeholder="24h" />
       </div>
     </div>;
@@ -301,21 +301,21 @@ class ClusterMonitoring_ extends React.PureComponent {
         <div className="co-cluster-updates__details">
           <div className="co-cluster-updates__detail">
             <dl>
-              <dt>CPU Resources</dt>
+              <dt>CPU资源</dt>
               <dd>
                 <MemCPUModalLink section="prometheusK8s" type="cpu" config={config} obj={obj} />
               </dd>
-              <dt>Memory Resources</dt>
+              <dt>内存资源</dt>
               <dd>
                 <MemCPUModalLink section="prometheusK8s" type="memory" config={config} obj={obj} />
               </dd>
-              <dt>Alert manager</dt>
+              <dt>告警管理器</dt>
               <dd><AlertManagersListContainer /></dd>
             </dl>
           </div>
           <div className="co-cluster-updates__detail">
             <dl>
-              <dt>Retention</dt>
+              <dt>保持</dt>
               <dd>
                 <RetentionModalLink config={config} obj={obj} />
               </dd>
@@ -327,11 +327,11 @@ class ClusterMonitoring_ extends React.PureComponent {
         <div className="co-cluster-updates__details">
           <div className="co-cluster-updates__detail">
             <dl>
-              <dt>CPU Resources</dt>
+              <dt>CPU资源</dt>
               <dd>
                 <MemCPUModalLink section="alertmanagerMain" type="cpu" config={config} obj={obj} />
               </dd>
-              <dt>Memory Resources</dt>
+              <dt>内存资源</dt>
               <dd>
                 <MemCPUModalLink section="alertmanagerMain" type="memory" config={config} obj={obj} />
               </dd>
@@ -339,7 +339,7 @@ class ClusterMonitoring_ extends React.PureComponent {
           </div>
           <div className="co-cluster-updates__detail">
             <dl>
-              <dt>Storage</dt>
+              <dt>存储</dt>
               <dd>
                 {vct}
               </dd>

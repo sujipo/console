@@ -17,11 +17,11 @@ const PVCStatus = ({pvc}) => {
 
   switch (phase) {
     case 'Pending':
-      return <span className="text-muted"><i className="fa fa-hourglass-half" aria-hidden="true"></i> Pending</span>;
+      return <span className="text-muted"><i className="fa fa-hourglass-half" aria-hidden="true"></i> 挂起</span>;
     case 'Bound':
-      return <span className="pvc-bound"><i className="fa fa-check" aria-hidden="true"></i> Bound</span>;
+      return <span className="pvc-bound"><i className="fa fa-check" aria-hidden="true"></i> 限制</span>;
     case 'Lost':
-      return <span className="pvc-lost"><i className="fa fa-minus-circle" aria-hidden="true"></i> Lost</span>;
+      return <span className="pvc-lost"><i className="fa fa-minus-circle" aria-hidden="true"></i> 丢失</span>;
     default:
       return phase;
   }
@@ -56,11 +56,11 @@ const Details_ = ({flags, obj: pvc}) => {
   const storage = _.get(pvc, 'status.capacity.storage');
   const accessModes = _.get(pvc, 'status.accessModes');
   return <div className="co-m-pane__body">
-    <SectionHeading text="PersistentVolumeClaim Overview" />
+    <SectionHeading text="持久卷声明概述" />
     <div className="row">
       <div className="col-sm-6">
         <ResourceSummary resource={pvc} showPodSelector={false} showNodeSelector={false}>
-          <dt>Label Selector</dt>
+          <dt>标签选择器</dt>
           <dd><Selector selector={labelSelector} /></dd>
         </ResourceSummary>
       </div>
@@ -68,18 +68,18 @@ const Details_ = ({flags, obj: pvc}) => {
         <dl>
           <dt>状态</dt>
           <dd><PVCStatus pvc={pvc} /></dd>
-          <dt>Storage Class</dt>
+          <dt>储存类别</dt>
           <dd>
             {storageClassName ? <ResourceLink kind="StorageClass" name={storageClassName} /> : '-'}
           </dd>
           {volumeName && canListPV && <React.Fragment>
-            <dt>Persistent Volume</dt>
+            <dt>持久卷</dt>
             <dd><ResourceLink kind="PersistentVolume" name={volumeName} /></dd>
           </React.Fragment>}
-          <dt>Requested</dt>
+          <dt>需求</dt>
           <dd>{requestedStorage || '-'}</dd>
           {storage && <React.Fragment><dt>大小</dt><dd>{storage}</dd></React.Fragment>}
-          {!_.isEmpty(accessModes) && <React.Fragment><dt>Access Modes</dt><dd>{accessModes.join(', ')}</dd></React.Fragment>}
+          {!_.isEmpty(accessModes) && <React.Fragment><dt>访问模式</dt><dd>{accessModes.join(', ')}</dd></React.Fragment>}
         </dl>
       </div>
     </div>

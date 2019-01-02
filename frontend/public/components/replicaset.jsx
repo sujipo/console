@@ -11,7 +11,7 @@ export const replicaSetMenuActions = [ModifyCount, EditEnvironment, ...common];
 
 const Details = ({obj: replicaSet}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="Replica Set Overview" />
+    <SectionHeading text="副本集概述" />
     <div className="row">
       <div className="col-md-6">
         <ResourceSummary resource={replicaSet} />
@@ -35,7 +35,7 @@ const {details, editYaml, pods, envEditor, events} = navFactory;
 const ReplicaSetsDetailsPage = props => <DetailsPage
   {...props}
   breadcrumbsFor={obj => breadcrumbsForOwnerRefs(obj).concat({
-    name: 'ReplicaSet Details',
+    name: '副本集详情',
     path: props.match.url,
   })}
   menuActions={replicaSetMenuActions}

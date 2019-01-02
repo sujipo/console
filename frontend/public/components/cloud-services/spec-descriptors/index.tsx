@@ -43,9 +43,9 @@ export class ClusterServiceVersionResourceSpec extends React.Component<SpecDescr
           return <ResourceLink kind="Namespace" name={specValue.matchNames[0]} title={specValue.matchNames[0]} namespace={namespace} />;
         case ALMSpecDescriptors.resourceRequirements:
           return <dl className="co-spec-descriptor--resource-requirements">
-            <dt>Resource Limits</dt>
+            <dt>资源限制</dt>
             <dd><ResourceRequirementsModalLink type="limits" obj={resource} path={specDescriptor.path} onChange={wasChanged} /></dd>
-            <dt>Request Limits</dt>
+            <dt>请求限制</dt>
             <dd><ResourceRequirementsModalLink type="requests" obj={resource} path={specDescriptor.path} onChange={wasChanged} /></dd>
           </dl>;
         default:
@@ -54,7 +54,7 @@ export class ClusterServiceVersionResourceSpec extends React.Component<SpecDescr
           } else if (specCapability.startsWith(ALMSpecDescriptors.selector)) {
             return <Selector selector={specValue} kind={specCapability.split(ALMSpecDescriptors.selector)[1]} />;
           }
-          return <span>(Unsupported)</span>;
+          return <span>(不支持)</span>;
       }
     }, <span />);
 

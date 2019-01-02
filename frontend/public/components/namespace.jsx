@@ -99,7 +99,7 @@ const ProjectRow = ({obj: project}) => {
 const ProjectList_ = props => {
   const ProjectEmptyMessageDetail = <React.Fragment>
     <p className="co-pre-line">
-      {props.createProjectMessage || 'Create a project for your application.'}
+      {props.createProjectMessage || '为应用程序创建项目。'}
     </p>
     <p>
       想了解更多，请访问 OpenShift <a href={openshiftHelpBase} target="_blank" rel="noopener noreferrer">文档</a>。
@@ -182,7 +182,7 @@ const Details = ({obj: ns}) => {
   const requester = getRequester(ns);
   return <div>
     <div className="co-m-pane__body">
-      <SectionHeading text={`${ns.kind} Overview`} />
+      <SectionHeading text={`${ns.kind}概述`} />
       <div className="row">
         <div className="col-sm-6 col-xs-12">
           <ResourceSummary resource={ns} showPodSelector={false} showNodeSelector={false}>

@@ -40,7 +40,7 @@ const Details = ({obj: cronjob}) => {
   return <div className="co-m-pane__body">
     <div className="row">
       <div className="col-md-6">
-        <SectionHeading text="CronJob Overview" />
+        <SectionHeading text="计划概述" />
         <ResourceSummary resource={cronjob} showNodeSelector={false} showPodSelector={false} showAnnotations={false}>
           <dt>计划表</dt>
           <dd>{cronjob.spec.schedule}</dd>
@@ -53,7 +53,7 @@ const Details = ({obj: cronjob}) => {
         </ResourceSummary>
       </div>
       <div className="col-md-6">
-        <SectionHeading text="Job Overview" />
+        <SectionHeading text="任务概述" />
         <dl className="co-m-pane__details">
           <dt>期望完成</dt>
           <dd>{job.spec.completions || '-'}</dd>

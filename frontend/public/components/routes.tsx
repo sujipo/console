@@ -212,7 +212,7 @@ const RouteIngressStatus: React.SFC<RouteIngressStatusProps> = ({ingresses}) =>
   <React.Fragment>
     {_.map(ingresses, (ingress) =>
       <div key={ingress.routerName} className="co-m-route-ingress-status">
-        <SectionHeading text={`Router: ${ingress.routerName}`} />
+        <SectionHeading text={`路由: ${ingress.routerName}`} />
         <dl>
           <dt>主机名</dt>
           <dd>{ingress.host}</dd>
@@ -226,7 +226,7 @@ const RouteIngressStatus: React.SFC<RouteIngressStatusProps> = ({ingresses}) =>
 
 const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fragment>
   <div className="co-m-pane__body">
-    <SectionHeading text="Route Overview" />
+    <SectionHeading text="路由概述" />
     <div className="row">
       <div className="col-sm-6">
         <ResourceSummary resource={route} showPodSelector={false} showNodeSelector={false}>
@@ -253,11 +253,11 @@ const RouteDetails: React.SFC<RoutesDetailsProps> = ({obj: route}) => <React.Fra
     </div>
   </div>
   <div className="co-m-pane__body">
-    <SectionHeading text="TLS Settings" />
+    <SectionHeading text="TLS设置" />
     <TLSSettings tls={route.spec.tls} />
   </div>
   { !_.isEmpty(route.spec.alternateBackends) && <div className="co-m-pane__body">
-    <SectionHeading text="Traffic" />
+    <SectionHeading text="交通" />
     <p className="co-m-pane__explanation">
       这条路线将多个服务之间的流量分开。
     </p>

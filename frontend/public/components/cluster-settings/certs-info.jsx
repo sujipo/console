@@ -47,13 +47,13 @@ export const CertsInfo = (props) => {
 
   return <div>
     {caCertDate && <SettingsRow>
-      <SettingsLabel>CA Certificate</SettingsLabel>
+      <SettingsLabel>CA证书</SettingsLabel>
       <SettingsContent>
         <div className="certs-info-cert">
           <ResourceLink kind="Secret" name="tectonic-ca-cert-secret" namespace="tectonic-system" displayName="Tectonic CA certificate" />
         </div>
         <div>
-          Expires: <div className="certs-info-exp">
+          有效期: <div className="certs-info-exp">
             <Timestamp timestamp={caCertDate} isUnix={true} />
           </div>
         </div>

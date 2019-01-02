@@ -52,11 +52,11 @@ export const ResourceRequirementsModalLink: React.SFC<ResourceRequirementsModalL
 
     const ResourceRequirementsForm = () => <div>
       <div className="col-xs-5">
-        <label style={{fontWeight: 300}} className="text-muted text-uppercase" htmlFor="cpu">CPU cores</label>
+        <label style={{fontWeight: 300}} className="text-muted text-uppercase" htmlFor="cpu">CPU核数</label>
         <Field name="cpu" component="input" type="text" className="form-control" style={{width: 150}} autoFocus placeholder="500m" />
       </div>
       <div className="col-xs-5">
-        <label style={{fontWeight: 300}} className="text-muted text-uppercase" htmlFor="memory">Memory</label>
+        <label style={{fontWeight: 300}} className="text-muted text-uppercase" htmlFor="memory">内存</label>
         <Field name="memory" component="input" type="text" className="form-control" style={{width: 150}} placeholder="50Mi" />
       </div>
     </div>;

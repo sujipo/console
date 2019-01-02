@@ -20,7 +20,7 @@ export const ClusterSettingsPage = connectToFlags(FLAGS.CLUSTER_UPDATES)(
 
       return <div className="co-p-cluster co-p-has-sidebar">
         <Helmet>
-          <title>Cluster</title>
+          <title>集群</title>
         </Helmet>
         <div className="co-p-has-sidebar__body">
           <NavTitle title="Cluster Settings" />
@@ -30,7 +30,7 @@ export const ClusterSettingsPage = connectToFlags(FLAGS.CLUSTER_UPDATES)(
                 <div className="co-cluster-updates">
                   <div className="co-cluster-updates__component">
                     <div className="co-cluster-updates__heading--name-wrapper">
-                      <span className="co-cluster-updates__heading--name">General</span>
+                      <span className="co-cluster-updates__heading--name">常规</span>
                     </div>
                     <br />
                     <LDAPSetting />

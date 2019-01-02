@@ -30,7 +30,7 @@ export class ProfilePage extends SafetyFirst {
         <dl className="co-m-pane__details">
           <dt>名称</dt>
           <dd>{authSvc.name() || '-'}</dd>
-          <dt>Email Address</dt>
+          <dt>电子邮件</dt>
           <dd>{authSvc.email() || '-'}</dd>
           <dt>kubectl</dt>
           <dd><button className="btn btn-default" type="button" onClick={() => kubectlConfigModal({ callback: this._onKubeCtlDownloaded })}>Download Configuration</button></dd>

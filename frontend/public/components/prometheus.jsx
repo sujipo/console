@@ -35,7 +35,7 @@ const PrometheusHeader = props => <ListHeader>
   <ColHead {...props} className="col-lg-3 col-md-4 col-sm-4 hidden-xs" sortField="metadata.labels">标签</ColHead>
   <ColHead {...props} className="col-lg-1 col-md-2 hidden-sm hidden-xs" sortField="spec.version">版本</ColHead>
   <ColHead {...props} className="col-lg-2 hidden-md hidden-sm hidden-xs" sortField="spec.serviceMonitorSelector">
-    Service Monitor Selector
+  服务监控选择器
   </ColHead>
 </ListHeader>;
 

@@ -517,7 +517,7 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
           <div className="separator"></div>
 
           <ButtonBar errorMessage={this.state.error} inProgress={this.state.inProgress}>
-            <button type="submit" className="btn btn-primary" id="save-changes">{saveButtonText || 'Create Binding'}</button>
+            <button type="submit" className="btn btn-primary" id="save-changes">{saveButtonText || '创建绑定'}</button>
             <Link to={formatNamespacedRouteForResource('rolebindings')} className="btn btn-default" id="cancel">取消</Link>
           </ButtonBar>
         </form>

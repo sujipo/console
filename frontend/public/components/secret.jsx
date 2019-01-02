@@ -63,7 +63,7 @@ const SecretRow = ({obj: secret}) => {
 const SecretDetails = ({obj: secret}) => {
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="Secret Overview" />
+      <SectionHeading text="私密概述" />
       <ResourceSummary resource={secret} showPodSelector={false} showNodeSelector={false} />
     </div>
     <div className="co-m-pane__body">

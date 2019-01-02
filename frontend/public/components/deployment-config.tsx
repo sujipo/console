@@ -57,19 +57,19 @@ export const DeploymentConfigsDetails: React.SFC<{obj: any}> = ({obj: deployment
 
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <SectionHeading text="Deployment Config Overview" />
+      <SectionHeading text="部署配置概述" />
       <DeploymentPodCounts resource={deploymentConfig} resourceKind={DeploymentConfigModel} />
       <div className="co-m-pane__body-group">
         <div className="row">
           <div className="col-sm-6">
             <ResourceSummary resource={deploymentConfig}>
               <dt>状态</dt>
-              <dd>{deploymentConfig.status.availableReplicas === deploymentConfig.status.updatedReplicas ? <span>Active</span> : <div><span className="co-icon-space-r"><LoadingInline /></span> Updating</div>}</dd>
+              <dd>{deploymentConfig.status.availableReplicas === deploymentConfig.status.updatedReplicas ? <span>活动</span> : <div><span className="co-icon-space-r"><LoadingInline /></span> 更新中</div>}</dd>
             </ResourceSummary>
           </div>
           <div className="col-sm-6">
             <dl className="co-m-pane__details">
-              <dt>Latest Version</dt>
+              <dt>最后版本</dt>
               <dd>{_.get(deploymentConfig, 'status.latestVersion', '-')}</dd>
               {reason && <dt>原因</dt>}
               {reason && <dd>{reason}</dd>}
