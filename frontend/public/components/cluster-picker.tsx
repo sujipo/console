@@ -38,7 +38,7 @@ const FirehoseToDropdown: React.SFC<FirehoseToDropdownProps> = ({clusters}) => {
 
   masterURL = `${masterURL || ourURL}/k8s/cluster/clusters`;
   const spacerBefore = new Set([masterURL]);
-  items[masterURL] = <div>Manage Cluster Directory…</div>;
+  items[masterURL] = <div>管理集群目录…</div>;
 
   return <Dropdown title="Clusters" items={items} selectedKey={selected} noButton={true} className="cluster-picker" menuClassName="dropdown--dark" onChange={url => window.location.href = url} spacerBefore={spacerBefore} />;
 };

@@ -12,7 +12,7 @@ const PipelineLogMessage = ({ build }) => {
 
   const detail = <React.Fragment>
     <p>{message}</p>
-    { logURL && <a href={logURL} target="_blank" rel="noopener noreferrer">View Log</a> }
+    { logURL && <a href={logURL} target="_blank" rel="noopener noreferrer">查看日志</a> }
   </React.Fragment>;
 
   return <MsgBox title="See Jenkins Log" detail={detail} />;

@@ -209,7 +209,7 @@ const GraphsPage = ({fake, limited, namespace, openshiftFlag}) => {
   }];
 
   return <Firehose resources={resources}>
-    <StatusBox label="Namespaces">
+    <StatusBox label="命名空间">
       { body }
     </StatusBox>
   </Firehose>;

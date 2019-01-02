@@ -76,15 +76,15 @@ const ClientRow = ({client, onTokenRevocation}) => {
 const ClientTokens = ({clients, onTokenRevocation, resourceLoaded, loadingError}) => {
   return <React.Fragment>
     <div className="co-m-pane__body">
-      <h1 className="co-m-pane__heading">Access Management</h1>
+      <h1 className="co-m-pane__heading">访问管理</h1>
       <p className="co-m-pane__explanation">
-        Each user of Tectonic gets a single kubectl CLI refresh token for use in their kubeconfig file. This token never expires, unless revoked here.
+      构造的每个用户都可以获得一个kubectl CLI刷新令牌，以便在其kubeconfig文件中使用。这个令牌永远不会过期，除非在这里撤销。
       </p>
       <div className="co-m-table-grid co-m-table-grid--bordered">
         <div className="row co-m-table-grid__head">
-          <div className="col-xs-4">Client Id</div>
-          <div className="col-xs-4">Token Created</div>
-          <div className="col-xs-4">Token Last Used</div>
+          <div className="col-xs-4">客户ID</div>
+          <div className="col-xs-4">创建的令牌</div>
+          <div className="col-xs-4">最后使用的令牌</div>
         </div>
 
         <div className="co-m-table-grid__body">

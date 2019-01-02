@@ -56,13 +56,13 @@ const ServiceAddress = ({s}) => {
   const ServiceType = (type) => {
     switch (type) {
       case 'NodePort':
-        return ServiceIPsRow('Node Port', 'Accessible outside the cluster', _.map(s.spec.ports, 'nodePort'), '(all nodes): ');
+        return ServiceIPsRow('Node Port', '可在集群之外访问', _.map(s.spec.ports, 'nodePort'), '(all nodes): ');
       case 'LoadBalancer':
-        return ServiceIPsRow('External Load Balancer', 'Ingress point(s) of load balancer', _.map(s.status.loadBalancer.ingress, i => i.hostname || i.ip || '-'));
+        return ServiceIPsRow('External Load Balancer', '负载均衡器的入口点', _.map(s.status.loadBalancer.ingress, i => i.hostname || i.ip || '-'));
       case 'ExternalName':
-        return ServiceIPsRow('External Service Name', 'Location of the resource that backs the service', [s.spec.externalName]);
+        return ServiceIPsRow('External Service Name', '支持服务的资源的位置', [s.spec.externalName]);
       default:
-        return ServiceIPsRow('Cluster IP', 'Accessible within the cluster only', [s.spec.clusterIP]);
+        return ServiceIPsRow('Cluster IP', '只能在集群内访问', [s.spec.clusterIP]);
     }
   };
 
@@ -73,7 +73,7 @@ const ServiceAddress = ({s}) => {
     </div>
     <div className="rows">
       {ServiceType(s.spec.type)}
-      {s.spec.externalIPs && ServiceIPsRow('External IP', 'IP Address(es) accepting traffic for service', s.spec.externalIPs)}
+      {s.spec.externalIPs && ServiceIPsRow('External IP', 'IP地址接受服务流量', s.spec.externalIPs)}
     </div>
   </div>;
 };

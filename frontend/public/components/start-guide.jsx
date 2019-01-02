@@ -57,16 +57,16 @@ export const StartGuidePage = () => <div className="co-p-has-sidebar">
 </div>;
 
 const OpenShiftGettingStarted_ = ({createProjectMessage}) => <div className="co-well">
-  <h4>Getting Started</h4>
+  <h4>准备开始</h4>
   { createProjectMessage
     ? <p className="co-pre-line">{createProjectMessage}</p>
     : <p>
-        OpenShift helps you quickly develop, host, and scale applications.
-        To get started, create a project for your application.
+        OpenShift帮助您快速开发、托管和扩展应用程序。
+        首先，为您的应用程序创建一个项目。
     </p>
   }
   <Link to="/k8s/cluster/projects">
-    <button className="btn btn-info">View My Projects</button>
+    <button className="btn btn-info">查看我的项目</button>
   </Link>
 </div>;
 

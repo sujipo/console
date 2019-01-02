@@ -62,7 +62,7 @@ const BuildPipelineSummary: React.SFC<BuildPipelineSummaryProps> = ({ obj }) => 
   const path: string = resourcePath(obj.kind, name, namespace);
   return <div className="build-pipeline__summary">
     <div className="build-pipeline__phase">
-      <BuildSummaryStatusIcon status={obj.status.phase} /> <Link to={path} title={name}>Build {buildNumber}</Link>
+      <BuildSummaryStatusIcon status={obj.status.phase} /> <Link to={path} title={name}>构建{buildNumber}</Link>
     </div>
     <BuildSummaryTimestamp timestamp={obj.metadata.creationTimestamp} />
     <BuildLogLink obj={obj} />
@@ -89,7 +89,7 @@ const JenkinsInputUrl: React.SFC<JenkinsInputUrlProps> = ({ obj, stage }) => {
 
   const buildUrl = getJenkinsBuildURL(obj);
   return <div className="build-pipeline__stage-actions text-muted">
-    <a href={buildUrl} target="_blank" rel="noopener noreferrer">Input Required</a>
+    <a href={buildUrl} target="_blank" rel="noopener noreferrer">输入要求</a>
   </div>;
 };
 

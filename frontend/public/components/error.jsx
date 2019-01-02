@@ -49,9 +49,9 @@ const ErrorComponent = ({title, message, errMessage}) => <React.Fragment>
 
 export const ErrorPage = () => <div>
   <Helmet>
-    <title>Error</title>
+    <title>错误</title>
   </Helmet>
-  <ErrorComponent title="Oh no! Something went wrong." message={urlMessage()} errMessage={getErrMessage()} />
+  <ErrorComponent title="噢,不!发生了一些错误。" message={urlMessage()} errMessage={getErrMessage()} />
 </div>;
 
 export const ErrorPage404 = () => <div>
