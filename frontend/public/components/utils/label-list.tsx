@@ -29,7 +29,7 @@ export class LabelList extends React.Component<LabelListProps> {
     let list = _.map(labels, (label, key) => <Label key={key} kind={kind} name={key} value={label} expand={expand} />);
 
     if (_.isEmpty(list)) {
-      list = [<div className="text-muted" key="0">No labels</div>];
+      list = [<div className="text-muted" key="0">没有标签</div>];
     }
 
     return <div className="co-m-label-list">{list}</div>;

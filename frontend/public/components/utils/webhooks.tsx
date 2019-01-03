@@ -42,7 +42,7 @@ export const WebhookTriggers: React.SFC<WebhookTriggersProps> = ({ resource }) =
     const secretName = _.get(trigger, [triggerProperty, 'secretReference', 'name']);
     return secretName
       ? <ResourceLink kind="Secret" name={secretName} namespace={namespace} title={secretName} />
-      : <span className="text-muted">No secret</span>;
+      : <span className="text-muted">没有私密</span>;
   };
 
   return <div className="co-m-pane__body">
@@ -58,7 +58,7 @@ export const WebhookTriggers: React.SFC<WebhookTriggersProps> = ({ resource }) =
           <tr>
             <th>类别</th>
             <th>Webhook URL</th>
-            <th>Secret</th>
+            <th>私密</th>
           </tr>
         </thead>
         <tbody>

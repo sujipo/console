@@ -178,7 +178,7 @@ const Details = ({obj: node}) => {
             <dt>节点标签</dt>
             <dd><LabelList kind="Node" labels={node.metadata.labels} /></dd>
             <dt>注释</dt>
-            <dd><a className="co-m-modal-link" onClick={Cog.factory.ModifyAnnotations(NodeModel, node).callback}>{pluralize(_.size(node.metadata.annotations), 'Annotation')}</a></dd>
+            <dd><a className="co-m-modal-link" onClick={Cog.factory.ModifyAnnotations(NodeModel, node).callback}>{pluralize(_.size(node.metadata.annotations), '注释')}</a></dd>
             <dt>提供者ID</dt>
             <dd>{cloudProviderNames([cloudProviderID(node)])}</dd>
             {_.has(node, 'spec.unschedulable') && <dt>不可调度</dt>}

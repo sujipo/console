@@ -20,7 +20,7 @@ export const helpLink = (topic: HELP_TOPICS) => `${openshiftHelpBase}${topic}`;
 
 /* eslint-disable react/jsx-no-target-blank */
 export const DocumentationLinks = () => <dl className="co-documentation-links">
-  <dt className="co-documentation-links__title"><a href={openshiftHelpBase} target="_blank" rel="noopener">Full Documentation</a></dt>
+  <dt className="co-documentation-links__title"><a href={openshiftHelpBase} target="_blank" rel="noopener">完整文档</a></dt>
   <dd className="co-documentation-links__description">
     从创建第一个应用程序开始，到尝试更高级的构建和部署技术，这些资源提供了作为集群管理员或应用程序开发人员设置和管理环境所需的内容。
   </dd>
