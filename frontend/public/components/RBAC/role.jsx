@@ -22,7 +22,7 @@ const menuActions = [
   //   href: addHref(role.metadata.name, role.metadata.namespace),
   // }),
   (kind, role) => ({
-    label: 'Add Role Binding...',
+    label: '添加角色绑定...',
     href: `/k8s/cluster/rolebindings/new?rolekind=${roleKind(role)}&rolename=${role.metadata.name}`,
   }),
   Cog.factory.Edit,

@@ -170,13 +170,13 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
     const existingData = parseExisitingPullSecret(pullSecret);
 
     return <form onSubmit={this._submit} name="form">
-      <ModalTitle>Default Pull Secret</ModalTitle>
+      <ModalTitle>默认拉取私密</ModalTitle>
       <ModalBody>
         <p>
-          Specify default credentials to be used to authenticate and download containers within this namespace. These credentials will be the default unless a pod references a specific pull secret.
+        指定用于在此名称空间内验证和下载容器的默认凭据。除非pod引用特定的拉取私密，否则这些凭据将是默认凭据。
         </p>
 
-        {existingData.invalidData && <p className="alert alert-danger"><span className="pficon pficon-error-circle-o"></span>A default pull secret exists, but can&rsquo;t be parsed. Saving this will overwrite it.</p>}
+        {existingData.invalidData && <p className="alert alert-danger"><span className="pficon pficon-error-circle-o"></span>存在默认的拉取私密，但无法解析。保存它将覆盖它。</p>}
 
         <div className="row co-m-form-row">
           <div className="col-xs-3">
@@ -189,7 +189,7 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
 
         <div className="row co-m-form-row">
           <div className="col-xs-3">
-            <label htmlFor="namespace-pull-secret-name">Secret Name</label>
+            <label htmlFor="namespace-pull-secret-name">私密名称</label>
           </div>
           { pullSecret ?
             <div className="col-xs-9">
@@ -197,14 +197,14 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
                 &nbsp;{_.get(pullSecret, 'metadata.name')}
             </div> : <div className="col-xs-9">
               <input type="text" className="form-control" id="namespace-pull-secret-name" required />
-              <p className="help-block text-muted">Friendly name to help you manage this in the future</p>
+              <p className="help-block text-muted">友好的名称，以帮助您在未来管理它</p>
             </div>
           }
         </div>
 
         <div className="row co-m-form-row form-group">
           <div className="col-xs-3">
-            <label>Method</label>
+            <label>方法</label>
           </div>
           <div className="col-xs-9">
             <div className="radio">
@@ -212,7 +212,7 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
                 <input type="radio" id="namespace-pull-secret-method--form"
                   checked={this.state.method === 'form'}
                   onChange={this._onMethodChange} value="form" />
-                  Enter Username/Password
+                  输入用户名/密码
               </label>
             </div>
             <div className="radio">
@@ -221,7 +221,7 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
                   checked={this.state.method === 'upload'}
                   onChange={this._onMethodChange}
                   id="namespace-pull-secret-method--upload" value="upload" />
-                Upload Docker config.json
+                上传 Docker config.json
               </label>
             </div>
           </div>
@@ -230,7 +230,7 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
         { this.state.method === 'form' && <div>
           <div className="row co-m-form-row">
             <div className="col-xs-3">
-              <label htmlFor="namespace-pull-secret-address">Registry Address</label>
+              <label htmlFor="namespace-pull-secret-address">注册地址</label>
             </div>
             <div className="col-xs-9">
               <input type="text" className="form-control" id="namespace-pull-secret-address" defaultValue={existingData.address} placeholder="quay.io" required />
@@ -238,16 +238,16 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
           </div>
           <div className="row co-m-form-row">
             <div className="col-xs-3">
-              <label htmlFor="namespace-pull-secret-email">Email Address</label>
+              <label htmlFor="namespace-pull-secret-email">电子邮件</label>
             </div>
             <div className="col-xs-9">
               <input type="email" className="form-control" defaultValue={existingData.email} id="namespace-pull-secret-email" />
-              <p className="help-block text-muted">Optional, depending on registry provider</p>
+              <p className="help-block text-muted">可选，取决于注册表提供程序</p>
             </div>
           </div>
           <div className="row co-m-form-row">
             <div className="col-xs-3">
-              <label htmlFor="namespace-pull-secret-username">Username</label>
+              <label htmlFor="namespace-pull-secret-username">用户名</label>
             </div>
             <div className="col-xs-9">
               <input type="text" defaultValue={existingData.username} className="form-control" id="namespace-pull-secret-username" required />
@@ -255,7 +255,7 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
           </div>
           <div className="row co-m-form-row">
             <div className="col-xs-3">
-              <label htmlFor="namespace-pull-secret-password">Password</label>
+              <label htmlFor="namespace-pull-secret-password">密码</label>
             </div>
             <div className="col-xs-9">
               <input type="text" defaultValue={existingData.password} className="form-control" id="namespace-pull-secret-password" required />
@@ -266,16 +266,16 @@ class ConfigureNamespacePullSecret extends PromiseComponent {
         { this.state.method === 'upload' && <div>
           <div className="row co-m-form-row">
             <div className="col-xs-3">
-              <label htmlFor="namespace-pull-secret-file">File Upload</label>
+              <label htmlFor="namespace-pull-secret-file">文件上传</label>
             </div>
             <div className="col-xs-9">
               <input type="file" id="namespace-pull-secret-file" onChange={this._onFileChange} />
-              <p className="help-block etext-muted">Properly configured Docker config file in JSON format. Will be base64 encoded after upload.</p>
+              <p className="help-block etext-muted">正确配置JSON格式的Docker配置文件。将base64编码后上传。</p>
             </div>
           </div>
           { this.state.invalidJson || existingData.invalidJson && <div className="row co-m-form-row">
             <div className="col-xs-9 col-sm-offset-3">
-              <div className="alert alert-danger"><span className="pficon pficon-error-circle-o"></span>Invalid format. Uploaded file is not properly formatted json.</div>
+              <div className="alert alert-danger"><span className="pficon pficon-error-circle-o"></span>无效的格式。上传的文件格式不正确。</div>
             </div>
           </div> }
           { this.state.fileData &&<div className="row co-m-form-row">

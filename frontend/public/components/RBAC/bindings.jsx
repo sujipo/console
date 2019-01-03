@@ -351,8 +351,8 @@ const bindingKinds = [
   {value: 'ClusterRoleBinding', title: '集群范围角色绑定 (ClusterRoleBinding)', desc: '在集群级别和所有名称空间中向一个用户或一组用户授予权限。'},
 ];
 const subjectKinds = [
-  {value: 'User', title: 'User'},
-  {value: 'Group', title: 'Group'},
+  {value: 'User', title: '用户'},
+  {value: 'Group', title: '组'},
   {value: 'ServiceAccount', title: '服务账号'},
 ];
 
@@ -474,7 +474,7 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
 
           <div className="separator"></div>
 
-          <Section label="Role Binding">
+          <Section label="角色绑定">
             <label htmlFor="role-binding-name" className="rbac-edit-binding__input-label">名称</label>
             {_.get(fixed, 'metadata.name')
               ? <ResourceName kind={kind} name={metadata.name} />
@@ -488,7 +488,7 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
 
           <div className="separator"></div>
 
-          <Section label="Role">
+          <Section label="角色">
             <label htmlFor="role-dropdown" className="rbac-edit-binding__input-label">角色名称</label>
             <RoleDropdown
               fixed={!!_.get(fixed, 'roleRef.name')}
@@ -502,7 +502,7 @@ const BaseEditRoleBinding = connect(null, {setActiveNamespace: UIActions.setActi
 
           <div className="separator"></div>
 
-          <Section label="Subject">
+          <Section label="主题">
             <RadioGroup currentValue={subject.kind} items={subjectKinds} onChange={this.changeSubjectKind} />
             {subject.kind === 'ServiceAccount' && <div>
               <div className="separator"></div>

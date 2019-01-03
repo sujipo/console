@@ -44,14 +44,14 @@ class DeleteModal extends PromiseComponent {
   render() {
     const {kind, resource} = this.props;
     return <form onSubmit={this._submit} name="form">
-      <ModalTitle>Delete {kind.label}</ModalTitle>
+      <ModalTitle>删除{kind.label}</ModalTitle>
       <ModalBody>
-        Are you sure you want to delete <strong>{resource.metadata.name}</strong>
-        {_.has(resource.metadata, 'namespace') && <span> in namespace <strong>{resource.metadata.namespace}</strong>?</span>}
+        您确定要删除 <strong>{resource.metadata.name}</strong>
+        {_.has(resource.metadata, 'namespace') && <span> 在命名空间 <strong>{resource.metadata.namespace}</strong>?</span>}
         {_.has(kind, 'propagationPolicy') && <div className="co-delete-modal-checkbox">
           <label className="co-delete-modal-checkbox-label">
             <input type="checkbox" onChange={() => this.setState({isChecked: !this.state.isChecked})} checked={!!this.state.isChecked} />
-            &nbsp;&nbsp; <span>Delete dependent objects of this resource</span>
+            &nbsp;&nbsp; <span>删除该资源的依赖对象</span>
           </label>
         </div>}
       </ModalBody>

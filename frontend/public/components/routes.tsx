@@ -99,17 +99,17 @@ export const RouteStatus: React.SFC<RouteStatusProps> = ({obj: route}) => {
     case 'Pending':
       return <span>
         <span className="fa fa-hourglass-half co-m-route-status-icon" aria-hidden="true"></span>
-        Pending
+        挂起
       </span>;
     case 'Accepted':
       return <span className="route-accepted">
         <span className="fa fa-check co-m-route-status-icon" aria-hidden="true"></span>
-        Accepted
+        接受
       </span>;
     case 'Rejected':
       return <span className="route-rejected">
         <span className="fa fa-times-circle co-m-route-status-icon" aria-hidden="true"></span>
-        Rejected
+        拒绝
       </span>;
     default:
       break;

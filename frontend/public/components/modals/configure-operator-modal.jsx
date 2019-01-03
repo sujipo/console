@@ -74,21 +74,21 @@ const configureOperatorModal = createModalLauncher(ConfigureOperatorModal);
 export const configureOperatorStrategyModal = (props) => {
   return configureOperatorModal(_.defaults({}, {
     buttonText: 'Save Strategy',
-    message: <p>Select an update method for the cluster:</p>,
+    message: <p>为集群选择更新方法:</p>,
     path: '/automaticUpdate',
     radios: [
       {
         value: 'true',
-        title: <span>Automatic <span className="co-no-bold">(recommended)</span></span>,
-        desc: 'Stay up to date with the latest version automatically.'
+        title: <span>自动 <span className="co-no-bold">(推荐)</span></span>,
+        desc: '自动更新最新版本。'
       },
       {
         value: 'false',
-        title: 'Admin Approval',
-        desc: 'All updates must be approved by an admin. Important security patches may be missed.'
+        title: '管理员批准',
+        desc: '所有更新必须得到管理员的批准。重要的安全补丁可能会被遗漏。'
       }
     ],
-    title: 'Update Strategy',
+    title: '更新策略',
     valueType: 'bool'
   }, props));
 };
