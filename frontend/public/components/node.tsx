@@ -89,7 +89,7 @@ const NodeRow = ({obj: node, expand}) => {
     </div>
     <div className="col-sm-2 col-xs-4"><NodeStatus node={node} /></div>
     <div className="col-sm-3 col-xs-4">
-      {isOperatorInstalled ? <NodeCLStatusRow node={node} /> : <span className="text-muted">Not configured</span>}
+      {isOperatorInstalled ? <NodeCLStatusRow node={node} /> : <span className="text-muted">没有配置</span>}
     </div>
     <div className="col-sm-3 hidden-xs"><NodeIPList ips={node.status.addresses} expand={expand} /></div>
     {expand && <div className="col-xs-12">
@@ -121,11 +121,11 @@ export const NodesListSearch = props => <List {...props} Header={HeaderSearch} R
 const dropdownFilters = [{
   type: 'node-status',
   items: {
-    all: 'Status: All',
-    ready: 'Status: Ready',
-    notReady: 'Status: Not Ready',
+    all: '状态: 所有',
+    ready: '状态: 就绪',
+    notReady: '状态: 未就绪',
   },
-  title: 'Ready Status',
+  title: '就绪状态',
 }];
 export const NodesPage = props => <ListPage {...props} ListComponent={NodesList} dropdownFilters={dropdownFilters} canExpand={true} />;
 

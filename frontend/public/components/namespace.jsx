@@ -150,7 +150,7 @@ class PullSecret extends SafetyFirst {
       return <LoadingInline />;
     }
     const modal = () => configureNamespacePullSecretModal({namespace: this.props.namespace, pullSecret: this.state.data});
-    return <a className="co-m-modal-link" onClick={modal}>{_.get(this.state.data, 'metadata.name') || 'Not Configured'}</a>;
+    return <a className="co-m-modal-link" onClick={modal}>{_.get(this.state.data, 'metadata.name') || '没有配置'}</a>;
   }
 }
 

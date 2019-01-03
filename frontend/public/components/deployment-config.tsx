@@ -86,7 +86,7 @@ export const DeploymentConfigsDetails: React.SFC<{obj: any}> = ({obj: deployment
               {isRecreate || <dt>最大激增</dt>}
               {isRecreate || <dd>{_.get(deploymentConfig, 'spec.strategy.rollingParams.maxSurge', 1)} 大于 {pluralize(deploymentConfig.spec.replicas, 'pod')}</dd>}
               <dt>最小就绪秒数</dt>
-              <dd>{deploymentConfig.spec.minReadySeconds ? pluralize(deploymentConfig.spec.minReadySeconds, 'second') : 'Not Configured'}</dd>
+              <dd>{deploymentConfig.spec.minReadySeconds ? pluralize(deploymentConfig.spec.minReadySeconds, 'second') : '没有配置'}</dd>
               {triggers && <dt>触发器</dt>}
               {triggers && <dd>{triggers}</dd>}
             </dl>

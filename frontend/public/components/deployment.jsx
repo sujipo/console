@@ -76,7 +76,7 @@ const DeploymentDetails = ({obj: deployment}) => {
               {progressDeadlineSeconds && <dt>处理截止期限</dt>}
               {progressDeadlineSeconds && <dd>{/* Convert to ms for formatDuration */ formatDuration(progressDeadlineSeconds * 1000)}</dd>}
               <dt>最小就绪秒数</dt>
-              <dd>{deployment.spec.minReadySeconds ? pluralize(deployment.spec.minReadySeconds, 'second') : 'Not Configured'}</dd>
+              <dd>{deployment.spec.minReadySeconds ? pluralize(deployment.spec.minReadySeconds, 'second') : '没有配置'}</dd>
             </dl>
           </div>
         </div>
