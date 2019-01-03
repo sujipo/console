@@ -393,7 +393,7 @@ export class Nav extends React.Component {
             <Sep />
             <ResourceNSLink resource="cronjobs" name="计划任务" onClick={this.close} />
             <ResourceNSLink resource="jobs" name="任务" onClick={this.close} />
-            <ResourceNSLink resource="daemonsets" name="守护程序集" onClick={this.close} />
+            <ResourceNSLink resource="daemonsets" name="守护进程集" onClick={this.close} />
             <ResourceNSLink resource="replicasets" name="副本集" onClick={this.close} />
             <ResourceNSLink resource="replicationcontrollers" name="副本控制器" onClick={this.close} />
             <ResourceNSLink resource="horizontalpodautoscalers" name="Pod自动缩放器" onClick={this.close} />
@@ -408,7 +408,7 @@ export class Nav extends React.Component {
 
           <NavSection text="存储" icon="pficon pficon-container-node">
             <ResourceClusterLink resource="persistentvolumes" name="持久卷" onClick={this.close} required={FLAGS.CAN_LIST_PV} />
-            <ResourceNSLink resource="persistentvolumeclaims" name="持久卷声明" onClick={this.close} />
+            <ResourceNSLink resource="persistentvolumeclaims" name="持久卷请求" onClick={this.close} />
             <ResourceClusterLink resource="storageclasses" name="存储类别" onClick={this.close} required={FLAGS.CAN_LIST_STORE} />
           </NavSection>
 

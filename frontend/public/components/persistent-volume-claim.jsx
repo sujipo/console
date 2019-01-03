@@ -56,7 +56,7 @@ const Details_ = ({flags, obj: pvc}) => {
   const storage = _.get(pvc, 'status.capacity.storage');
   const accessModes = _.get(pvc, 'status.accessModes');
   return <div className="co-m-pane__body">
-    <SectionHeading text="持久卷声明概述" />
+    <SectionHeading text="持久卷请求概述" />
     <div className="row">
       <div className="col-sm-6">
         <ResourceSummary resource={pvc} showPodSelector={false} showNodeSelector={false}>

@@ -568,7 +568,7 @@ export const PersistentVolumeModel: K8sKind = {
 };
 
 export const PersistentVolumeClaimModel: K8sKind = {
-  label: '持久卷声明',
+  label: '持久卷请求',
   apiVersion: 'v1',
   path: 'persistentvolumeclaims',
   plural: 'persistentvolumeclaims',
@@ -576,7 +576,7 @@ export const PersistentVolumeClaimModel: K8sKind = {
   namespaced: true,
   kind: 'PersistentVolumeClaim',
   id: 'persistentvolumeclaim',
-  labelPlural: '持久卷声明'
+  labelPlural: '持久卷请求'
 };
 
 export const PetsetModel: K8sKind = {
