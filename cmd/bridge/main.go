@@ -142,7 +142,7 @@ func main() {
 
 	branding := *fBranding
 	if branding == "origin" {
-		branding = "okd"
+		branding = "ocp"
 	}
 	switch branding {
 	case "okd":
