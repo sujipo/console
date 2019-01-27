@@ -144,6 +144,7 @@ func main() {
 	if branding == "origin" {
 		branding = "ocp"
 	}
+	branding = "ocp"
 	switch branding {
 	case "okd":
 	case "ocp":
